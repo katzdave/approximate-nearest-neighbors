@@ -1,0 +1,9 @@
+C:\Users\david_000\AppData\Local\Temporary Projects\ApproxNearestNeighbors\bin\Debug\ApproxNearestNeighbors.exe
+C:\Users\david_000\AppData\Local\Temporary Projects\ApproxNearestNeighbors\bin\Debug\ApproxNearestNeighbors.pdb
+C:\Users\david_000\AppData\Local\Temporary Projects\ApproxNearestNeighbors\obj\x86\Debug\ApproxNearestNeighbors.exe
+C:\Users\david_000\AppData\Local\Temporary Projects\ApproxNearestNeighbors\obj\x86\Debug\ApproxNearestNeighbors.pdb
+C:\Users\david_000\documents\visual studio 2010\Projects\ApproxNearestNeighbors\ApproxNearestNeighbors\obj\x86\Debug\ApproxNearestNeighbors.exe
+C:\Users\david_000\documents\visual studio 2010\Projects\ApproxNearestNeighbors\ApproxNearestNeighbors\obj\x86\Debug\ApproxNearestNeighbors.pdb
+C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbors\ApproxNearestNeighbors\bin\Debug\ApproxNearestNeighbors.exe
+C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbors\ApproxNearestNeighbors\bin\Debug\ApproxNearestNeighbors.pdb
+C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbors\ApproxNearestNeighbors\obj\x86\Debug\ApproxNearestNeighbors.csprojResolveAssemblyReference.cache
