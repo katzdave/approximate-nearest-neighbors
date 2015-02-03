@@ -52,7 +52,7 @@ namespace ApproxNearestNeighbors.General
             double distSq = 0;
             for (int i = 0; i < NumDim; i++)
             {
-                distSq += Math.Pow((other.Values[i] - Values[i]) * dw.Pdf[i], 2);
+                distSq += Math.Pow((other.Values[i] - Values[i]) * dw.Pdf[i] * NumDim, 2);
             }
 
             return Math.Sqrt(distSq);

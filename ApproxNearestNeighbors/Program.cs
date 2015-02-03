@@ -13,10 +13,10 @@ namespace ApproxNearestNeighbors
         static void Main(string[] args)
         {
             int dim = 3;
-            int npoint = 1000;
+            int npoint = 10000;
             int testcases = 1;
             int K = 5;
-            int maxSearch = 100;
+            int maxSearch = 500;
 
             Random random = new Random();
             PointSet ps = new PointSet(dim);

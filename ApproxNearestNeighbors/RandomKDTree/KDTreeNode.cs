@@ -67,19 +67,12 @@ namespace ApproxNearestNeighbors.RandomKDTree
             if (this == null || this.point == null || searched.NPoints >= maxSearch)
                 return;
 
-            if (heap.Count < K)
+            if (isLeaf)
             {
-                heap.Add(point);
+                CheckPoint(K, heap, pc);
+                searched.AddPoint(point);
             }
-            else if (pc.Compare(heap.GetMin(), point) > 0)
-            {
-                heap.ExtractDominating();
-                heap.Add(point);
-            }
-
-            searched.AddPoint(point);
-
-            if (!isLeaf)
+            else
             {
                 bool leftSearched;
                 if (p.Values[splitDim] < point.Values[splitDim])
@@ -93,16 +86,39 @@ namespace ApproxNearestNeighbors.RandomKDTree
                     leftSearched = false;
                 }
 
-                //Hyperplane math here to determine if this next search should be done
-                if (leftSearched)
+                // Check this point
+                CheckPoint(K, heap, pc);
+                searched.AddPoint(point);
+
+                // Check if a better point possibly exists in the other subtree
+                var pval = new List<Double>(p.Values);
+                pval[splitDim] = point.Values[splitDim];
+                Point planecheck = new Point(pval);
+                if (pc.Compare(heap.GetMin(), planecheck) > 0)
                 {
-                    rightChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
-                }
-                else
-                {
-                    leftChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
+                    if (leftSearched)
+                    {
+                        rightChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
+                    }
+                    else
+                    {
+                        leftChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
+                    }
                 }
             }       
+        }
+
+        private void CheckPoint(int K, MaxHeap<Point> heap, PointCompare pc)
+        {
+            if (heap.Count < K)
+            {
+                heap.Add(point);
+            }
+            else if (pc.Compare(heap.GetMin(), point) > 0)
+            {
+                heap.ExtractDominating();
+                heap.Add(point);
+            }
         }
     }
 }
