@@ -31,7 +31,7 @@ namespace ApproxNearestNeighbors
                 ps.AddPoint(new Point(d));
             }
 
-            var node = new KDTreeNode(ps, null);
+            var tree = new KDTree(ps);
 
             var bf = new BruteForce(ps);
 
@@ -45,7 +45,7 @@ namespace ApproxNearestNeighbors
                 Point p = new Point(d);
 
                 var set = bf.GetKNN(p, K);
-                var set2 = node.GetANN(p, K, maxSearch);
+                var set2 = tree.root.GetANN(p, K, maxSearch);
 
                 for (int e = 0; e < K; e++)
                 {

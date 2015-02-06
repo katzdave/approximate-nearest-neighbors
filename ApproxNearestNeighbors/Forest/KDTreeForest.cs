@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using ApproxNearestNeighbors.General;
+using ApproxNearestNeighbors.RandomKDTree;
 
-namespace ApproxNearestNeighbors.RandomKDTree
+namespace ApproxNearestNeighbors.forest
 {
     class KDTreeForest
     {

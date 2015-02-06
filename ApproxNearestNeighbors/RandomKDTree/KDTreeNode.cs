@@ -17,18 +17,17 @@ namespace ApproxNearestNeighbors.RandomKDTree
         private KDTreeNode leftChild;
         private KDTreeNode rightChild;
 
-        public KDTreeNode(PointSet ps, KDTreeNode parent)
+        public KDTreeNode(PointSet ps, KDTreeNode parent, DimWeight dwsplit)
         {
             this.parent = parent;
             if (ps.Points.Count() > 1)
             {
                 isLeaf = false;
-                Random random = new Random();
-                splitDim = random.Next(0, ps.NumDim);
+                splitDim = dwsplit.getRandomDim();
                 var pss = ps.PartitionMedian(splitDim);
                 point = pss.median;
-                leftChild = new KDTreeNode(pss.lower, this);
-                rightChild = new KDTreeNode(pss.upper, this);
+                leftChild = new KDTreeNode(pss.lower, this, dwsplit);
+                rightChild = new KDTreeNode(pss.upper, this, dwsplit);
             }
             else if (ps.Points.Count() == 1)
             {

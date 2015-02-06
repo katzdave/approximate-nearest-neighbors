@@ -11,6 +11,8 @@ namespace ApproxNearestNeighbors.General
         private List<double> pdf;
         private List<double> cdf;
 
+        private Random rand = new Random();
+
         public List<double> Pdf
         {
             get { return pdf; }
@@ -52,6 +54,30 @@ namespace ApproxNearestNeighbors.General
                 pdf.Add(w);
                 cdf.Add(csum);
             }
+        }
+
+        public int getRandomDim()
+        {
+            double val = rand.NextDouble();
+
+            int l = 0;
+            int r = NumDim - 1;
+            int m;
+
+            while (r > l)
+            {
+                m = (l + r) / 2;
+                if (cdf[m] > val)
+                {
+                    r = m;
+                }
+                else if (cdf[m] < val)
+                {
+                    l = m + 1;
+                }
+            }
+
+            return r;
         }
     }
 }
