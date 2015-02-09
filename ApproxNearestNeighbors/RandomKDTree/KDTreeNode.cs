@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using ApproxNearestNeighbors.General;
 
 namespace ApproxNearestNeighbors.RandomKDTree
@@ -105,6 +106,66 @@ namespace ApproxNearestNeighbors.RandomKDTree
                     }
                 }
             }       
+        }
+
+        public void SearchDownThreaded(Point p, int K, int maxSearch, DimWeight dw, PointSet searched, MaxHeap<Point> heap, PointCompare pc, List<Boolean> b, List<Mutex> m, int id)
+        {
+            if (this == null || this.point == null || searched.NPoints >= maxSearch)
+                return;
+
+            if (isLeaf)
+            {
+                while (b[id]) ;
+                m[id].WaitOne();
+                b[id] = true;
+
+                CheckPoint(K, heap, pc);
+                searched.AddPoint(point);
+
+                m[id].ReleaseMutex();
+            }
+            else
+            {
+                bool leftSearched;
+                if (p.Values[splitDim] < point.Values[splitDim])
+                {
+                    leftChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
+                    leftSearched = true;
+                }
+                else
+                {
+                    rightChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
+                    leftSearched = false;
+                }
+
+                // Check this point
+                while (b[id]) ;
+                m[id].WaitOne();
+                b[id] = true;
+
+                CheckPoint(K, heap, pc);
+                searched.AddPoint(point);
+
+                // Check if a better point possibly exists in the other subtree
+                var pval = new List<Double>(p.Values);
+                pval[splitDim] = point.Values[splitDim];
+                Point planecheck = new Point(pval);
+                bool expandOther = pc.Compare(heap.GetMin(), planecheck) > 0;
+
+                m[id].ReleaseMutex();
+
+                if (expandOther)
+                {
+                    if (leftSearched)
+                    {
+                        rightChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
+                    }
+                    else
+                    {
+                        leftChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
+                    }
+                }
+            }
         }
 
         private void CheckPoint(int K, MaxHeap<Point> heap, PointCompare pc)
