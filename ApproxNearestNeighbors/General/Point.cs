@@ -9,6 +9,12 @@ namespace ApproxNearestNeighbors.General
     {
         public readonly int NumDim;
 
+        private int id;
+        public int Id
+        {
+            get { return id; }
+        }
+
         private List<double> values;
         public List<double> Values
         {
@@ -26,21 +32,10 @@ namespace ApproxNearestNeighbors.General
             NumDim = values.Count();
         }
 
-        //public double ComputeDistance(Point other)
-        //{
-        //    if (other.NumDim != NumDim)
-        //    {
-        //        return -1;
-        //    }
-
-        //    double distSq = 0;
-        //    for (int i = 0; i < NumDim; i++)
-        //    {
-        //        distSq += Math.Pow((other.Values[i] - Values[i]) / NumDim, 2);
-        //    }
-
-        //    return Math.Sqrt(distSq);
-        //}
+        public void setId(int pid)
+        {
+            id = pid;
+        }
 
         public double ComputeDistance(Point other, DimWeight dw)
         {

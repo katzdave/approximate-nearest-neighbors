@@ -18,12 +18,13 @@ namespace ApproxNearestNeighbors.Forest
         private Dictionary<int, int> threadIds; //Converts threadId to mutexId
         private List<Thread> threads;
         private List<Boolean> returned;
+        private int nReturned;
 
         private Point p;
         private int K;
         private int maxSearch;
         private DimWeight dw;
-        private PointSet searched;
+        private PointSetHash searched;
         MaxHeap<Point> heap;
         PointCompare pc;
 
@@ -43,7 +44,7 @@ namespace ApproxNearestNeighbors.Forest
             this.K = K;
             this.maxSearch = maxSearch;
             this.dw = dw;
-            searched = new PointSet(p.NumDim);
+            searched = new PointSetHash();
             pc = new PointCompare(dw, p);
             heap = new MaxHeap<Point>(pc);
             
@@ -52,6 +53,7 @@ namespace ApproxNearestNeighbors.Forest
             threadIds = new Dictionary<int, int>();
             threads = new List<Thread>();
             returned = new List<bool>();
+            nReturned = 0;
 
             for (int currNum = 0; currNum < NTrees; currNum++)
             {
@@ -64,11 +66,17 @@ namespace ApproxNearestNeighbors.Forest
                 threads.Add(t);
                 t.Start();
             }
-            while(!returned[0])
-                performAction(0);
 
-            //performAction(1);
-            //performAction(0);
+            while (nReturned < NTrees)
+            {
+                for (int i = 0; i < NTrees; i++)
+                {
+                    if (!returned[i])
+                    {
+                        performAction(i);
+                    }
+                }
+            }
 
             cleanupThreads();
 
@@ -103,6 +111,7 @@ namespace ApproxNearestNeighbors.Forest
             threadIds.TryGetValue(id, out id);
             trees[id].root.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, childHolds, mutexes, id);
             returned[id] = true;
+            nReturned++;
         }
 
         private void performAction(int id)

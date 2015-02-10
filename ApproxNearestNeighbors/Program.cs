@@ -13,12 +13,12 @@ namespace ApproxNearestNeighbors
     {
         static void Main(string[] args)
         {
-            int dim = 3;
-            int npoint = 10000;
-            int testcases = 1;
+            int dim = 10;
+            int npoint = 100000;
+            int testcases = 10;
             int K = 5;
-            int maxSearch = 500;
-            int ntrees = 1;
+            int maxSearch = 100;
+            int ntrees = 3;
 
             Random random = new Random();
             PointSet ps = new PointSet(dim);
@@ -39,6 +39,10 @@ namespace ApproxNearestNeighbors
 
             var forest = new KDTreeForest(ntrees, ps);
 
+            double mse1 = 0;
+            double mse2 = 0;
+            double mse3 = 0;
+
             for (int i = 0; i < testcases; i++)
             {
                 List<double> d = new List<double>();
@@ -54,12 +58,13 @@ namespace ApproxNearestNeighbors
 
                 for (int e = 0; e < K; e++)
                 {
-                    Console.WriteLine(set.Points[e].ComputeDistance(p, new DimWeight(p.NumDim)));
-                    Console.WriteLine(set2.Points[e].ComputeDistance(p, new DimWeight(p.NumDim)));
-                    Console.WriteLine(set3.Points[e].ComputeDistance(p, new DimWeight(p.NumDim)));
-                    Console.WriteLine();
+                    mse1 += set.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
+                    mse2 += set2.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
+                    mse3 += set3.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
                 }
             }
+
+            Console.WriteLine(mse1 + " " + mse2 + " " + mse3);
         }
     }
 }

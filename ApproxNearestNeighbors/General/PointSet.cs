@@ -16,6 +16,8 @@ namespace ApproxNearestNeighbors.General
             get { return points; }
         }
 
+        private int currpid;
+
         public int NPoints
         {
             get { return points.Count(); }
@@ -24,13 +26,17 @@ namespace ApproxNearestNeighbors.General
         public PointSet(int numdim)
         {
             NumDim = numdim;
+            currpid = 1;
             points = new List<Point>();
         }
 
         public void AddPoint(Point p)
         {
             if (p.NumDim == NumDim)
+            {
+                p.setId(currpid++);
                 points.Add(p);
+            }
         }
 
         public void NormalizePoints()

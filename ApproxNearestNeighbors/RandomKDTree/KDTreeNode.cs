@@ -108,7 +108,7 @@ namespace ApproxNearestNeighbors.RandomKDTree
             }       
         }
 
-        public void SearchDownThreaded(Point p, int K, int maxSearch, DimWeight dw, PointSet searched, MaxHeap<Point> heap, PointCompare pc, List<Boolean> b, List<Mutex> m, int id)
+        public void SearchDownThreaded(Point p, int K, int maxSearch, DimWeight dw, PointSetHash searched, MaxHeap<Point> heap, PointCompare pc, List<Boolean> b, List<Mutex> m, int id)
         {
             if (this == null || this.point == null || searched.NPoints >= maxSearch)
                 return;
@@ -119,8 +119,11 @@ namespace ApproxNearestNeighbors.RandomKDTree
                 m[id].WaitOne();
                 b[id] = true;
 
-                CheckPoint(K, heap, pc);
-                searched.AddPoint(point);
+                if (!searched.CheckContains(point) && searched.NPoints < maxSearch)
+                {
+                    CheckPoint(K, heap, pc);
+                    searched.AddPoint(point);
+                }
 
                 m[id].ReleaseMutex();
             }
@@ -143,8 +146,13 @@ namespace ApproxNearestNeighbors.RandomKDTree
                 m[id].WaitOne();
                 b[id] = true;
 
-                CheckPoint(K, heap, pc);
-                searched.AddPoint(point);
+                bool exceeded = maxSearch <= searched.NPoints;
+
+                if (!searched.CheckContains(point) && searched.NPoints < maxSearch)
+                {
+                    CheckPoint(K, heap, pc);
+                    searched.AddPoint(point);
+                }
 
                 // Check if a better point possibly exists in the other subtree
                 var pval = new List<Double>(p.Values);

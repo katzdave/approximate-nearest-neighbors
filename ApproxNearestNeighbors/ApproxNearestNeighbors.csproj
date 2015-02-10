@@ -49,6 +49,7 @@
     <Compile Include="General\Point.cs" />
     <Compile Include="General\PointCompare.cs" />
     <Compile Include="General\PointSet.cs" />
+    <Compile Include="General\PointSetHash.cs" />
     <Compile Include="General\PointSetSplit.cs" />
     <Compile Include="RandomKDTree\KDTree.cs" />
     <Compile Include="Program.cs" />
