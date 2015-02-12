@@ -15,9 +15,9 @@ namespace ApproxNearestNeighbors
         {
             int dim = 10;
             int npoint = 100000;
-            int testcases = 10;
+            int testcases = 100;
             int K = 5;
-            int maxSearch = 100;
+            int maxSearch = 400;
             int ntrees = 3;
 
             Random random = new Random();
@@ -33,7 +33,26 @@ namespace ApproxNearestNeighbors
                 ps.AddPoint(new Point(d));
             }
 
+            var weights = new List<double>();
+
+            for (int j = 0; j < dim; j++)
+            {
+                weights.Add(random.NextDouble());
+            }
+
+            var dw = new DimWeight(dim);
+            var querydw = new DimWeight(weights);
+
+            var dw5 = new DimWeight(weights);
+            dw5.eliminateBelowThresh(.1);
+
+            var dw6 = new DimWeight(weights);
+            dw6.keepTopK(7);
+
             var tree = new KDTree(ps);
+            var tree4 = new KDTree(ps, querydw);
+            var tree5 = new KDTree(ps, dw5);
+            var tree6 = new KDTree(ps, dw6);
 
             var bf = new BruteForce(ps);
 
@@ -42,6 +61,9 @@ namespace ApproxNearestNeighbors
             double mse1 = 0;
             double mse2 = 0;
             double mse3 = 0;
+            double mse4 = 0;
+            double mse5 = 0;
+            double mse6 = 0;
 
             for (int i = 0; i < testcases; i++)
             {
@@ -52,19 +74,25 @@ namespace ApproxNearestNeighbors
                 }
                 Point p = new Point(d);
 
-                var set = bf.GetKNN(p, K);
-                var set2 = tree.root.GetANN(p, K, maxSearch);
-                var set3 = forest.GetANN(p, K, maxSearch, new DimWeight(p.NumDim));
+                var set = bf.GetKNN(p, K, querydw);
+                var set2 = tree.root.GetANN(p, K, maxSearch, querydw);
+                var set3 = forest.GetANN(p, K, maxSearch, querydw);
+                var set4 = tree4.root.GetANN(p, K, maxSearch, querydw);
+                var set5 = tree5.root.GetANN(p, K, maxSearch, querydw);
+                var set6 = tree6.root.GetANN(p, K, maxSearch, querydw);
 
                 for (int e = 0; e < K; e++)
                 {
-                    mse1 += set.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
-                    mse2 += set2.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
-                    mse3 += set3.Points[e].ComputeDistance(p, new DimWeight(p.NumDim));
+                    mse1 += set.Points[e].ComputeDistance(p, querydw);
+                    mse2 += set2.Points[e].ComputeDistance(p, querydw);
+                    mse3 += set3.Points[e].ComputeDistance(p, querydw);
+                    mse4 += set4.Points[e].ComputeDistance(p, querydw);
+                    mse5 += set5.Points[e].ComputeDistance(p, querydw);
+                    mse6 += set6.Points[e].ComputeDistance(p, querydw);
                 }
             }
 
-            Console.WriteLine(mse1 + " " + mse2 + " " + mse3);
+            Console.WriteLine(mse1 + " " + mse2 + " " + mse3 + " " + mse4 + " " + mse5 + " " + mse6);
         }
     }
 }

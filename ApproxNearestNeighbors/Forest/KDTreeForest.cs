@@ -110,8 +110,16 @@ namespace ApproxNearestNeighbors.Forest
             int id = System.Threading.Thread.CurrentThread.ManagedThreadId;
             threadIds.TryGetValue(id, out id);
             trees[id].root.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, childHolds, mutexes, id);
+
+            while (childHolds[id]) ;
+            mutexes[id].WaitOne();
+            childHolds[id] = true;
+
             returned[id] = true;
             nReturned++;
+
+            mutexes[id].ReleaseMutex();
+
         }
 
         private void performAction(int id)

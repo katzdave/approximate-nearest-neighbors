@@ -21,6 +21,12 @@ namespace ApproxNearestNeighbors.General
         public DimWeight(List<double> weights)
         {
             NumDim = weights.Count();
+
+            setPdfCdf(weights);
+        }
+
+        private void setPdfCdf(List<double> weights)
+        {
             pdf = new List<double>();
             cdf = new List<double>();
 
@@ -78,6 +84,77 @@ namespace ApproxNearestNeighbors.General
             }
 
             return r;
+        }
+
+        public void eliminateBelowThresh(double thresh)
+        {
+            var newWeights = new List<double>();
+
+            for (int i = 0; i < NumDim; i++)
+            {
+                if (pdf[i] < thresh)
+                {
+                    newWeights.Add(0);
+                }
+                else
+                {
+                    newWeights.Add(pdf[i]);
+                }
+            }
+
+            setPdfCdf(newWeights);
+        }
+
+        public void keepTopK(int K)
+        {
+            var currDim = new List<int>();
+            var currVal = new List<double>();
+
+            for (int i = 0; i < NumDim; i++)
+            {
+                if (currDim.Count() < K)
+                {
+                    currDim.Add(i);
+                    currVal.Add(pdf[i]);
+                }
+                else
+                {
+                    int minDim = 0;
+                    double minVal = 2;
+                    for (int j = 0; j < K; j++)
+                    {
+                        if (currVal[j] < minVal)
+                        {
+                            minDim = j;
+                            minVal = currVal[j];
+                        }
+                    }
+
+                    if (pdf[i] > minVal)
+                    {
+                        currDim.RemoveAt(minDim);
+                        currVal.RemoveAt(minDim);
+                        currDim.Add(i);
+                        currVal.Add(pdf[i]);
+                    }
+                }
+            }
+
+            var newWeights = new List<double>();
+
+            for (int i = 0; i < NumDim; i++)
+            {
+                if (currDim.Contains(i))
+                {
+                    newWeights.Add(pdf[i]);
+                }
+                else
+                {
+                    newWeights.Add(0);
+                }
+            }
+
+            setPdfCdf(newWeights);
         }
     }
 }

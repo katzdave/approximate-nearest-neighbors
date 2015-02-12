@@ -108,7 +108,8 @@ namespace ApproxNearestNeighbors.RandomKDTree
             }       
         }
 
-        public void SearchDownThreaded(Point p, int K, int maxSearch, DimWeight dw, PointSetHash searched, MaxHeap<Point> heap, PointCompare pc, List<Boolean> b, List<Mutex> m, int id)
+        public void SearchDownThreaded(Point p, int K, int maxSearch, DimWeight dw, PointSetHash searched,
+            MaxHeap<Point> heap, PointCompare pc, List<Boolean> b, List<Mutex> m, int id)
         {
             if (this == null || this.point == null || searched.NPoints >= maxSearch)
                 return;
