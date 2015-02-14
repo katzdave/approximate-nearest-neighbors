@@ -29,6 +29,10 @@
 
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
+% Packages 
+\usepackage[]{algorithm2e}
+\usepackage{algpseudocode}
+
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
@@ -53,6 +57,9 @@
 \hypersetup{pdfsubject=\subjectname}
 \hypersetup{pdfauthor=\authornames}
 \hypersetup{pdfkeywords=\keywordnames}
+
+%Packages
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -252,7 +259,9 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-\input{./Chapters/Chapter1}
+\input{./Chapters/Background}
+
+%\input{./Chapters/Chapter1}
 %\input{./Chapters/Chapter2} 
 %\input{./Chapters/Chapter3}
 %\input{./Chapters/Chapter4} 

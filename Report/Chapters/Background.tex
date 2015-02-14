@@ -1,0 +1,50 @@
+\chapter{Background} % Main chapter title
+
+\label{Background} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 1. \emph{Background}} % This is for the header on each page - perhaps a shortened title
+
+\section{Nearest Neighbors Search}
+
+\section{Approximate Nearest Neighbors}
+
+\section{k-d Trees}
+
+\subsection{Overview}
+The k-d tree was originally developed as "a data structure storage of information to be retrieved by associative searches" \citep{bentley1975multidimensional}. k-d trees are efficient both in the speed of associative searches and in storage requirments.
+
+A k-d tree is a binary tree which stores points in a k dimension space.  Each node contains a single k-dimensional point, a split dimension, and up to two children nodes.  Each node represents a hyperplane which lies perpendicular to the split dimension, and passes through the stored point.  The left subtree of a node contains all points which lie to the left of the hyperplane, while the right subtree represents all points which lie to the right of the hyperplane.  Thus, each node partitions all below it into two half-spaces.  Because only a single split dimension is used, each splitting hyperplane is axis-aligned.
+
+\subsection{Construction}
+
+The construction of a k-d tree is performed recursively with input parameters of a list of points.  Pseudo code is shown below in \ref{alg:createkd}.  
+
+\begin{algorithmic}
+\label{alg:createkd}
+\Function{kdtree}{pointList}
+	\State splitDim = selectAxis()
+	\State
+	\State medianPoint = selectMedian(pointList, splitDim)
+	\State leftList = select points less than medianPoint along splitDim
+	\State rightList = select points greater than medianPoint along splitDim
+	\State
+	\State treenode node = new treenode()
+	\State node.splitDim = splitDim
+	\State node.splitPoint = medianPoint
+	\State node.leftChild = kdtree(leftList)
+	\State node.rightChild = kdtree(rightList)
+	\State
+	\State \Return node
+\EndFunction
+\end{algorithmic}
+
+Axis selection can be performed in multiple ways.  The classical approach is to deterministically alternate between each dimension.  Another approach known as spatial median splitting selects the the longest dimension present in the current pointList to split on \citep{zhou2008real}.  The downside of this method is that a linear traversal is required to select the split dimension.  Another popular approach is to randomly select the split dimension with an equal probability of selection each dimension.  This approach is often applied when using multiple k-d trees as because of the additional randomness trees are more likely to be different.
+
+While a linear time algorithm for determining the median of an unordered set is possible \cite{megiddo1984linear} a heuristic approach is typically used to approximate the median.  A common heuristic is to take the median of five randomly chosen elements, however many other methods can be used such as the triplet adjust method \cite{battiato2000efficient}.
+
+At the termination of of \ref{alg:createkd}, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(N*log(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree, assuming it is relatively balanced, its height is O(log(N)).
+
+\subsection{Nearest Neighbor Query}
+
+\subsection{Modification}
+

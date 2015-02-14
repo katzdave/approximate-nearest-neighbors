@@ -1,7 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  12 FEB 2015 18:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  14 FEB 2015 02:01
 entering extended mode
-**C:/Users/david_000/Downloads/untitled/untitled/main.tex
-(C:/Users/david_000/Downloads/untitled/untitled/main.tex
+**C:/Users/david_000/Documents/Visual*Studio*2010/Projects/ApproxNearestNeighbo
+rs/Report/main.tex
+
+("C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeighbo
+rs/Report/main.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +16,9 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\Users\david_000\Downloads\untitled\untitled\Thesis.cls
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Thesis.cls"
 Document Class: Thesis 2007/22/02 v1.0 LaTeX document class
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\book.cls"
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
@@ -310,7 +315,8 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \lst@lineno=\count118
 \lst@maxwidth=\dimen144
 
-(C:\Users\david_000\Downloads\untitled\untitled\lstpatch.sty
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\lstpatch.sty"
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -329,7 +335,9 @@ File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
 File: listings.cfg 2014/09/06 1.5e listings configuration
 ))
 Package: listings 2014/09/06 1.5e (Carsten Heinz)
- (C:\Users\david_000\Downloads\untitled\untitled\lstpatch.sty
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\lstpatch.sty"
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -471,32 +479,102 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count136
 \LT@p@ftn=\toks29
 ))
-(C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip71
-\bibsep=\skip72
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count137
+(C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithm2e\algorithm2
+e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count137
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 33.
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip71
+\skiplinenumber=\skip72
+\skiprule=\skip73
+\skiphlne=\skip74
+\skiptext=\skip75
+\skiplength=\skip76
+\algomargin=\skip77
+\skipalgocfslide=\skip78
+\algowidth=\dimen150
+\inoutsize=\dimen151
+\inoutindent=\dimen152
+\interspacetitleruled=\dimen153
+\interspacealgoruled=\dimen154
+\interspacetitleboxruled=\dimen155
+\algocf@inoutbox=\box35
+\algocf@inputbox=\box36
+\AlCapSkip=\skip79
+\AlCapHSkip=\skip80
+\algoskipindent=\skip81
+\algocf@nlbox=\box37
+\algocf@hangingbox=\box38
+\algocf@untilbox=\box39
+\algocf@skipuntil=\skip82
+\algocf@capbox=\box40
+\algoheightruledefault=\skip83
+\algoheightrule=\skip84
+\algotitleheightruledefault=\skip85
+\algotitleheightrule=\skip86
+\c@algocfline=\count138
+\c@algocfproc=\count139
+\c@algocf=\count140
+\algocf@algoframe=\box41
+\algocf@algobox=\box42
+)
+(C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithmicx\algpseudo
+code.sty
+Package: algpseudocode 
 
-(C:\Users\david_000\Downloads\untitled\untitled\main.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+(C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithmicx\algorithm
+icx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count141
+\c@ALG@rem=\count142
+\c@ALG@nested=\count143
+\ALG@tlm=\skip87
+\ALG@thistlm=\skip88
+\c@ALG@Lnr=\count144
+\c@ALG@blocknr=\count145
+\c@ALG@storecount=\count146
+\c@ALG@tmpcounter=\count147
+\ALG@tmplength=\skip89
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip90
+\bibsep=\skip91
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count148
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 37.
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -510,20 +588,20 @@ Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count138
-\scratchdimen=\dimen150
-\scratchbox=\box35
-\nofMPsegments=\count139
-\nofMParguments=\count140
+\scratchcounter=\count149
+\scratchdimen=\dimen156
+\scratchbox=\box43
+\nofMPsegments=\count150
+\nofMParguments=\count151
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count141
-\MPscratchDim=\dimen151
-\MPnumerator=\count142
-\makeMPintoPDFobject=\count143
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen157
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
 \everyMPtoPDFconversion=\toks31
 )
-\c@lstlisting=\count144
-\AtBeginShipoutBox=\box36
+\c@lstlisting=\count155
+\AtBeginShipoutBox=\box44
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -532,7 +610,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 36.
+Package hyperref Info: Link coloring ON on input line 40.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -540,21 +618,23 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count145
+\c@section@level=\count156
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
 
-(C:\Users\david_000\Downloads\untitled\untitled\main.out)
-(C:\Users\david_000\Downloads\untitled\untitled\main.out)
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.out")
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.out")
 \@outlinefile=\write3
-LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+LaTeX Font Info:    Try loading font information for U+msa on input line 83.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+LaTeX Font Info:    Try loading font information for U+msb on input line 83.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -567,7 +647,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  Declaration of Authorship
 ------------------------------------------------------------------------------
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 
  []
 
@@ -589,34 +669,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 ------------------------------------------------------------------------------
  Table of Contents
 ------------------------------------------------------------------------------
-(C:\Users\david_000\Downloads\untitled\untitled\main.toc [5
 
-
-])
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.toc")
 \tf@toc=\write4
- [6]
+ [5
+
+
+]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
-(C:\Users\david_000\Downloads\untitled\untitled\main.lof)
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.lof")
 \tf@lof=\write5
- [7
+ [6
 
 
 ]
 ------------------------------------------------------------------------------
  List of Tables
 ------------------------------------------------------------------------------
-(C:\Users\david_000\Downloads\untitled\untitled\main.lot)
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.lot")
 \tf@lot=\write6
- [8
+ [7
 
 
 ]
 ------------------------------------------------------------------------------
  Abbreviations
 ------------------------------------------------------------------------------
-[9
+[8
 
 
 
@@ -624,7 +710,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 ------------------------------------------------------------------------------
  Physical Constants
 ------------------------------------------------------------------------------
-[10
+[9
 
 
 
@@ -632,7 +718,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 ------------------------------------------------------------------------------
  Symbols
 ------------------------------------------------------------------------------
-[11
+[10
 
 
 
@@ -640,92 +726,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 ------------------------------------------------------------------------------
  Dedicatory
 ------------------------------------------------------------------------------
-[12
+[11
 
-] (C:\Users\david_000\Downloads\untitled\untitled\Chapters\Chapter1.tex
+]
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Chapters\Background.tex"
 Chapter 1.
 ------------------------------------------------------------------------------
- 1 Chapter Title Here
+ 1 Background
 ------------------------------------------------------------------------------
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
- [1
+[1
 
 
 
-] [2] [3]
-[4] [5]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 135.
- [6] [7] [8] [9]
-<./Figures/Electron.pdf, id=314, 398.3386pt x 284.52756pt>
-File: ./Figures/Electron.pdf Graphic file (type pdf)
-
-<use ./Figures/Electron.pdf>
-Package pdftex.def Info: ./Figures/Electron.pdf used on input line 219.
-(pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
- [10 <C:/Users/david_000/Downloads/untitled/untitled/Figures/Electron.pdf>] [11
 ])
-(C:\Users\david_000\Downloads\untitled\untitled\Appendices\AppendixA.tex
-[12]
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Appendices\AppendixA.tex" [2]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [13
+) [3
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(C:\Users\david_000\Downloads\untitled\untitled\main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
- [14
+
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
+ [4
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
 
-(C:\Users\david_000\Downloads\untitled\untitled\main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\main.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2E41AF230B74ABAA9F52208CDAA69033;5523.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
+(rerunfilecheck)             Checksum: E7D9AEAF46857D8C4C24347D0DD2DDD8;2518.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
  ) 
 Here is how much of TeX's memory you used:
- 12908 strings out of 493921
- 184211 string characters out of 3144863
- 249105 words of memory out of 3000000
- 15938 multiletter control sequences out of 15000+200000
- 20607 words of font info for 78 fonts, out of 3000000 for 9000
+ 14592 strings out of 493921
+ 209829 string characters out of 3144863
+ 296893 words of memory out of 3000000
+ 17648 multiletter control sequences out of 15000+200000
+ 14259 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 49i,11n,45p,825b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,11n,45p,792b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/symbols/msam7.pfb>
-Output written on main.pdf (27 pages, 319555 bytes).
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on main.pdf (16 pages, 197107 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
