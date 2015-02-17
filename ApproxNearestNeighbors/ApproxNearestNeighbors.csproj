@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BruteForce\BruteForce.cs" />
+    <Compile Include="ForestHolder\KDTreeForestHolder.cs" />
     <Compile Include="General\Heap.cs" />
     <Compile Include="General\DimWeight.cs" />
     <Compile Include="General\Point.cs" />

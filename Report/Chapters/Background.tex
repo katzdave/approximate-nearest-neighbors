@@ -25,8 +25,8 @@ The construction of a k-d tree is performed recursively with input parameters of
 	\State splitDim = selectAxis()
 	\State
 	\State medianPoint = selectMedian(pointList, splitDim)
-	\State leftList = select points less than medianPoint along splitDim
-	\State rightList = select points greater than medianPoint along splitDim
+	\State leftList = select points $\leq$ medianPoint along splitDim
+	\State rightList = select points $>$ medianPoint along splitDim
 	\State
 	\State treenode node = new treenode()
 	\State node.splitDim = splitDim
@@ -42,9 +42,31 @@ Axis selection can be performed in multiple ways.  The classical approach is to 
 
 While a linear time algorithm for determining the median of an unordered set is possible \cite{megiddo1984linear} a heuristic approach is typically used to approximate the median.  A common heuristic is to take the median of five randomly chosen elements, however many other methods can be used such as the triplet adjust method \cite{battiato2000efficient}.
 
-At the termination of of \ref{alg:createkd}, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(N*log(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree, assuming it is relatively balanced, its height is O(log(N)).
+At the termination of of \ref{alg:createkd}, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(N*log(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).
 
 \subsection{Nearest Neighbor Query}
+
+A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  Pseudocode for this algorithm is shown in \ref{alg:searchkd}.
+
+\begin{algorithmic}
+\label{alg:searchkd}
+\Function{searchkdtree}{kdTreeNode, searchPoint, currBest}
+	\State dim = kdTreeNode.splitDim
+	\State searchDir = searchPoint[dim] $<$ kdTreeNode.splitPoint[dim]
+	\State searchFirst = searchDir ? kdTreeNode.left : kdTreeNode.right
+	\State searchSecond = searchDir ? kdTreeNode.right : kdTreeNode.left
+	\State searchkdtree(searchFirst, searchPoint, currBest)
+	\State
+	\If{distance(kdTreeNode.splitPoint, searchPoint) $<$ distance(currBest, splitPoint)}{
+		\State currBest = kdTreeNode.SplitPoint
+	}
+
+\EndFunction
+\end{algorithmic}
+
+Because all hyperplanes are axis aligned, the computation to determine whether a closer point can possibly exist in the second subtree is very simple.  The closest possible point in the halfspace represented by the second subtree will lie a distance of $\epsilon$ from the hyperplane, where $\epsilon$ is very small.  This distance of this point is the absolute value of the difference between the search point and split point along the current split dimension.  If this distance is larger than the current best point, than the algorithm does not need to check the second subtree, as there is no possible closer point in that halfspace.
+
+Because of this comparison however, the worst case run time of this algorithm is O(N), as if all comparisons fail, there
 
 \subsection{Modification}
 

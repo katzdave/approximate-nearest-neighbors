@@ -5,6 +5,7 @@ using System.Text;
 using ApproxNearestNeighbors.General;
 using ApproxNearestNeighbors.RandomKDTree;
 using ApproxNearestNeighbors.Forest;
+using ApproxNearestNeighbors.ForestHolder;
 using ApproxNearestNeighbors.Brute;
 
 namespace ApproxNearestNeighbors
@@ -13,7 +14,7 @@ namespace ApproxNearestNeighbors
     {
         static void Main(string[] args)
         {
-            int dim = 10;
+            int dim = 4;
             int npoint = 100000;
             int testcases = 100;
             int K = 5;
@@ -22,6 +23,8 @@ namespace ApproxNearestNeighbors
 
             Random random = new Random();
             PointSet ps = new PointSet(dim);
+
+            var forestHolder = new KDTreeForestHolder(ps, 2, 500);
 
             for (int i = 0; i < npoint; i++)
             {
