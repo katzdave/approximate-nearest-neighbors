@@ -7,6 +7,9 @@ using ApproxNearestNeighbors.RandomKDTree;
 using ApproxNearestNeighbors.Forest;
 using ApproxNearestNeighbors.ForestHolder;
 using ApproxNearestNeighbors.Brute;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ApproxNearestNeighbors
 {
@@ -14,7 +17,7 @@ namespace ApproxNearestNeighbors
     {
         static void Main(string[] args)
         {
-            int dim = 4;
+            int dim = 10;
             int npoint = 100000;
             int testcases = 100;
             int K = 5;
@@ -23,8 +26,6 @@ namespace ApproxNearestNeighbors
 
             Random random = new Random();
             PointSet ps = new PointSet(dim);
-
-            var forestHolder = new KDTreeForestHolder(ps, 2, 500);
 
             for (int i = 0; i < npoint; i++)
             {
@@ -35,6 +36,8 @@ namespace ApproxNearestNeighbors
                 }
                 ps.AddPoint(new Point(d));
             }
+
+            //var forestHolder = new KDTreeForestHolder(ps, 3, 200);
 
             var weights = new List<double>();
 
@@ -57,6 +60,15 @@ namespace ApproxNearestNeighbors
             var tree5 = new KDTree(ps, dw5);
             var tree6 = new KDTree(ps, dw6);
 
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, tree);
+            stream.Close();
+
+            Stream streamDes = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            KDTree treeDes = (KDTree)formatter.Deserialize(streamDes);
+            streamDes.Close();
+
             var bf = new BruteForce(ps);
 
             var forest = new KDTreeForest(ntrees, ps);
@@ -76,6 +88,8 @@ namespace ApproxNearestNeighbors
                     d.Add(random.NextDouble());
                 }
                 Point p = new Point(d);
+
+                var res = treeDes.root.GetANN(p, K, maxSearch, querydw);
 
                 var set = bf.GetKNN(p, K, querydw);
                 var set2 = tree.root.GetANN(p, K, maxSearch, querydw);

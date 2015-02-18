@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ApproxNearestNeighbors.General
 {
+    [Serializable]
     class Point
     {
         public readonly int NumDim;

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ApproxNearestNeighbors.General
 {
+    [Serializable]
     class DimWeight
     {
         public readonly int NumDim;

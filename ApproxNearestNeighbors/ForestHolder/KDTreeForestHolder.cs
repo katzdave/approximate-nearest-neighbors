@@ -39,8 +39,10 @@ namespace ApproxNearestNeighbors.ForestHolder
                 dimWeights.Add(new DimWeight(weights));
             }
 
+            int h = 0;
             foreach (var dw in dimWeights)
             {
+                Console.WriteLine(h++);
                 kdTrees.Add(new KDTree(ps, dw));
             }
         }

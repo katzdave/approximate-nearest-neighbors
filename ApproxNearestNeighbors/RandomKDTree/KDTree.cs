@@ -6,6 +6,7 @@ using ApproxNearestNeighbors.General;
 
 namespace ApproxNearestNeighbors.RandomKDTree
 {
+    [Serializable]
     class KDTree
     {
         public KDTreeNode root;
