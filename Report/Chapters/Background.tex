@@ -6,12 +6,51 @@
 
 \section{Nearest Neighbors Search}
 
+\subsection{Overview}
+
+Nearest neighbors search aims to solve the problem of finding the closest points in a vector space.  This type of search has a variety of applications in pattern recognition, information retrieval and computer vision.
+
+There are a variety of different types of vector spaces such as boolean valued, integer valued and mixed however I will focus only on real-valued vector spaces.  In these spaces every dimension can be expressed by a real number.  In this type of vector space, closeness can be defined by a variety of different distance metrics.  Some distance common distance metrics between two N-dimensional points x and y are shown in \ref{table:distancemet}.  In low dimensional spaces the euclidean distance is typically used, and will be the focus of future sections.
+
+\begin{table}
+\begin{tabular}{ | l | c |}
+	\hline
+	Distance Type & Distance Function \\
+	\hline
+	Euclidean & $\sqrt{\sum\limits_{i=1}^N (x_i - y_i)^2)}$ \\
+	\hline
+	Manhattan & $\sum\limits_{i=1}^N |x_i - y_i|$ \\
+	\hline
+	Chebyshev & $\max{|x_i - y_i|}$ \\
+	\hline
+\end{tabular}
+\caption{Distance Metrics}
+\label{table:distancemet}
+\end{table}
+
+\subsection{Basic Search Algorithm}
+
+The most basic algorithm for a nearest neighbor search is a linear check across every single element in a set.  To do this one must compute the distance between a query point and every single point in a dataset, and return the point with the minimum distance.  For a dataset with N points of dimensionality D, the complexity of this operation is O(N*D).  For large datasets this linear time approach is not feasable, especially if many queries need to be performed.
+
+\subsection{K-nearest Neighbors}
+\label{subsec:knn}
+
+The basic linear search algorithm can easily be extended to support a query which returns the K-nearest neighbors rather than simply the closest.  This change requires the use of a priority queue.  A priority queue guarantees amortized O(Log(N)) insert and delete-max operations and constant time check-max \citep{van1976design}.  The comparator for priority metric for points will be their distance to the query point.  If a closer point is found than the furthest of the top K, the delete-max operation can be performed, and the new closer point can be added to the priority queue.  The cost of this change is very low as likely K will be small.  If the most recently checked point is not one of the top K, then only the constant time check-max operation needs to be performed.  If the point is closer than one of the top K, the delete-max and insert operations must be performed as well.  Because both of those operations are logarithmic, the cost of updating the heap will at most be O(Log(K)).  In practice however the priority queue is updated very rarely.  Assuming the points are searched in random order, the probability that a point being processed will be one of the current top K encountered is relatively low.
+
+
+
+
 \section{Approximate Nearest Neighbors}
 
+Computation of the exact nearest neighbors via a linear search algorithm is extremely costly.  One way to improve this performance is to create an index.  The goal of an index is to increase the speed of a nearest neighbors query at the cost of additional preprocessing and memory on the original dataset.  In low dimensional spaces, one common index is the k-d tree described in more detail in \ref{sec:kdtree}.  While the k-d tree supports average case O(log(N)) queries in low dimensional spaces, no index has beeen found which is guaranteed to return the exact set of neighbors in linear time ADD CITATION.
+
+Additionally, for many applications it is not important that the result set be perfectly accurate.  It may be advantageous to return a set which isn't guaranteed to be exact in significantly less time. For these reasons, approximate nearest neighbors are often computed instead of exact nearest neighbors.  Approximate nearest neighbor algorithms work by creating an index on a dataset, and applying that index to return a result set quickly.  The most common index types are constructed out of trees, hash tables, or graphs.
+
 \section{k-d Trees}
+\label{sec:kdtree}
 
 \subsection{Overview}
-The k-d tree was originally developed as "a data structure storage of information to be retrieved by associative searches" \citep{bentley1975multidimensional}. k-d trees are efficient both in the speed of associative searches and in storage requirments.
+The k-d tree was originally developed as "a data structure storage of information to be retrieved by associative searches" \citep{bentley1975multidimensional}. k-d trees are efficient both in the speed of associative searches and in their storage requirements.
 
 A k-d tree is a binary tree which stores points in a k dimension space.  Each node contains a single k-dimensional point, a split dimension, and up to two children nodes.  Each node represents a hyperplane which lies perpendicular to the split dimension, and passes through the stored point.  The left subtree of a node contains all points which lie to the left of the hyperplane, while the right subtree represents all points which lie to the right of the hyperplane.  Thus, each node partitions all below it into two half-spaces.  Because only a single split dimension is used, each splitting hyperplane is axis-aligned.
 
@@ -19,8 +58,8 @@ A k-d tree is a binary tree which stores points in a k dimension space.  Each no
 
 The construction of a k-d tree is performed recursively with input parameters of a list of points.  Pseudo code is shown below in \ref{alg:createkd}.  
 
+\begin{algorithm}
 \begin{algorithmic}
-\label{alg:createkd}
 \Function{kdtree}{pointList}
 	\State splitDim = selectAxis()
 	\State
@@ -37,16 +76,19 @@ The construction of a k-d tree is performed recursively with input parameters of
 	\State \Return node
 \EndFunction
 \end{algorithmic}
+\caption{Construct k-d tree}
+\label{alg:createkd}
+\end{algorithm}
 
-Axis selection can be performed in multiple ways.  The classical approach is to deterministically alternate between each dimension.  Another approach known as spatial median splitting selects the the longest dimension present in the current pointList to split on \citep{zhou2008real}.  The downside of this method is that a linear traversal is required to select the split dimension.  Another popular approach is to randomly select the split dimension with an equal probability of selection each dimension.  This approach is often applied when using multiple k-d trees as because of the additional randomness trees are more likely to be different.
+Axis selection can be performed in multiple ways.  The classical approach is to deterministically alternate between each dimension.  Another approach known as spatial median splitting selects the the longest dimension present in the current pointList to split on \citep{zhou2008real}.  The downside of this method is that a linear traversal is required to select the split dimension.  Another popular approach is to randomly select the split dimension with an equal probability of selection each dimension.  This approach is often applied when using multiple k-d trees as because of the additional randomness, trees are more likely to be different \citep{flann_pami_2014}.
 
-While a linear time algorithm for determining the median of an unordered set is possible \cite{megiddo1984linear} a heuristic approach is typically used to approximate the median.  A common heuristic is to take the median of five randomly chosen elements, however many other methods can be used such as the triplet adjust method \cite{battiato2000efficient}.
+While a linear time algorithm for determining the median of an unordered set is possible \citep{megiddo1984linear} a heuristic approach is typically used to approximate the median.  A common heuristic is to take the median of five randomly chosen elements, however many other methods can be used such as the triplet adjust method \citep{battiato2000efficient}.
 
-At the termination of of \ref{alg:createkd}, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(N*log(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).
+At the termination of of \ref{alg:createkd}, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(Nlog(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).
 
 \subsection{Nearest Neighbor Query}
 
-A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  Pseudocode for this algorithm is shown in \ref{alg:searchkd}.
+A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  This algorithm is guaranteed to find the single closest point to the search query.  Pseudocode for this algorithm is shown in \ref{alg:searchkd}.
 
 \begin{algorithmic}
 \label{alg:searchkd}
@@ -64,9 +106,17 @@ A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  Ps
 \EndFunction
 \end{algorithmic}
 
-Because all hyperplanes are axis aligned, the computation to determine whether a closer point can possibly exist in the second subtree is very simple.  The closest possible point in the halfspace represented by the second subtree will lie a distance of $\epsilon$ from the hyperplane, where $\epsilon$ is very small.  This distance of this point is the absolute value of the difference between the search point and split point along the current split dimension.  If this distance is larger than the current best point, than the algorithm does not need to check the second subtree, as there is no possible closer point in that halfspace.
+The first part of the algorithm recursively steps down the tree until a leaf is reached.  At each node, a comparison on a single dimension is performed to determine which side of the splitting hyperplane the search point lies so that the search can continue in that half space.  When a leaf is reached, the point stored in the leafnode is set as the current closest point.  The algorithm then recursively walks back up the tree, and at each node computes the difference between the current node's point and the searchpoint.  If this distance is smaller than that of the current best, the current node point becomes the current best.
 
-Because of this comparison however, the worst case run time of this algorithm is O(N), as if all comparisons fail, there
+The algorithm then determines whether a closer point could potentially exist in the second unsearched subtree.  Because all hyperplanes are axis aligned, this computation is very simple.  The closest possible point in the halfspace represented by the second subtree will lie a distance of $\epsilon$ from the hyperplane, where $\epsilon$ is very small.  The distance of this point is the absolute value of the difference between the search point and split point along the current split dimension.  If this distance is larger than the current best point, then the algorithm does not need to check the second subtree, as there is no possible closer point in that halfspace.  If this distance is smaller however then the algorithm will search down the second subtree following the exact same procedure as before, treating the second child as the root.
+
+Because of this comparison however, the worst case run time of this algorithm is O(N), as if all comparisons fail, then the entirity of the tree will be searched.  As the dimensionality of the tree becomes larger, this check is more likely to fail, and k-d trees diminish in effectiveness.
+
+\subsection{Approximate Nearest Neighbors Query}
+
+The k-d tree nearest neighbor search algorithm can be extended into an approximate nearest neighbors search with two small changes.  The first change is rather than storing a single point as the current best, one can use a priority queue storing the top K points encountered.  This change was decribed in more detail in \ref{subsec:knn}.
+
+The other required change required to compute Approximate Nearest Neighbors is that a limit on the number of points to search must be applied.  The algorithm will follow the exact same steps as \ref{alg:searchkd} however when the search limit is reached the algorithm terminates.  This means that every possible node a closer point could lie in would not be searched.  However, the nodes that do get searched are searched in a best first order.  In other words the algorithm will try to examine the regions of space which are closest to the search query first before expanding outward.
 
 \subsection{Modification}
 

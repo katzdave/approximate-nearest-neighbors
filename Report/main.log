@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  16 FEB 2015 13:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  23 FEB 2015 03:30
 entering extended mode
 **C:/Users/david_000/Documents/Visual*Studio*2010/Projects/ApproxNearestNeighbo
 rs/Report/main.tex
@@ -671,12 +671,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--128
 ------------------------------------------------------------------------------
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\main.toc")
+rs\Report\main.toc" [5
+
+
+])
 \tf@toc=\write4
- [5
-
-
-]
+ [6]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
@@ -684,7 +684,7 @@ rs\Report\main.toc")
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.lof")
 \tf@lof=\write5
- [6
+ [7
 
 
 ]
@@ -695,20 +695,12 @@ rs\Report\main.lof")
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.lot")
 \tf@lot=\write6
- [7
+ [8
 
 
 ]
 ------------------------------------------------------------------------------
  Abbreviations
-------------------------------------------------------------------------------
-[8
-
-
-
-]
-------------------------------------------------------------------------------
- Physical Constants
 ------------------------------------------------------------------------------
 [9
 
@@ -716,7 +708,7 @@ rs\Report\main.lot")
 
 ]
 ------------------------------------------------------------------------------
- Symbols
+ Physical Constants
 ------------------------------------------------------------------------------
 [10
 
@@ -724,9 +716,17 @@ rs\Report\main.lot")
 
 ]
 ------------------------------------------------------------------------------
- Dedicatory
+ Symbols
 ------------------------------------------------------------------------------
 [11
+
+
+
+]
+------------------------------------------------------------------------------
+ Dedicatory
+------------------------------------------------------------------------------
+[12
 
 ]
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
@@ -739,14 +739,23 @@ Chapter 1.
 
 
 
-] [2])
+] [2] [3] [4] [5] [6] [7])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Appendices\AppendixA.tex" [3]
+rs\Report\Chapters\RelatedWork.tex" [8]
+Chapter 2.
+------------------------------------------------------------------------------
+ 2 Related Work
+------------------------------------------------------------------------------
+) [9
+
+]
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Appendices\AppendixA.tex" [10]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [4
+) [11
 
 ]
 ------------------------------------------------------------------------------
@@ -754,46 +763,48 @@ Appendix A.
 ------------------------------------------------------------------------------
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\main.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
- [5
+rs\Report\main.bbl" [12
 
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 306.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 306.
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 306.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 306.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E7D9AEAF46857D8C4C24347D0DD2DDD8;2518.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+(rerunfilecheck)             Checksum: 2AB50C5DF28715F58F874AFFBA59BB2D;3729.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 306.
  ) 
 Here is how much of TeX's memory you used:
- 14594 strings out of 493921
- 209850 string characters out of 3144863
- 296942 words of memory out of 3000000
- 17649 multiletter control sequences out of 15000+200000
- 14259 words of font info for 52 fonts, out of 3000000 for 9000
+ 14648 strings out of 493921
+ 210871 string characters out of 3144863
+ 298289 words of memory out of 3000000
+ 17677 multiletter control sequences out of 15000+200000
+ 14560 words of font info for 53 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 49i,11n,45p,792b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,12n,45p,1367b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on main.pdf (17 pages, 200760 bytes).
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on main.pdf (26 pages, 244491 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 359 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

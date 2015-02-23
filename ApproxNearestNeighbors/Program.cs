@@ -7,6 +7,7 @@ using ApproxNearestNeighbors.RandomKDTree;
 using ApproxNearestNeighbors.Forest;
 using ApproxNearestNeighbors.ForestHolder;
 using ApproxNearestNeighbors.Brute;
+using ApproxNearestNeighbors.FileIO;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -37,6 +38,7 @@ namespace ApproxNearestNeighbors
                 ps.AddPoint(new Point(d));
             }
 
+            Serializer s = new Serializer();
             //var forestHolder = new KDTreeForestHolder(ps, 3, 200);
 
             var weights = new List<double>();

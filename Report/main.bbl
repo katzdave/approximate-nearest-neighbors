@@ -1,9 +1,16 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[van Emde~Boas et~al.(1976)van Emde~Boas, Kaas, and
+  Zijlstra]{van1976design}
+Peter van Emde~Boas, Robert Kaas, and Erik Zijlstra.
+\newblock Design and implementation of an efficient priority queue.
+\newblock \emph{Mathematical Systems Theory}, 10\penalty0 (1):\penalty0
+  99--127, 1976.
 
 \bibitem[Bentley(1975)]{bentley1975multidimensional}
 Jon~Louis Bentley.
@@ -17,6 +24,12 @@ Kun Zhou, Qiming Hou, Rui Wang, and Baining Guo.
 \newblock In \emph{ACM Transactions on Graphics (TOG)}, volume~27, page 126.
   ACM, 2008.
 
+\bibitem[Muja and Lowe(2014)]{flann_pami_2014}
+Marius Muja and David~G. Lowe.
+\newblock Scalable nearest neighbor algorithms for high dimensional data.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 36, 2014.
+
 \bibitem[Megiddo(1984)]{megiddo1984linear}
 Nimrod Megiddo.
 \newblock Linear programming in linear time when the dimension is fixed.
@@ -29,5 +42,17 @@ Sebastiano Battiato, Domenico Cantone, Dario Catalano, Gianluca Cincotti, and
   Micha Hofri.
 \newblock An efficient algorithm for the approximate median selection problem.
 \newblock In \emph{Algorithms and Complexity}, pages 226--238. Springer, 2000.
+
+\bibitem[Muja and Lowe(2009)]{muja_flann_2009}
+Marius Muja and David~G. Lowe.
+\newblock Fast approximate nearest neighbors with automatic algorithm
+  configuration.
+\newblock In \emph{International Conference on Computer Vision Theory and
+  Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
+
+\bibitem[Nelder and Mead(1965)]{nelder1965simplex}
+John~A Nelder and Roger Mead.
+\newblock A simplex method for function minimization.
+\newblock \emph{The computer journal}, 7\penalty0 (4):\penalty0 308--313, 1965.
 
 \end{thebibliography}
