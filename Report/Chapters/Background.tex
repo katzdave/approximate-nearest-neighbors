@@ -35,16 +35,35 @@ The most basic algorithm for a nearest neighbor search is a linear check across 
 \subsection{K-nearest Neighbors}
 \label{subsec:knn}
 
-The basic linear search algorithm can easily be extended to support a query which returns the K-nearest neighbors rather than simply the closest.  This change requires the use of a priority queue.  A priority queue guarantees amortized O(Log(N)) insert and delete-max operations and constant time check-max \citep{van1976design}.  The comparator for priority metric for points will be their distance to the query point.  If a closer point is found than the furthest of the top K, the delete-max operation can be performed, and the new closer point can be added to the priority queue.  The cost of this change is very low as likely K will be small.  If the most recently checked point is not one of the top K, then only the constant time check-max operation needs to be performed.  If the point is closer than one of the top K, the delete-max and insert operations must be performed as well.  Because both of those operations are logarithmic, the cost of updating the heap will at most be O(Log(K)).  In practice however the priority queue is updated very rarely.  Assuming the points are searched in random order, the probability that a point being processed will be one of the current top K encountered is relatively low.
+The basic linear search algorithm can easily be extended to support a query which returns the k-nearest neighbors rather than simply the closest.  This change requires the use of a priority queue.  A priority queue guarantees amortized O(Log(N)) insert and delete-max operations and constant time check-max \citep{van1976design}.  The comparator for priority metric for points will be their distance to the query point.  If a closer point is found than the furthest of the top K, the delete-max operation can be performed, and the new closer point can be added to the priority queue.  The cost of this change is very low as likely K will be small.  If the most recently checked point is not one of the top K, then only the constant time check-max operation needs to be performed.  If the point is closer than one of the top K, the delete-max and insert operations must be performed as well.  Because both of those operations are logarithmic, the cost of updating the priority queue will at most be O(Log(K)).  In practice however the priority queue is updated very rarely.  Assuming the points are searched in random order, the probability that a point being processed will be one of the current top K encountered is relatively low.
 
+The k-nearest neighbors (k-NN) result is extremely useful for pattern recognition on labeled datasets.  For a classification task one common way to make a hard decision on a class is to use the class that appears most frequently in the top K.  Thus, for datasets where test data is very similar to training data this simple method can perform extremely well.  k-NN can also be used for regression.  Since the output is continuous, the average of the results in the top K can be used.
 
+k-nearest neighbors has a few limitations however.  For one, it is an instance based learning technique.  This means that it will only perform well when instances are similar to those from training and will not generalize.  Another issue is the computational cost of this method.  While no training is required, each k-NN query takes linear times.  Approximate nearest neighbors described in \label{sec:ann} attempt to address this.  Another issue is that common distance metrics such as euclidean distance weight each dimension equally.  Thus, in order to achieve reasonable results one must normalize all dimensions according to their relevance.
+
+\section{Fixed Radius Search}
+
+Another common search type is a fixed radius search.  This type of search attempts to find all points within a distance R of a query point.  The linear search algorithm can easily be adapted to this type of query.  After computing the distance between the query point and each point in the training set, if this distance is found to be less than R that point can be added to the result set.
 
 
 \section{Approximate Nearest Neighbors}
+\label{sec:ann}
 
-Computation of the exact nearest neighbors via a linear search algorithm is extremely costly.  One way to improve this performance is to create an index.  The goal of an index is to increase the speed of a nearest neighbors query at the cost of additional preprocessing and memory on the original dataset.  In low dimensional spaces, one common index is the k-d tree described in more detail in \ref{sec:kdtree}.  While the k-d tree supports average case O(log(N)) queries in low dimensional spaces, no index has beeen found which is guaranteed to return the exact set of neighbors in linear time ADD CITATION.
+Computation of the exact nearest neighbors via a linear search algorithm is extremely costly.  One way to improve this performance is to create an index.  The goal of an index is to increase the speed of a nearest neighbors query at the cost of additional preprocessing and memory on the original dataset.  In low dimensional spaces, one common index is the k-d tree described in more detail in \ref{sec:kdtree}.  While the k-d tree supports average case O(log(N)) queries in low dimensional spaces, no index has beeen found which is guaranteed to return the exact set of neighbors in linear time \citep{muja_flann_2009}.
 
 Additionally, for many applications it is not important that the result set be perfectly accurate.  It may be advantageous to return a set which isn't guaranteed to be exact in significantly less time. For these reasons, approximate nearest neighbors are often computed instead of exact nearest neighbors.  Approximate nearest neighbor algorithms work by creating an index on a dataset, and applying that index to return a result set quickly.  The most common index types are constructed out of trees, hash tables, or graphs.
+
+\subsection{Tree Based Indexes}
+
+The main concept behind a tree based index is space paritioning.  As such these types of indexes tend to be extremely effective in low dimensionality settings, but do not scale as well to those of higher dimensionality.  Generally, at the root of these indexes, the entire search space is present.
+
+One of the most widely tree based indexes used are k-d trees described in detail in \ref{sec:kdtree}.  The main advantage to k-d trees are that they are relatively fast to construct, can be easily modified, and have worst case linear space consumption.
+
+\subsection{Hash Indexes}
+
+
+\subsection{Graph Indexes}
+
 
 \section{k-d Trees}
 \label{sec:kdtree}
@@ -90,6 +109,7 @@ At the termination of of \ref{alg:createkd}, the root of the k-d tree is returne
 
 A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  This algorithm is guaranteed to find the single closest point to the search query.  Pseudocode for this algorithm is shown in \ref{alg:searchkd}.
 
+\begin{algorithm}
 \begin{algorithmic}
 \label{alg:searchkd}
 \Function{searchkdtree}{kdTreeNode, searchPoint, currBest}
@@ -99,18 +119,26 @@ A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  Th
 	\State searchSecond = searchDir ? kdTreeNode.right : kdTreeNode.left
 	\State searchkdtree(searchFirst, searchPoint, currBest)
 	\State
-	\If{distance(kdTreeNode.splitPoint, searchPoint) $<$ distance(currBest, splitPoint)}{
+	\If{distance(kdTreeNode.splitPoint, searchPoint) $<$ distance(currBest, searchPoint)}{
 		\State currBest = kdTreeNode.SplitPoint
 	}
+	\If{HyperPlaneCheck(searchPoint, currBest, searchSecond)}{
+		\State searchkdtree(searchSecond, searchPoint, currBest)
+	} 
 
 \EndFunction
 \end{algorithmic}
+\caption{Nearest Neighbor Search k-d tree}
+\label{alg:querykd}
+\end{algorithm}
 
 The first part of the algorithm recursively steps down the tree until a leaf is reached.  At each node, a comparison on a single dimension is performed to determine which side of the splitting hyperplane the search point lies so that the search can continue in that half space.  When a leaf is reached, the point stored in the leafnode is set as the current closest point.  The algorithm then recursively walks back up the tree, and at each node computes the difference between the current node's point and the searchpoint.  If this distance is smaller than that of the current best, the current node point becomes the current best.
 
 The algorithm then determines whether a closer point could potentially exist in the second unsearched subtree.  Because all hyperplanes are axis aligned, this computation is very simple.  The closest possible point in the halfspace represented by the second subtree will lie a distance of $\epsilon$ from the hyperplane, where $\epsilon$ is very small.  The distance of this point is the absolute value of the difference between the search point and split point along the current split dimension.  If this distance is larger than the current best point, then the algorithm does not need to check the second subtree, as there is no possible closer point in that halfspace.  If this distance is smaller however then the algorithm will search down the second subtree following the exact same procedure as before, treating the second child as the root.
 
 Because of this comparison however, the worst case run time of this algorithm is O(N), as if all comparisons fail, then the entirity of the tree will be searched.  As the dimensionality of the tree becomes larger, this check is more likely to fail, and k-d trees diminish in effectiveness.
+
+This algorithm can also be extended to perform a radius bounded search.  Rather than checking the distance to the hyperplane compared to the furthest point in the top K by checking against a fixed radius this algorithm can efficiently find all points within that radius of the query point.
 
 \subsection{Approximate Nearest Neighbors Query}
 
@@ -120,3 +148,6 @@ The other required change required to compute Approximate Nearest Neighbors is t
 
 \subsection{Modification}
 
+One key advantage of k-d trees is that they are very easy to modify.  Inserting a node requires a traversal to a leaf node following the same procedure as described in \ref{alg:searchkd}.  This search takes approximate O(Log(N)) time if the tree is balanced.  Once a leaf node is reached, a single comparison along one dimension needs to be performed in order determine whether the new node should be added as the left or right child.  If random points are inserted the tree will remain relatively balanced as there will be an equal probability of being placed on each leaf.  However heuristics can be used to help ensure that a tree remains balanced in a dyanmic environment \citep{hunt2006fast}.
+
+Deletion on k-d trees can also be performed with relative ease.  Again a downward traversal is performed until the target node is encountered. If the target node is a leaf, it can be removed trivially by removing the connection from its parent.  If the target node is not a leaf, lazy deletion can be performed.  The node will not be removed and will serve to partition space, however it will never be compared against.  If many nodes are lazy deleted however performace will slowly degrade, and reconstruction of the tree may be optimal.

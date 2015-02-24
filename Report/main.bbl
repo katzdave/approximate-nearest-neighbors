@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,13 @@ Peter van Emde~Boas, Robert Kaas, and Erik Zijlstra.
 \newblock Design and implementation of an efficient priority queue.
 \newblock \emph{Mathematical Systems Theory}, 10\penalty0 (1):\penalty0
   99--127, 1976.
+
+\bibitem[Muja and Lowe(2009)]{muja_flann_2009}
+Marius Muja and David~G. Lowe.
+\newblock Fast approximate nearest neighbors with automatic algorithm
+  configuration.
+\newblock In \emph{International Conference on Computer Vision Theory and
+  Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
 
 \bibitem[Bentley(1975)]{bentley1975multidimensional}
 Jon~Louis Bentley.
@@ -43,12 +50,11 @@ Sebastiano Battiato, Domenico Cantone, Dario Catalano, Gianluca Cincotti, and
 \newblock An efficient algorithm for the approximate median selection problem.
 \newblock In \emph{Algorithms and Complexity}, pages 226--238. Springer, 2000.
 
-\bibitem[Muja and Lowe(2009)]{muja_flann_2009}
-Marius Muja and David~G. Lowe.
-\newblock Fast approximate nearest neighbors with automatic algorithm
-  configuration.
-\newblock In \emph{International Conference on Computer Vision Theory and
-  Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
+\bibitem[Hunt et~al.(2006)Hunt, Mark, and Stoll]{hunt2006fast}
+Warren Hunt, William~R Mark, and Gordon Stoll.
+\newblock Fast kd-tree construction with an adaptive error-bounded heuristic.
+\newblock In \emph{Interactive Ray Tracing 2006, IEEE Symposium on}, pages
+  81--88. IEEE, 2006.
 
 \bibitem[Nelder and Mead(1965)]{nelder1965simplex}
 John~A Nelder and Roger Mead.
