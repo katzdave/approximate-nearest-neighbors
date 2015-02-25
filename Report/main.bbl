@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,6 +19,58 @@ Marius Muja and David~G. Lowe.
 \newblock In \emph{International Conference on Computer Vision Theory and
   Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
 
+\bibitem[Muja and Lowe(2014)]{flann_pami_2014}
+Marius Muja and David~G. Lowe.
+\newblock Scalable nearest neighbor algorithms for high dimensional data.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 36, 2014.
+
+\bibitem[Hartigan and Wong(1979)]{hartigan1979algorithm}
+John~A Hartigan and Manchek~A Wong.
+\newblock Algorithm as 136: A k-means clustering algorithm.
+\newblock \emph{Applied statistics}, pages 100--108, 1979.
+
+\bibitem[Finkel and Bentley(1974)]{finkel1974quad}
+Raphael~A. Finkel and Jon~Louis Bentley.
+\newblock Quad trees a data structure for retrieval on composite keys.
+\newblock \emph{Acta informatica}, 4\penalty0 (1):\penalty0 1--9, 1974.
+
+\bibitem[Samet(1988)]{samet1988overview}
+Hanan Samet.
+\newblock An overview of quadtrees, octrees, and related hierarchical data
+  structures.
+\newblock In \emph{Theoretical Foundations of Computer Graphics and CAD}, pages
+  51--68. Springer, 1988.
+
+\bibitem[Datar et~al.(2004)Datar, Immorlica, Indyk, and
+  Mirrokni]{datar2004locality}
+Mayur Datar, Nicole Immorlica, Piotr Indyk, and Vahab~S Mirrokni.
+\newblock Locality-sensitive hashing scheme based on p-stable distributions.
+\newblock In \emph{Proceedings of the twentieth annual symposium on
+  Computational geometry}, pages 253--262. ACM, 2004.
+
+\bibitem[Paulev{\'e} et~al.(2010)Paulev{\'e}, J{\'e}gou, and
+  Amsaleg]{pauleve2010locality}
+Lo{\"\i}c Paulev{\'e}, Herv{\'e} J{\'e}gou, and Laurent Amsaleg.
+\newblock Locality sensitive hashing: A comparison of hash function types and
+  querying mechanisms.
+\newblock \emph{Pattern Recognition Letters}, 31\penalty0 (11):\penalty0
+  1348--1358, 2010.
+
+\bibitem[Connor and Kumar(2010)]{connor2010fast}
+Michael Connor and Piyush Kumar.
+\newblock Fast construction of k-nearest neighbor graphs for point clouds.
+\newblock \emph{Visualization and Computer Graphics, IEEE Transactions on},
+  16\penalty0 (4):\penalty0 599--608, 2010.
+
+\bibitem[Hajebi et~al.(2011)Hajebi, Abbasi-Yadkori, Shahbazi, and
+  Zhang]{hajebi2011fast}
+Kiana Hajebi, Yasin Abbasi-Yadkori, Hossein Shahbazi, and Hong Zhang.
+\newblock Fast approximate nearest-neighbor search with k-nearest neighbor
+  graph.
+\newblock In \emph{IJCAI Proceedings-International Joint Conference on
+  Artificial Intelligence}, volume~22, page 1312, 2011.
+
 \bibitem[Bentley(1975)]{bentley1975multidimensional}
 Jon~Louis Bentley.
 \newblock Multidimensional binary search trees used for associative searching.
@@ -30,12 +82,6 @@ Kun Zhou, Qiming Hou, Rui Wang, and Baining Guo.
 \newblock Real-time kd-tree construction on graphics hardware.
 \newblock In \emph{ACM Transactions on Graphics (TOG)}, volume~27, page 126.
   ACM, 2008.
-
-\bibitem[Muja and Lowe(2014)]{flann_pami_2014}
-Marius Muja and David~G. Lowe.
-\newblock Scalable nearest neighbor algorithms for high dimensional data.
-\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
-  on}, 36, 2014.
 
 \bibitem[Megiddo(1984)]{megiddo1984linear}
 Nimrod Megiddo.
@@ -55,6 +101,12 @@ Warren Hunt, William~R Mark, and Gordon Stoll.
 \newblock Fast kd-tree construction with an adaptive error-bounded heuristic.
 \newblock In \emph{Interactive Ray Tracing 2006, IEEE Symposium on}, pages
   81--88. IEEE, 2006.
+
+\bibitem[Silpa-Anan and Hartley(2008)]{silpa2008optimised}
+Chanop Silpa-Anan and Richard Hartley.
+\newblock Optimised kd-trees for fast image descriptor matching.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2008. CVPR 2008.
+  IEEE Conference on}, pages 1--8. IEEE, 2008.
 
 \bibitem[Nelder and Mead(1965)]{nelder1965simplex}
 John~A Nelder and Roger Mead.
