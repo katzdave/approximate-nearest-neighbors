@@ -39,7 +39,7 @@ namespace ApproxNearestNeighbors
             }
 
             Serializer s = new Serializer();
-            //var forestHolder = new KDTreeForestHolder(ps, 3, 200);
+            var forestHolder = new KDTreeForestHolder(ps, 2, 10);
 
             var weights = new List<double>();
 
