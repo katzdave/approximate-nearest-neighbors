@@ -12,6 +12,8 @@ namespace ApproxNearestNeighbors.RandomKDTree
         public KDTreeNode root;
         public readonly DimWeight splitWeight;
 
+        public double Quality;
+
         public KDTree(PointSet ps)
         {
             splitWeight = new DimWeight(ps.NumDim);
@@ -22,6 +24,12 @@ namespace ApproxNearestNeighbors.RandomKDTree
         {
             splitWeight = dw;
             root = new KDTreeNode(ps, null, splitWeight);
+        }
+
+        public void SetQuality(Point querydw)
+        {
+            Point p = new Point(splitWeight.Pdf);
+            Quality = p.ComputeDistance(querydw, new DimWeight(p.NumDim));
         }
     }
 }

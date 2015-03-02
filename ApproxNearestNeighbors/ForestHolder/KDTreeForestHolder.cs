@@ -13,9 +13,11 @@ namespace ApproxNearestNeighbors.ForestHolder
     class KDTreeForestHolder
     {
         public readonly int NumDim;
+        public readonly bool ToDisk;
 
         private List<DimWeight> dimWeights;
         private Dictionary<Point, string> filenames;
+        private Dictionary<Point, KDTree> pointmap;
         private PointSet dimset;
         private KDTree dimtree;
         private BruteForce bf;
@@ -24,11 +26,13 @@ namespace ApproxNearestNeighbors.ForestHolder
 
         private Serializer serializer = new Serializer();
 
-        public KDTreeForestHolder(PointSet ps, int depthDeter, int nRandom)
+        public KDTreeForestHolder(PointSet ps, int depthDeter, int nRandom, bool toDisk)
         {
             NumDim = ps.NumDim;
+            ToDisk = toDisk;
             dimWeights = new List<DimWeight>();
             filenames = new Dictionary<Point, string>();
+            pointmap = new Dictionary<Point, KDTree>();
             dimset = new PointSet(ps.NumDim);
             uniformdw = new DimWeight(ps.NumDim);
 
@@ -54,9 +58,16 @@ namespace ApproxNearestNeighbors.ForestHolder
             foreach (var dw in dimWeights)
             {
                 Console.WriteLine(h++);
-                var filename = serializer.Serialize(new KDTree(ps, dw));
                 var point = new Point(dw.Pdf);
-                filenames.Add(point, filename);
+                if (ToDisk)
+                {
+                    var filename = serializer.Serialize(new KDTree(ps, dw));
+                    filenames.Add(point, filename);
+                }
+                else
+                {
+                    pointmap.Add(point, new KDTree(ps, dw));
+                }
                 dimset.AddPoint(point);
             }
 
@@ -64,7 +75,6 @@ namespace ApproxNearestNeighbors.ForestHolder
             dimtree = new KDTree(dimset);
 
             var bestTrees = getKBestTreeLinear(new DimWeight(ps.NumDim), 4);
-            var hello = 2;
         }
 
         private void kSubset(List<double> prev, int n, int k)
@@ -91,15 +101,37 @@ namespace ApproxNearestNeighbors.ForestHolder
 
         private List<KDTree> getKBestTreeLinear(DimWeight dw, int k)
         {
-            var result = new List<KDTree>();
             var queryp = new Point(dw.Pdf);
-
             var points = bf.GetKNN(queryp, k);
+            return pointsToTrees(points, queryp);
+        }
+
+        private List<KDTree> getKBestTreeKD(DimWeight dw, int k, int maxSearch)
+        {
+            var queryp = new Point(dw.Pdf);
+            var points = dimtree.root.GetANN(queryp, k, maxSearch);
+            return pointsToTrees(points, queryp);
+        }
+
+        private List<KDTree> pointsToTrees(PointSet points, Point queryp)
+        {
+            var result = new List<KDTree>();
+
             foreach (var point in points.Points)
             {
-                string filename;
-                filenames.TryGetValue(point, out filename);
-                result.Add((KDTree) serializer.Deserialize(filename));
+                KDTree tree;
+                if (ToDisk)
+                {
+                    string filename;
+                    filenames.TryGetValue(point, out filename);
+                    tree = (KDTree)serializer.Deserialize(filename);
+                }
+                else
+                {
+                    pointmap.TryGetValue(point, out tree);
+                }
+                tree.SetQuality(queryp);
+                result.Add(tree);
             }
 
             return result;

@@ -38,6 +38,63 @@ namespace ApproxNearestNeighbors.Forest
             }
         }
 
+        public KDTreeForest(List<KDTree> allTrees)
+        {
+            NTrees = allTrees.Count();
+            trees = allTrees;
+        }
+
+        public PointSet GetANNWeighted(Point p, int K, int maxSearch, DimWeight dw)
+        {
+            this.p = p;
+            this.K = K;
+            this.maxSearch = maxSearch;
+            this.dw = dw;
+            searched = new PointSetHash();
+            pc = new PointCompare(dw, p);
+            heap = new MaxHeap<Point>(pc);
+
+            childHolds = new List<bool>();
+            mutexes = new List<Mutex>();
+            threadIds = new Dictionary<int, int>();
+            threads = new List<Thread>();
+            returned = new List<bool>();
+            nReturned = 0;
+
+            for (int currNum = 0; currNum < NTrees; currNum++)
+            {
+                mutexes.Add(new Mutex());
+                childHolds.Add(false);
+                returned.Add(false);
+                mutexes[currNum].WaitOne();
+                Thread t = new Thread(new ThreadStart(searchStuff));
+                threadIds.Add(t.ManagedThreadId, currNum);
+                threads.Add(t);
+                t.Start();
+            }
+
+            while (nReturned < NTrees)
+            {
+                for (int i = 0; i < NTrees; i++)
+                {
+                    if (!returned[i])
+                    {
+                        performAction(i);
+                    }
+                }
+            }
+
+            cleanupThreads();
+
+            PointSet ps = new PointSet(p.NumDim);
+            while (heap.Count > 0)
+            {
+                ps.AddPoint(heap.ExtractDominating());
+            }
+
+            return ps;
+        }
+
         public PointSet GetANN(Point p, int K, int maxSearch, DimWeight dw)
         {
             this.p = p;
