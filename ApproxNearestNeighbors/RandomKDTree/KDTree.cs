@@ -13,6 +13,7 @@ namespace ApproxNearestNeighbors.RandomKDTree
         public readonly DimWeight splitWeight;
 
         public double Quality;
+        public int id;
 
         public KDTree(PointSet ps)
         {

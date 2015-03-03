@@ -12,6 +12,7 @@ namespace ApproxNearestNeighbors.Forest
     {
         public readonly int NTrees;
         private List<KDTree> trees;
+        private TreeWeights treeweights;
 
         private List<Boolean> childHolds;
         private List<Mutex> mutexes;
@@ -40,8 +41,8 @@ namespace ApproxNearestNeighbors.Forest
 
         public KDTreeForest(List<KDTree> allTrees)
         {
-            NTrees = allTrees.Count();
-            trees = allTrees;
+            treeweights = new TreeWeights(allTrees);
+            NTrees = treeweights.Trees.Count();
         }
 
         public PointSet GetANNWeighted(Point p, int K, int maxSearch, DimWeight dw)
@@ -67,7 +68,7 @@ namespace ApproxNearestNeighbors.Forest
                 childHolds.Add(false);
                 returned.Add(false);
                 mutexes[currNum].WaitOne();
-                Thread t = new Thread(new ThreadStart(searchStuff));
+                Thread t = new Thread(new ThreadStart(searchStuffWeighted));
                 threadIds.Add(t.ManagedThreadId, currNum);
                 threads.Add(t);
                 t.Start();
@@ -75,13 +76,7 @@ namespace ApproxNearestNeighbors.Forest
 
             while (nReturned < NTrees)
             {
-                for (int i = 0; i < NTrees; i++)
-                {
-                    if (!returned[i])
-                    {
-                        performAction(i);
-                    }
-                }
+                performAction(treeweights.GetRandomId());
             }
 
             cleanupThreads();
@@ -176,7 +171,24 @@ namespace ApproxNearestNeighbors.Forest
             nReturned++;
 
             mutexes[id].ReleaseMutex();
+        }
 
+        private void searchStuffWeighted()
+        {
+            int id = System.Threading.Thread.CurrentThread.ManagedThreadId;
+            threadIds.TryGetValue(id, out id);
+            treeweights.Trees[id].id = id;
+            treeweights.Trees[id].root.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, childHolds, mutexes, id);
+
+            while (childHolds[id]) ;
+            mutexes[id].WaitOne();
+            childHolds[id] = true;
+
+            treeweights.RemoveTree(id);
+            returned[id] = true;
+            nReturned++;
+
+            mutexes[id].ReleaseMutex();
         }
 
         private void performAction(int id)

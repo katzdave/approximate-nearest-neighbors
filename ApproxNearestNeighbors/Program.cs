@@ -62,14 +62,14 @@ namespace ApproxNearestNeighbors
             var tree5 = new KDTree(ps, dw5);
             var tree6 = new KDTree(ps, dw6);
 
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, tree);
-            stream.Close();
+            //IFormatter formatter = new BinaryFormatter();
+            //Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            //formatter.Serialize(stream, tree);
+            //stream.Close();
 
-            Stream streamDes = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            KDTree treeDes = (KDTree)formatter.Deserialize(streamDes);
-            streamDes.Close();
+            //Stream streamDes = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            //KDTree treeDes = (KDTree)formatter.Deserialize(streamDes);
+            //streamDes.Close();
 
             var bf = new BruteForce(ps);
 
@@ -91,7 +91,9 @@ namespace ApproxNearestNeighbors
                 }
                 Point p = new Point(d);
 
-                var res = treeDes.root.GetANN(p, K, maxSearch, querydw);
+                //var res = treeDes.root.GetANN(p, K, maxSearch, querydw);
+
+                var settst = forestHolder.GetANN(p, querydw, K, 3, .03, maxSearch);
 
                 var set = bf.GetKNN(p, K, querydw);
                 var set2 = tree.root.GetANN(p, K, maxSearch, querydw);

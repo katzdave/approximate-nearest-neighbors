@@ -77,6 +77,20 @@ namespace ApproxNearestNeighbors.ForestHolder
             var bestTrees = getKBestTreeLinear(new DimWeight(ps.NumDim), 4);
         }
 
+        public PointSet GetANN(Point p, DimWeight dw, int k, int ktree, double ratio, int maxSearch)
+        {
+            int nSearchTrees = (int) Math.Round((maxSearch)*(1-ratio));
+            if (nSearchTrees > dimWeights.Count())
+            {
+                nSearchTrees = dimWeights.Count();
+            }
+            int nSearchForest = maxSearch - nSearchTrees;
+
+            var trees = getKBestTreeKD(dw, ktree, nSearchForest);
+            var forest = new KDTreeForest(trees);
+            return forest.GetANNWeighted(p, k, nSearchTrees, dw);
+        }
+
         private void kSubset(List<double> prev, int n, int k)
         {
             if (n == 0 || n < k || k == 0)
