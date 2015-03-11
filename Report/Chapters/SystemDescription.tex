@@ -1,0 +1,51 @@
+\chapter{System Description} % Main chapter title
+
+\label{sysdes} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 3. \emph{System Description}} % This is for the header on each page - perhaps a 
+
+\section{Overview}
+\label{sect:sysdesover}
+
+As mentioned in subsection \ref{subsec:knn}, before applying a nearest neighbors algorithm, one must normalize dimensions proportional to their relevance.  Conventionally, if the relevance of a dimension or a set of dimensions were to be changed, one must perform a linear transformation on the every single point in the search space.  When using an index type described in section \ref{sec:ann}, this linear transformation requires a total reconstruction of the index for optimal nearest neighbors search performace, as the distance between all pairs of points in the index is now different.
+
+The goal of this system is to support queries of dynamic dimension relevance in low dimensional spaces.  Dynamic dimension relevance means that requester of a given query must provide both a search point, and the relevance of each dimension in the query.  The system will then compute the ANNs using a modified Euclidean distance metric in which the distance in each dimension is weighted proportionately to the relevance.  This metric is described formally in section \ref{subsec:dimrel}.
+
+\subsection{Normalization}
+\label{subsec:normalization}
+
+Each dimension in the vector space representation of a dataset must be normalized to ensure that each dimension is weighted equally.  The normalization scheme used performs a linear transform to set the min of a dimension to zero and the max to one.  After finding the min and max of each dimension, one must normalize every dimension of every point following equation \ref{eq:normd}.
+
+\begin{equation}
+\label{eq:normd}
+d_{normalized} = \dfrac{d-d_{min}}{ d_{max} - d_{min} }
+\end{equation}
+
+This normalization technique is ideal for datasets which follow a relatively uniform distribution.  However, the presence of outliers could greatly skew this normalization scheme.  An alternative normalization strategy for these cases is to normalize the mean of each dimension to zero, and the variance to one.  This can be achieved by following the linear transformation outlined in equation \ref{eq:normd2}.  This procedure is equivalent to finding the standard score or z-score of each dimension \citep{cheadle2003analysis}.
+
+\begin{equation}
+\label{eq:normd2}
+d_{normalized} = \dfrac{d-d_{mean}}{ d_{stdev} }
+\end{equation}
+
+\subsection{Dimension Relevance}
+\label{subsec:dimrel}
+
+After normalization described in section \ref{subsec:normalization}, each dimension in the dataset is said to have equal relevance, and would have an equivalent contributribution to a standard Euclidean distance.  As described in section \ref{sect:sysdesover} each query requires both a search point, and a dimension relevance vector.
+
+The dimension relevance vector (DRV) must contain the same number of dimensions as all points in a datset.  Each element in the DRV contains a weight on each dimension.  The DRV is then normalized to have a sum of one.  Using the DRV v and two D dimensional points x and y, the modified Euclidean distance metric is shown in equation \ref{eq:eucmod}.
+
+\begin{equation}
+\label{eq:eucmod}
+distance = \sqrt{\sum\limits_{i=1}^D ((x_i - y_i) \times v_i \times D)^2)} \\
+\end{equation}
+
+For the case in which all dimensions are weighted equally, each element in $v_i=1/D$.  Thus, in this special case, the standard Euclidean distance is computed.  This distance metric is also equivalent to transforming each dimension via multiplying by $v_i \times D$, and computing the standard Euclidean distance.  By using this metric instead, this transformation does not need to be explicitly performed but is inherent in the distance calculation.
+
+\subsection{Motivation}
+
+why other indexes suck.
+
+\section{Prior Matching}
+
+A common heuristic for k-d tree indexes

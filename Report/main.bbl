@@ -1,9 +1,33 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{26}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cover and Hart(1967)]{cover1967nearest}
+Thomas Cover and Peter Hart.
+\newblock Nearest neighbor pattern classification.
+\newblock \emph{Information Theory, IEEE Transactions on}, 13\penalty0
+  (1):\penalty0 21--27, 1967.
+
+\bibitem[Manning et~al.(2008)Manning, Raghavan, and
+  Sch{\"u}tze]{manning2008introduction}
+Christopher~D Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
+\newblock \emph{Introduction to information retrieval}, volume~1.
+\newblock Cambridge university press Cambridge, 2008.
+
+\bibitem[Boiman et~al.(2008)Boiman, Shechtman, and Irani]{boiman2008defense}
+Oren Boiman, Eli Shechtman, and Michal Irani.
+\newblock In defense of nearest-neighbor based image classification.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2008. CVPR 2008.
+  IEEE Conference on}, pages 1--8. IEEE, 2008.
+
+\bibitem[Danielsson(1980)]{danielsson1980euclidean}
+Per-Erik Danielsson.
+\newblock Euclidean distance mapping.
+\newblock \emph{Computer Graphics and image processing}, 14\penalty0
+  (3):\penalty0 227--248, 1980.
 
 \bibitem[van Emde~Boas et~al.(1976)van Emde~Boas, Kaas, and
   Zijlstra]{van1976design}
@@ -11,6 +35,25 @@ Peter van Emde~Boas, Robert Kaas, and Erik Zijlstra.
 \newblock Design and implementation of an efficient priority queue.
 \newblock \emph{Mathematical Systems Theory}, 10\penalty0 (1):\penalty0
   99--127, 1976.
+
+\bibitem[Beyer et~al.(1999)Beyer, Goldstein, Ramakrishnan, and
+  Shaft]{beyer1999nearest}
+Kevin Beyer, Jonathan Goldstein, Raghu Ramakrishnan, and Uri Shaft.
+\newblock When is “nearest neighbor” meaningful?
+\newblock In \emph{Database Theory—ICDT’99}, pages 217--235. Springer,
+  1999.
+
+\bibitem[Aha et~al.(1991)Aha, Kibler, and Albert]{aha1991instance}
+David~W Aha, Dennis Kibler, and Marc~K Albert.
+\newblock Instance-based learning algorithms.
+\newblock \emph{Machine learning}, 6\penalty0 (1):\penalty0 37--66, 1991.
+
+\bibitem[Dickerson and Drysdale(1990)]{dickerson1990fixed}
+Matthew~T Dickerson and R~Scot Drysdale.
+\newblock Fixed-radius near neighbors search algorithms for points and
+  segments.
+\newblock \emph{Information Processing Letters}, 35\penalty0 (5):\penalty0
+  269--273, 1990.
 
 \bibitem[Muja and Lowe(2009)]{muja_flann_2009}
 Marius Muja and David~G. Lowe.
@@ -24,6 +67,12 @@ Marius Muja and David~G. Lowe.
 \newblock Scalable nearest neighbor algorithms for high dimensional data.
 \newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 36, 2014.
+
+\bibitem[Yianilos(1993)]{yianilos1993data}
+Peter~N Yianilos.
+\newblock Data structures and algorithms for nearest neighbor search in general
+  metric spaces.
+\newblock In \emph{SODA}, volume~93, pages 311--321, 1993.
 
 \bibitem[Hartigan and Wong(1979)]{hartigan1979algorithm}
 John~A Hartigan and Manchek~A Wong.
@@ -112,5 +161,12 @@ Chanop Silpa-Anan and Richard Hartley.
 John~A Nelder and Roger Mead.
 \newblock A simplex method for function minimization.
 \newblock \emph{The computer journal}, 7\penalty0 (4):\penalty0 308--313, 1965.
+
+\bibitem[Cheadle et~al.(2003)Cheadle, Vawter, Freed, and
+  Becker]{cheadle2003analysis}
+Chris Cheadle, Marquis~P Vawter, William~J Freed, and Kevin~G Becker.
+\newblock Analysis of microarray data using z score transformation.
+\newblock \emph{The Journal of molecular diagnostics}, 5\penalty0 (2):\penalty0
+  73--81, 2003.
 
 \end{thebibliography}
