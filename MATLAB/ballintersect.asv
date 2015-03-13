@@ -1,0 +1,23 @@
+clc; clear all; close all;
+
+A = 100;
+R = 2;
+iter = 1000;
+
+s = 1:.1:10;
+
+for ii = s
+   s2 = A/ii;
+   x = rand(iter,1)*s;
+   y = rand(iter,1)*s2;
+   
+   nfail = 0;   
+   for jj = 1:iter
+       check = 0;
+       check = check + (x+R > s);
+       check = check + (x-R < 0);
+       check = check + (y+R > s2);
+       check = check + (y-r < 0);
+       nfai
+   end
+end

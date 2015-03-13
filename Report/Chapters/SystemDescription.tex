@@ -42,10 +42,46 @@ distance = \sqrt{\sum\limits_{i=1}^D ((x_i - y_i) \times v_i \times D)^2)} \\
 
 For the case in which all dimensions are weighted equally, each element in $v_i=1/D$.  Thus, in this special case, the standard Euclidean distance is computed.  This distance metric is also equivalent to transforming each dimension via multiplying by $v_i \times D$, and computing the standard Euclidean distance.  By using this metric instead, this transformation does not need to be explicitly performed but is inherent in the distance calculation.
 
-\subsection{Motivation}
+\subsection{Motivation for k-d Trees}
 
 why other indexes suck.
 
-\section{Prior Matching}
+\subsection{Split Probability Matching}
 
-A common heuristic for k-d tree indexes
+A common heuristic for determining the split dimension on k-d tree indexes is spatial median splitting CITETEETE.  The motivation for this technique is that each hyperrectangle should be as close to a cuboid as possible.  In doing so, the check of whether or not a ball of radius R around a point intersects with an enclosing hyperplane is more likely to result in no intersection.  When no intersection occurs the k-d tree search algorithm described in section \ref{sec:kdquery}, can eliminate a subtree without searching it.  It is important to note that k-d trees can still function, even if the partitions are not square.  However, because of the inability to prune subtrees as effectively, ANN searches will not be as efficient and the quality of the result set will suffer.  It is also important to note that on a vector space in which each dimension has been normalized, selecting a random dimension to split on with equal probability accomplishes a similar effect to spatial median splitting.  On average, regions will tend to be close to cuboids, and the advantage of this method is less offline computation in index construction and more variety in trees, which is advantageous when searching multiple trees.
+
+When applying dimension weights via a DRV to a k-d tree search, the distance metric acts on a transformed space.  As such, if the split dimension was selected with equal probability the regions would no longer be cuboids on average.  In order to combat this, I introduce the heuristic of split probability matching (SPM).  The goal of this heuristic is to adjust the probability of splitting on each dimension to account for the fact that in the transformed space the dimensions are no longer normalized to the same weight.  Therefore, by selecting split dimensions with probabilities equal to the weight of each dimension, the regions will tend to approach a cuboid shape in the transformed space.
+
+Figure blablidy blah shows blabidy blah this shit is better
+
+\subsection{Tree Quality Metric}
+
+While matching the split dimension probabilities of a k-d tree a DRV results in greatly improved ANN performance, this method is not directly feasible in practice on a system which supports specifying a DRV at query time rather than during tree construction.  As shown in section \ref{subsec:const} the cost of generating a k-d tree is NLog(N), while the cost of a standard linear query is N.  Thus, generating new trees to directly match the DRV of each query is not practical, as the tree construction cost is very high.
+
+To work around this, we opted to construct a large set of k-d trees with a variety of different split probabilities.  On each query, our index can then select the tree or subset of trees whose split probabilities best match the queries's DRV.  In doing so, the set of trees search will be close to the optimal split, leading to high performance for ANN queries.
+
+The quality metric used is the modified Euclidean distance metric from equation \ref{eq:eucmod}.  Rather than comparing two points however, the two entities compared are the DRV and the split probabilities of the tree, both of which have been normalized to have a sum of one.  The set of trees with the highest quality can then be searched in parallel.  Additionally, based on the result of this tree quality metric, the parallel search between multiple trees can be skewed towards the trees of highest quality.
+
+There is of course a tradeoff between the size of the set of k-d trees, and system performance.  More trees will result in high quality matches for a more DRVs, and thus improved accuracy.  However, each additional tree is linear in memory consumption, so the number of these trees must be kept within reason.  Additionally, each test of the tree quality metric is computationally equivalent to a comparison between two points.  As such, there is a cost associated with computing the quality metric of each tree which must be accounted for in performance benchmarks.
+
+\section{Detailed Implementation Overview}
+
+\subsection{Index Construction}
+
+The initial dataset input into the system is an unordered set of N points containing D dimensions.  The first step is to normalize all points in this set along each dimension using the scheme specified in equation \ref{eq:normd} or \ref{eq:normd2}, per selection of the user.
+
+The user must also specify two index size parameters: the deterministic dimension depth (DDD), and the number of random trees.  Both of these parameters impact the amount of trees which will be generated.  The use of the DDD allows the system to perform well on DRVs which put very heavy weight on a low number of dimensions, which is likely to be common in practice.  To do so, a tree is generated with every possible subset of dimensions containing less than or equal to the DDD.  In each of these trees the split weights are equal in all of the selected dimensions, and as such are equivalent to $1/D$.  The number of trees needed to satisfy a DDD of R on a dataset with dimensionality D is shown in equation \ref{eq:ddd}.  This number scales factorially with both D and R, so a very small R must be used if D is large to ensure that the number of trees is reasonable.  A large R however has the advantage of high quality tree matches on queries with R or less dimensions.
+
+\begin{equation}
+\label{eq:ddd}
+ntrees = \sum\limits_{i=1}^R {D \choose i}
+\end{equation}
+
+The number of random trees directly controls the number of trees generated with uniform random split probabilities.  Each set of split of tree split probabilities is generated by selecting a number from U(0,1) on each dimension, and normalizing the results to a sum of one.  A larger number of random trees will result in overall better matches on randomly selected DRVs at the cost of memory consumption.  Other types of dimension split priors other than uniform could be used instead if additional information was known about the distribution of DRVs used.
+
+The total number of trees generated is the number of deterministic trees as specified by equation \ref{eq:ddd} and the number of random trees.  Each tree is generated following the algorithm in section \ref{subsec:const} with the modification that the split dimension is selected weighted from the specified tree split probabilities rather than from a uniform distribution.  In our test environment, if the number of trees exceeds that which can be held in memory, they will be written to disk.  In practice, this would not be an acceptable solution as the cost of reading a tree from memory is linear, and disk reads are significantly slower than a linear seek performed in memory \citep{ousterhout1989beating}.  The evaluation metric however considers only the quality of results against the number of nodes search, so this solution is acceptable for testing purposes.  Details about implementation in a live, distributed system will be discussed in (REF FUTURE WORK SECTION).
+
+The last step of construction after each tree is generated is to generate an index on the tree split probabilities.  Without an index, in order to determine the best tree(s) on each query a linear seek across each would need to be performed comparing each to the DRV.  This adds an overhead of one comparison operation for each tree on every single ANN query.  To avoid this the set of split probabilities are cast into a vector space.  After doing so, a k-d tree index is constructed on the split probabilities following the standard procedure in section \ref{subsec:const}.  At query time, this index can be applied to heuristically select the best set of trees via an ANN search against the DRV in sublinear time.
+
+\subsection{ANN Query}
+

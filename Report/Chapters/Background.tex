@@ -121,6 +121,7 @@ While a linear time algorithm for determining the median of an unordered set is 
 At the termination of the algorithm, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm is O(Nlog(N)) where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).
 
 \subsection{Nearest Neighbor Query}
+\label{sec:kdquery}
 
 A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  This algorithm is guaranteed to find the single closest point to the search query.  Pseudocode for this algorithm is shown in Figure \ref{alg:querykd}.
 

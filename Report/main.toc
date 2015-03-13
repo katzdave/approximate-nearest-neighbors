@@ -33,8 +33,13 @@
 \contentsline {section}{\numberline {3.1}Overview}{16}{section.45}
 \contentsline {subsection}{\numberline {3.1.1}Normalization}{17}{subsection.46}
 \contentsline {subsection}{\numberline {3.1.2}Dimension Relevance}{17}{subsection.49}
-\contentsline {subsection}{\numberline {3.1.3}Motivation}{18}{subsection.51}
+\contentsline {subsection}{\numberline {3.1.3}Motivation for k-d Trees}{18}{subsection.51}
+\contentsline {subsection}{\numberline {3.1.4}Split Probability Matching}{18}{subsection.52}
+\contentsline {subsection}{\numberline {3.1.5}Tree Quality Metric}{19}{subsection.53}
+\contentsline {section}{\numberline {3.2}Detailed Implementation Overview}{21}{section.54}
+\contentsline {subsection}{\numberline {3.2.1}Index Construction}{21}{subsection.55}
+\contentsline {subsection}{\numberline {3.2.2}ANN Query}{22}{subsection.57}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{19}{appendix.52}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.58}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{20}{dummy.53}
+\contentsline {chapter}{Bibliography}{24}{dummy.59}
