@@ -38,8 +38,9 @@
 \contentsline {subsection}{\numberline {3.1.5}Tree Quality Metric}{19}{subsection.53}
 \contentsline {section}{\numberline {3.2}Detailed Implementation Overview}{21}{section.54}
 \contentsline {subsection}{\numberline {3.2.1}Index Construction}{21}{subsection.55}
-\contentsline {subsection}{\numberline {3.2.2}ANN Query}{22}{subsection.57}
+\contentsline {subsection}{\numberline {3.2.2}ANN Query}{23}{subsection.57}
+\contentsline {subsection}{\numberline {3.2.3}Weighted Random Number Selection}{24}{subsection.59}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.58}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{26}{appendix.60}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{24}{dummy.59}
+\contentsline {chapter}{Bibliography}{27}{dummy.61}

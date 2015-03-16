@@ -44,6 +44,17 @@ namespace ApproxNearestNeighbors.General
 
         }
 
+        public double GetMeanDistance(Point p, DimWeight dw)
+        {
+            double sum = 0;
+            foreach (var myp in points)
+            {
+                sum += myp.ComputeDistance(p, dw);
+            }
+
+            return sum / points.Count();
+        }
+
         public PointSetSplit PartitionMedian(int dimNum)
         {
             if (dimNum >= NumDim)

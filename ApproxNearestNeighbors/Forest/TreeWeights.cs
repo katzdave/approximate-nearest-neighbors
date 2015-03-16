@@ -14,10 +14,17 @@ namespace ApproxNearestNeighbors.Forest
         private List<double> pdf;
         private List<double> cdf;
 
+        private const double epsilon = 1e-10;
+
         public TreeWeights(List<KDTree> inTrees)
         {
             Trees = inTrees;
             random = new Random();
+
+            foreach (var tree in inTrees)
+            {
+                tree.Quality = 1 / (epsilon + tree.Quality);
+            }
 
             setPdfCdf();
             pruneQuality(1 / (Trees.Count() * 2));

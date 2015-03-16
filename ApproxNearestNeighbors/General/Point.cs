@@ -33,6 +33,18 @@ namespace ApproxNearestNeighbors.General
             NumDim = values.Count();
         }
 
+        public Point(int dim, Random random)
+        {
+            NumDim = dim;
+
+            List<double> d = new List<double>();
+            for (int j = 0; j < dim; j++)
+            {
+                d.Add(random.NextDouble());
+            }
+            values = d;
+        }
+
         public void setId(int pid)
         {
             id = pid;
