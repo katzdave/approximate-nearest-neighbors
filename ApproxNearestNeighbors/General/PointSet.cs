@@ -112,5 +112,30 @@ namespace ApproxNearestNeighbors.General
 
             return pss;
         }
+
+        public int GetLongestDimension(DimWeight dw)
+        {
+            int longestDim = 0;
+            double longestDimLen = Double.MinValue;
+            for (int i = 0; i < dw.NumDim; i++)
+            {
+                double mincur = Double.MaxValue;
+                double maxcur = Double.MinValue;
+
+                foreach (var point in points)
+                {
+                    if (point.Values[i] > maxcur)
+                        maxcur = point.Values[i];
+                    if (point.Values[i] < mincur)
+                        mincur = point.Values[i];
+                }
+                if (((maxcur - mincur) * dw.Pdf[i]) > longestDimLen)
+                {
+                    longestDim = i;
+                    longestDimLen = ((maxcur - mincur) * dw.Pdf[i]);
+                }
+            }
+            return longestDim;
+        }
     }
 }

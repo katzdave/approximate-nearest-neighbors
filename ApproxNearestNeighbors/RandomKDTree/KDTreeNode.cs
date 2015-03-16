@@ -25,7 +25,8 @@ namespace ApproxNearestNeighbors.RandomKDTree
             if (ps.Points.Count() > 1)
             {
                 isLeaf = false;
-                splitDim = dwsplit.getRandomDim();
+                //splitDim = dwsplit.getRandomDim();
+                splitDim = ps.GetLongestDimension(dwsplit);
                 var pss = ps.PartitionMedian(splitDim);
                 point = pss.median;
                 leftChild = new KDTreeNode(pss.lower, this, dwsplit);

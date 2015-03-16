@@ -122,7 +122,7 @@ namespace ApproxNearestNeighbors
             int npoint = 100000;
             int testcases = 10;
             int dws = 10;
-            int K =  10;
+            int K =  20;
             int maxSearch = 500;
             int ntrees = 3;
 
