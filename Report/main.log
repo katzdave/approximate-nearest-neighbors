@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  16 MAR 2015 01:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  18 MAR 2015 02:56
 entering extended mode
 **C:/Users/david_000/Documents/Visual*Studio*2010/Projects/ApproxNearestNeighbo
 rs/Report/main.tex
@@ -758,19 +758,64 @@ Chapter 3.
 [16
 
 ] [17] [18] [19] [20]
+<Figures/sysdesc_drvmatching.png, id=500, 453.19313pt x 299.61937pt>
+File: Figures/sysdesc_drvmatching.png Graphic file (type png)
+
+<use Figures/sysdesc_drvmatching.png>
+Package pdftex.def Info: Figures/sysdesc_drvmatching.png used on input line 73.
+
+(pdftex.def)             Requested size: 417.47307pt x 276.00519pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21]
+<Figures/sysdesc_drv_varying_points.png, id=508, 435.12563pt x 267.24844pt>
+File: Figures/sysdesc_drv_varying_points.png Graphic file (type png)
+
+<use Figures/sysdesc_drv_varying_points.png>
+Package pdftex.def Info: Figures/sysdesc_drv_varying_points.png used on input l
+ine 83.
+(pdftex.def)             Requested size: 417.47307pt x 256.42102pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
+hbors/Report/Figures/sysdesc_drvmatching.png>] [23 <C:/Users/david_000/Document
+s/Visual Studio 2010/Projects/ApproxNearestNeighbors/Report/Figures/sysdesc_drv
+_varying_points.png>] [24]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 78.
+(amsmath)                 on input line 111.
 
-[21] [22] [23]) [24]
+[25] [26] [27])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Appendices\AppendixA.tex" [25]
+rs\Report\Chapters\Results.tex" [28] [29]
+Chapter 4.
+------------------------------------------------------------------------------
+ 4 Results
+------------------------------------------------------------------------------
+)
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Chapters\Conclusion.tex" [30
+
+]
+Chapter 5.
+------------------------------------------------------------------------------
+ 5 Conclusion
+------------------------------------------------------------------------------
+)
+("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
+rs\Report\Appendices\AppendixA.tex" [31
+
+]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [26
+) [32
 
 ]
 ------------------------------------------------------------------------------
@@ -791,30 +836,30 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ™ in font cmti10!
- [27
+ [33
 
 
-] [28] [29])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
- [30]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
+] [34] [35])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 309.
+ [36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8FE76DEEAEC2211308B67110909C0EB3;6726.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
+(rerunfilecheck)             Checksum: 68841F23DD1F52D42931F4E37F220D66;7162.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
  ) 
 Here is how much of TeX's memory you used:
- 14803 strings out of 493921
- 213868 string characters out of 3144863
- 299951 words of memory out of 3000000
- 17769 multiletter control sequences out of 15000+200000
+ 14851 strings out of 493921
+ 215115 string characters out of 3144863
+ 300569 words of memory out of 3000000
+ 17794 multiletter control sequences out of 15000+200000
  14560 words of font info for 53 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 49i,12n,45p,1435b,475s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,12n,45p,1554b,475s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
@@ -830,9 +875,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 
 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on main.pdf (43 pages, 322340 bytes).
+Output written on main.pdf (49 pages, 358516 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 677 PDF objects out of 1000 (max. 8388607)
+ 146 named destinations out of 1000 (max. 500000)
+ 355 words of extra memory for PDF output out of 10000 (max. 10000000)
 

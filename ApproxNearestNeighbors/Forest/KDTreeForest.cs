@@ -29,13 +29,23 @@ namespace ApproxNearestNeighbors.Forest
         MaxHeap<Point> heap;
         PointCompare pc;
 
-        public KDTreeForest(int ntrees, PointSet ps)
+        public KDTreeForest(int ntrees, PointSet ps, bool useRandom)
         {
             NTrees = ntrees;
             trees = new List<KDTree>();
             for (int i = 0; i < ntrees; i++)
             {
-                trees.Add(new KDTree(ps));
+                trees.Add(new KDTree(ps, useRandom));
+            }
+        }
+
+        public KDTreeForest(int ntrees, PointSet ps, DimWeight dw, bool useRandom)
+        {
+            NTrees = ntrees;
+            trees = new List<KDTree>();
+            for (int i = 0; i < ntrees; i++)
+            {
+                trees.Add(new KDTree(ps, dw, useRandom));
             }
         }
 

@@ -15,16 +15,17 @@ namespace ApproxNearestNeighbors.RandomKDTree
         public double Quality;
         public int id;
 
-        public KDTree(PointSet ps)
+        public KDTree(PointSet ps, bool useRandom)
         {
             splitWeight = new DimWeight(ps.NumDim);
-            root = new KDTreeNode(ps, null, splitWeight);
+            root = new KDTreeNode(ps, null, splitWeight, useRandom);
         }
 
-        public KDTree(PointSet ps, DimWeight dw)
+        public KDTree(PointSet ps, DimWeight dw, bool useRandom)
         {
             splitWeight = dw;
-            root = new KDTreeNode(ps, null, splitWeight);
+            root = new KDTreeNode(ps, null, splitWeight, useRandom);
+
         }
 
         public void SetQuality(Point querydw)

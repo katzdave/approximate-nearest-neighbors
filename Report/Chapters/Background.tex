@@ -54,6 +54,7 @@ Computation of the exact nearest neighbors via a linear search algorithm is extr
 However, for many applications it is not important that the result set be perfectly accurate.  It may be advantageous to return a set which isn't guaranteed to be exact in significantly less time. For these reasons, approximate nearest neighbors are often computed instead of exact nearest neighbors.  The most common index types for approximate nearest neighbor algorithms are constructed out of trees, hash tables, or graphs \citep{flann_pami_2014}.
 
 \subsection{Tree Based Indexes}
+\label{sec:treeind}
 
 The main concept behind a tree based index is space paritioning.  As such, these types of indexes tend to be extremely effective in low dimensionality settings, but do not scale as well to those of higher dimensionality.  Generally, at the root of these indexes, the entire search space is present \citep{yianilos1993data}.  As the tree splits, space is partitioned and only points which satisfy a split criteria will be present on each subtree.  Thus, when searching to the leaf of these trees, one can find the space partition a query point lies in, and by recursively backtracking, similar to the process described for k-d trees in section \ref{sec:kdtree} can gradually expand the search radius.
 
@@ -66,6 +67,7 @@ K-means trees are more expensive to construct than k-d trees, as the K-means alg
 Quad trees are another algorithm commonly used for nearest neighbor searches \citep{finkel1974quad}.  In a two dimensional space, each point in a quad tree splits space into 4 different quadrants, similar to how the origin separates a standard x and y axis into four regions.  The tree will be expanded this way and as such has a higher branching factor than k-d trees leading to lower depth.  Quad trees can also be expanded into octrees for 3-D space and generalized into similar higher orders for even higher dimensionality \citep{samet1988overview}.  Unfortunitely, in higher dimensional spaces of dimensionality D, each point splits space into $2^D$ regions.  This often leads to many unused pointers since points will not likely lie in all of these regions.  As such the memory cost of quad tree variants can become extremely large.
 
 \subsection{Hash Indexes}
+\label{sec:hashind}
 
 Many variations of hash indexes exist; however, the most widely used is locality-sensitive hashing (LSH).  The goal of LSH is to use a variety of different hash functions to map similar points into the same buckets.  Rather than using cryptographic hash functions which aim map entities into a bucket independent of their state, the hash functions used in LSH aim to match similar points into the same bucket with a high probability, and dissimilar points into the same bucket with a low probability.  Formally, each hash function maps a D-dimensional vector v into a R buckets \citep{datar2004locality}.  Many different types of hash functions can be used such as projection, lattice, and quantization based.  Different types of hash functions have been studied and evaluated extensively \citep{pauleve2010locality}.
 
@@ -76,6 +78,7 @@ To query an LSH index one must pass a query point through all H hash functions, 
 While LSH scales extremely well to high dimensional spaces, one disadvantage is that its memory consumption tends to be much larger than that of tree based indexes in low dimensional spaces \citep{datar2004locality}.  Another key disadvantage is that quality of the search queries cannot be changed, as this is dependent on H and R.  In other words, LSH indexes have their maximum accuracy constrained during their construction, wheras tree based indexes can have variable levels of accuracy on each query dependent on the number of nodes searched.
 
 \subsection{Graph Indexes}
+\label{sec:graphind}
 
 Graph based indexes tend to be the most expensive type to construct; however, they can support extremely fast queries.  One common type is a k-nearest neighbor graph.  In this type of graph, each node has exactly K edges, in which each node is connected to its k-nearest neighbors.  A variety of different algorithms are available for constructing these types of graphs efficiently \citep{connor2010fast}.
 

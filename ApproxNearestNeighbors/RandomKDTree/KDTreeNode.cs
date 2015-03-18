@@ -19,18 +19,20 @@ namespace ApproxNearestNeighbors.RandomKDTree
         private KDTreeNode leftChild;
         private KDTreeNode rightChild;
 
-        public KDTreeNode(PointSet ps, KDTreeNode parent, DimWeight dwsplit)
+        public KDTreeNode(PointSet ps, KDTreeNode parent, DimWeight dwsplit, bool useRandom)
         {
             this.parent = parent;
             if (ps.Points.Count() > 1)
             {
                 isLeaf = false;
-                //splitDim = dwsplit.getRandomDim();
-                splitDim = ps.GetLongestDimension(dwsplit);
+                if(useRandom)
+                    splitDim = dwsplit.getRandomDim();
+                else
+                    splitDim = ps.GetLongestDimension(dwsplit);
                 var pss = ps.PartitionMedian(splitDim);
                 point = pss.median;
-                leftChild = new KDTreeNode(pss.lower, this, dwsplit);
-                rightChild = new KDTreeNode(pss.upper, this, dwsplit);
+                leftChild = new KDTreeNode(pss.lower, this, dwsplit, useRandom);
+                rightChild = new KDTreeNode(pss.upper, this, dwsplit, useRandom);
             }
             else if (ps.Points.Count() == 1)
             {

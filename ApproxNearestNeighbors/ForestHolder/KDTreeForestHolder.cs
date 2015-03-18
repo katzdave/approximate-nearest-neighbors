@@ -26,7 +26,7 @@ namespace ApproxNearestNeighbors.ForestHolder
 
         private Serializer serializer = new Serializer();
 
-        public KDTreeForestHolder(PointSet ps, int depthDeter, int nRandom, bool toDisk)
+        public KDTreeForestHolder(PointSet ps, int depthDeter, int nRandom, bool toDisk, bool useRandom)
         {
             NumDim = ps.NumDim;
             ToDisk = toDisk;
@@ -61,18 +61,18 @@ namespace ApproxNearestNeighbors.ForestHolder
                 var point = new Point(dw.Pdf);
                 if (ToDisk)
                 {
-                    var filename = serializer.Serialize(new KDTree(ps, dw));
+                    var filename = serializer.Serialize(new KDTree(ps, dw, useRandom));
                     filenames.Add(point, filename);
                 }
                 else
                 {
-                    pointmap.Add(point, new KDTree(ps, dw));
+                    pointmap.Add(point, new KDTree(ps, dw, useRandom));
                 }
                 dimset.AddPoint(point);
             }
 
             bf = new BruteForce(dimset);
-            dimtree = new KDTree(dimset);
+            dimtree = new KDTree(dimset, useRandom);
 
             var bestTrees = getKBestTreeLinear(new DimWeight(ps.NumDim), 4);
         }
