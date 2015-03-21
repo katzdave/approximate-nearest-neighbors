@@ -49,9 +49,9 @@ namespace ApproxNearestNeighbors.Forest
             }
         }
 
-        public KDTreeForest(List<KDTree> allTrees)
+        public KDTreeForest(List<KDTree> allTrees, double prune)
         {
-            treeweights = new TreeWeights(allTrees);
+            treeweights = new TreeWeights(allTrees, prune);
             NTrees = treeweights.Trees.Count();
         }
 

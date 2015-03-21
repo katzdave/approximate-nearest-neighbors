@@ -36,6 +36,8 @@ namespace ApproxNearestNeighbors.ForestHolder
             dimset = new PointSet(ps.NumDim);
             uniformdw = new DimWeight(ps.NumDim);
 
+            dimWeights.Add(new DimWeight(NumDim));
+
             for (int i = 1; i <= depthDeter; i++)
             {
                 kSubset(new List<double>(), NumDim, i);
@@ -73,22 +75,22 @@ namespace ApproxNearestNeighbors.ForestHolder
 
             bf = new BruteForce(dimset);
             dimtree = new KDTree(dimset, useRandom);
-
-            var bestTrees = getKBestTreeLinear(new DimWeight(ps.NumDim), 4);
         }
 
-        public PointSet GetANN(Point p, DimWeight dw, int k, int ktree, double ratio, int maxSearch)
+        public PointSet GetANN(Point p, DimWeight dw, int k, int ktree, double ratio, double prune, int maxSearch)
         {
-            int nSearchTrees = (int) Math.Round((maxSearch)*(1-ratio));
-            if (nSearchTrees > dimWeights.Count())
+            int nSearchTrees = (int) Math.Round(pointmap.Count()*ratio);
+            if (ratio > 1 || nSearchTrees > maxSearch)
             {
-                nSearchTrees = dimWeights.Count();
+                Console.WriteLine("Invalid ratio/maxsearch");
+                return null;
             }
             int nSearchForest = maxSearch - nSearchTrees;
 
-            var trees = getKBestTreeKD(dw, ktree, nSearchForest);
-            var forest = new KDTreeForest(trees);
-            return forest.GetANNWeighted(p, k, nSearchTrees, dw);
+            var trees = getKBestTreeKD(dw, ktree, nSearchTrees);
+
+            var forest = new KDTreeForest(trees, prune);
+            return forest.GetANNWeighted(p, k, nSearchForest, dw);
         }
 
         private void kSubset(List<double> prev, int n, int k)

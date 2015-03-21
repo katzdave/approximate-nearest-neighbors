@@ -16,7 +16,7 @@ namespace ApproxNearestNeighbors.Forest
 
         private const double epsilon = 1e-10;
 
-        public TreeWeights(List<KDTree> inTrees)
+        public TreeWeights(List<KDTree> inTrees, double prune)
         {
             Trees = inTrees;
             random = new Random();
@@ -27,7 +27,7 @@ namespace ApproxNearestNeighbors.Forest
             }
 
             setPdfCdf();
-            pruneQuality(1 / (Trees.Count() * 2));
+            pruneQuality(1 / (Trees.Count() * prune));
             setPdfCdf();
         }
 
@@ -84,6 +84,11 @@ namespace ApproxNearestNeighbors.Forest
             }
             Trees.RemoveAt(indx);
             setPdfCdf();
+        }
+
+        public KDTreeNode GetTreeById()
+        {
+            return null;
         }
 
         public int GetRandomId()

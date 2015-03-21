@@ -39,6 +39,14 @@ namespace ApproxNearestNeighbors.General
             }
         }
 
+        public void AddPointInternal(Point p)
+        {
+            if (p.NumDim == NumDim)
+            {
+                points.Add(p);
+            }
+        }
+
         public void NormalizePoints()
         {
 
@@ -102,11 +110,11 @@ namespace ApproxNearestNeighbors.General
                 }
                 else if (p.Values[dimNum] < medVal)
                 {
-                    pss.lower.AddPoint(p);
+                    pss.lower.AddPointInternal(p);
                 }
                 else
                 {
-                    pss.upper.AddPoint(p);
+                    pss.upper.AddPointInternal(p);
                 }
             }
 

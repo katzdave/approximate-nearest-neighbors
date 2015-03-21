@@ -25,7 +25,6 @@ namespace ApproxNearestNeighbors.RandomKDTree
         {
             splitWeight = dw;
             root = new KDTreeNode(ps, null, splitWeight, useRandom);
-
         }
 
         public void SetQuality(Point querydw)

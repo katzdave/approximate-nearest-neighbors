@@ -3,3 +3,21 @@
 \label{conclusion} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
 \lhead{Chapter 5. \emph{Conclusion}} % This is for the header on each page - perhaps a 
+
+\section{Future Work}
+
+Future work can be divided into two main components: heuristic testing/tuning, and real world implementation.
+
+\subsection{Heuristic Tuning}
+
+\subsection{Real World Considerations}
+
+There are a variety of aspects which much be considered when attempting a real world of this algorithm.  The first is the large memory cost.  As shown in the section \ref{results}, a larger amount of trees results in improved performance, as the overall quality of the top trees will be higher.  However, there is a diminishing return to this effect, so memory consumption should be balanced, and tuned.  One proposed method of tuning is to develop a cost metric which considers both memory, and the quality of results.  Using a small initial set of requested or randomly generated queries, one can use this data to minimize this cost metric, and select the optimal memory consumption.  Other algorithmic parameters can be tuned in a similar manner.  By examining the performance relative to a linear search on a subset of queries, one can attempt these queries with different parameters to see if performance changes.  \citep{muja_flann_2009} suggests some methods for automatic parameter selection such as putting weights on different cost aspects of the algorithm.
+
+If the dataset is large, a single server implementation is likely not possible as the memory consumption of this algorithm can be hundreds of times larger than the original dataset.  To counteract this, we propose a distributed approach with N trees split across M compute nodes, with some duplication factor D.  The duplication factor represents, the number of different nodes in which a single tree exists in memory on.  A larger duplication factor will further increase memory cost by D times, but will allow the system to be more robust in the event of a node's failure.  \citep{nitzberg1991distributed} discusses many types of potential architectures for a system with distrubed memory, and considerations of each.  Load balancing is another important consideration, which attempts to provide work to the least busy nodes \citep{cybenko1989dynamic}.
+
+In our suggested distributed implementation, each node will store as many trees as it can fit into memory, and will also store the seed DRVs used to construct each tree, and the nodes which hold each of these trees.  A load balancer should be applied to determine which nodes requests come through to.  When a request arrives at a node, that node can compute the best set of trees to search, and the least busy nodes which holds those trees.  This selection process can be augmented by adding an additional cost to trees whose nodes are currently busy.
+
+After the top trees and their nodes are selected for a query, a distributed priority and hashtable must be used.  Considerations for these data structures are discussed in \citep{kaashoek2003koorde} and \citep{rogers1995supporting}.  It is also important to ensure that the searches happen in relative parallel for best results.  For example, if one node searches its allocated amount before another, results will not be as accurate as if the searches are interleaved between the two nodes.  In our testbed, searches were perfectly interleaved relative to the quality of each tree.  Thus, real world results will likely not reach these benchmarks.
+
+Another important consideration with this distributed system is future performance tuning.  In our proposed construction of the data structure, no information was available about the frequencies of different DRVs in each query.  Thus, by storing all requested DRVs, one can learn which type of queries are most popular.  The system can then eliminate the trees which are least used, and replace them with trees which better match the popular queries.  This dynamic adjustment will allow the system's performance to improve over time as more data about the types of searches performed is gathered.
