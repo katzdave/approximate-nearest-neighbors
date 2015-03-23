@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -181,5 +181,29 @@ John Ousterhout and Fred Douglis.
 \newblock Beating the i/o bottleneck: A case for log-structured file systems.
 \newblock \emph{ACM SIGOPS Operating Systems Review}, 23\penalty0 (1):\penalty0
   11--28, 1989.
+
+\bibitem[Nitzberg and Lo(1991)]{nitzberg1991distributed}
+Bill Nitzberg and Virginia Lo.
+\newblock Distributed shared memory: A survey of issues and algorithms.
+\newblock \emph{Distributed Shared Memory-Concepts and Systems}, pages 42--50,
+  1991.
+
+\bibitem[Cybenko(1989)]{cybenko1989dynamic}
+George Cybenko.
+\newblock Dynamic load balancing for distributed memory multiprocessors.
+\newblock \emph{Journal of parallel and distributed computing}, 7\penalty0
+  (2):\penalty0 279--301, 1989.
+
+\bibitem[Kaashoek and Karger(2003)]{kaashoek2003koorde}
+M~Frans Kaashoek and David~R Karger.
+\newblock Koorde: A simple degree-optimal distributed hash table.
+\newblock In \emph{Peer-to-peer systems II}, pages 98--107. Springer, 2003.
+
+\bibitem[Rogers et~al.(1995)Rogers, Carlisle, Reppy, and
+  Hendren]{rogers1995supporting}
+Anne Rogers, Martin~C Carlisle, John~H Reppy, and Laurie~J Hendren.
+\newblock Supporting dynamic data structures on distributed-memory machines.
+\newblock \emph{ACM Transactions on Programming Languages and Systems
+  (TOPLAS)}, 17\penalty0 (2):\penalty0 233--263, 1995.
 
 \end{thebibliography}

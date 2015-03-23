@@ -76,6 +76,28 @@ namespace ApproxNearestNeighbors.General
             setPdfCdf(weights);
         }
 
+        public DimWeight(int dim, double selper, Random random)
+        {
+            var weights = new List<double>();
+
+            int include = random.Next(0, dim);
+
+            for (int j = 0; j < dim; j++)
+            {
+                if (j == include || random.NextDouble() < selper)
+                {
+                    weights.Add(random.NextDouble());
+                }
+                else
+                {
+                    weights.Add(0);
+                }
+            }
+
+            NumDim = dim;
+            setPdfCdf(weights);
+        }
+
         public int getRandomDim()
         {
             double val = rand.NextDouble();

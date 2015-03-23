@@ -203,10 +203,13 @@ namespace ApproxNearestNeighbors.Forest
 
         private void performAction(int id)
         {
-            mutexes[id].ReleaseMutex();
-            while (!childHolds[id]) ;
-            mutexes[id].WaitOne();
-            childHolds[id] = false;
+            if (id < mutexes.Count())
+            {
+                mutexes[id].ReleaseMutex();
+                while (!childHolds[id]) ;
+                mutexes[id].WaitOne();
+                childHolds[id] = false;
+            }
         }
 
         private void cleanupThreads()

@@ -162,6 +162,7 @@ This algorithm can be extended to support KNN with the same priority queue proce
 The k-d tree nearest neighbor search algorithm can be extended into an approximate nearest neighbors search.  To do so, a limit on the number of points to search must be applied.  The algorithm will follow the exact same steps as shown in Figure \ref{alg:querykd}; however, when the search limit is reached the algorithm terminates.  This means that not every possible node that might contain a closer point would necessarily be searched.  However, the nodes that do get searched are the more likely to contain the close points.  In other words the algorithm will examine the regions of space which are closest to the search query first before expanding outward.
 
 \subsection{Modification}
+\label{sec:kdmod}
 
 One key advantage of k-d trees is that they are very easy to modify.  Inserting a node requires a traversal to a leaf node following the same procedure as described in the first part of Figure \ref{alg:querykd}.  This search takes approximate O(log(N)) time if the tree is balanced.  Once a leaf node is reached, a single comparison along the split dimension needs to be performed in order determine whether the new node should be added as the left or right child.  If random points are inserted the tree will remain relatively balanced as there will be an equal probability of being placed on each leaf.  However heuristics can be used to help ensure that a tree remains balanced in a dyanmic environment \citep{hunt2006fast}.
 
