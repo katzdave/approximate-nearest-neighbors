@@ -19,12 +19,16 @@ namespace ApproxNearestNeighbors.RandomKDTree
         {
             splitWeight = new DimWeight(ps.NumDim);
             root = new KDTreeNode(ps, null, splitWeight, useRandom);
+            root.parent = new KDTreeNode(ps.NumDim, root);
+            root = root.parent;
         }
 
         public KDTree(PointSet ps, DimWeight dw, bool useRandom)
         {
             splitWeight = dw;
             root = new KDTreeNode(ps, null, splitWeight, useRandom);
+            root.parent = new KDTreeNode(ps.NumDim, root);
+            root = root.parent;
         }
 
         public void SetQuality(Point querydw)

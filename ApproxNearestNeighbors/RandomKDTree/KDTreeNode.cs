@@ -10,7 +10,7 @@ namespace ApproxNearestNeighbors.RandomKDTree
     [Serializable]
     class KDTreeNode
     {
-        private KDTreeNode parent;
+        public KDTreeNode parent;
 
         private bool isLeaf;
         private Point point;
@@ -18,6 +18,15 @@ namespace ApproxNearestNeighbors.RandomKDTree
         private int splitDim;
         private KDTreeNode leftChild;
         private KDTreeNode rightChild;
+
+        //For dummy node only
+        public KDTreeNode(int dim, KDTreeNode child)
+        {
+            isLeaf = false;
+            leftChild = child;
+            splitDim = 0;
+            point = new Point(dim, 1000);
+        }
 
         public KDTreeNode(PointSet ps, KDTreeNode parent, DimWeight dwsplit, bool useRandom)
         {
@@ -54,8 +63,9 @@ namespace ApproxNearestNeighbors.RandomKDTree
         {
             var pc = new PointCompare(dw, p);
             var heap = new MaxHeap<Point>(pc);
+            var searched = new PointSet(p.NumDim);
 
-            SearchDown(p, K, maxSearch, dw, new PointSet(p.NumDim), heap, pc);
+            SearchDown(p, K, maxSearch, dw, searched, heap, pc);
 
             PointSet ps = new PointSet(p.NumDim);
             while (heap.Count > 0)
@@ -91,20 +101,24 @@ namespace ApproxNearestNeighbors.RandomKDTree
                 }
 
                 // Check this point
-                CheckPoint(K, heap, pc);
-                searched.AddPoint(point);
+                if (searched.NPoints < maxSearch)
+                {
+                    CheckPoint(K, heap, pc);
+                    searched.AddPoint(point);
+                }
 
                 // Check if a better point possibly exists in the other subtree
                 var pval = new List<Double>(p.Values);
                 pval[splitDim] = point.Values[splitDim];
                 Point planecheck = new Point(pval);
-                if (pc.Compare(heap.GetMin(), planecheck) > 0)
+
+                if (pc.Compare(heap.GetMin(), planecheck) >= 0)
                 {
-                    if (leftSearched)
+                    if (leftSearched && rightChild != null)
                     {
                         rightChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
                     }
-                    else
+                    else if(!leftSearched && leftChild != null)
                     {
                         leftChild.SearchDown(p, K, maxSearch, dw, searched, heap, pc);
                     }
@@ -163,17 +177,17 @@ namespace ApproxNearestNeighbors.RandomKDTree
                 var pval = new List<Double>(p.Values);
                 pval[splitDim] = point.Values[splitDim];
                 Point planecheck = new Point(pval);
-                bool expandOther = pc.Compare(heap.GetMin(), planecheck) > 0;
+                bool expandOther = pc.Compare(heap.GetMin(), planecheck) >= 0;
 
                 m[id].ReleaseMutex();
 
                 if (expandOther)
                 {
-                    if (leftSearched)
+                    if (leftSearched && rightChild != null)
                     {
                         rightChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
                     }
-                    else
+                    else if (!leftSearched && leftChild != null)
                     {
                         leftChild.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, b, m, id);
                     }

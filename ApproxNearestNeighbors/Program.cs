@@ -20,7 +20,7 @@ namespace ApproxNearestNeighbors
         {
             //DRV_Matching_Test();
             //Test_Tree_maxSearch();
-            //Full_Sys_Test();
+            Full_Sys_Test();
             Full_Sys_Test_ExtremeDRV();
         }
 
@@ -209,7 +209,7 @@ namespace ApproxNearestNeighbors
             int maxSearch = 500;
             int ntrees = 3;
 
-            int nrand = 50;
+            int nrand = 100;
             int ddeter = 2;
             double ratio = .4;
             double prune = 1.5;
@@ -295,6 +295,12 @@ namespace ApproxNearestNeighbors
                 ps.AddPoint(new Point(dim, random));
             }
 
+            ////garbage
+            //var p2 = new Point(dim, random);
+            //var querydw2 = new DimWeight(dim, 0, random);
+            //var queryTree2 = new KDTree(ps, querydw2, false);
+            //var tmp = queryTree2.root.GetANN(p2, K, maxSearch, querydw2);
+
             //Indexes
             var bruteForce = new BruteForce(ps);
 
@@ -328,7 +334,6 @@ namespace ApproxNearestNeighbors
 
                     standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
                     queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
-                    var tmp = queryTree.root.GetANN(p, K, maxSearch, querydw);
                     standardDist_f.Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
 
                     standardDist_r.Add(standardTree_r.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);

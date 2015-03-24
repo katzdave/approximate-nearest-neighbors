@@ -45,6 +45,18 @@ namespace ApproxNearestNeighbors.General
             values = d;
         }
 
+        public Point(int dim, double value)
+        {
+            NumDim = dim;
+
+            List<double> d = new List<double>();
+            for (int j = 0; j < dim; j++)
+            {
+                d.Add(value);
+            }
+            values = d;
+        }
+
         public void setId(int pid)
         {
             id = pid;
