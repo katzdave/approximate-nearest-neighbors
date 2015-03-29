@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -35,6 +35,12 @@ Peter van Emde~Boas, Robert Kaas, and Erik Zijlstra.
 \newblock Design and implementation of an efficient priority queue.
 \newblock \emph{Mathematical Systems Theory}, 10\penalty0 (1):\penalty0
   99--127, 1976.
+
+\bibitem[Carlsson et~al.(1988)Carlsson, Munro, and
+  Poblete]{carlsson1988implicit}
+Svante Carlsson, J~Ian Munro, and Patricio~V Poblete.
+\newblock An implicit binomial queue with constant insertion time.
+\newblock In \emph{SWAT 88}, pages 1--13. Springer, 1988.
 
 \bibitem[Beyer et~al.(1999)Beyer, Goldstein, Ramakrishnan, and
   Shaft]{beyer1999nearest}
@@ -205,5 +211,22 @@ Anne Rogers, Martin~C Carlisle, John~H Reppy, and Laurie~J Hendren.
 \newblock Supporting dynamic data structures on distributed-memory machines.
 \newblock \emph{ACM Transactions on Programming Languages and Systems
   (TOPLAS)}, 17\penalty0 (2):\penalty0 233--263, 1995.
+
+\bibitem[Aly et~al.(2011)Aly, Munich, and Perona]{aly2011distributed}
+Mohamed Aly, Mario Munich, and Pietro Perona.
+\newblock Distributed kd-trees for retrieval from very large image collections.
+\newblock In \emph{Proceedings of the British Machine Vision Conference
+  (BMVC)}, 2011.
+
+\bibitem[Karedla et~al.(1994)Karedla, Love, and Wherry]{karedla1994caching}
+Ramakrishna Karedla, J~Spencer Love, and Bradley~G Wherry.
+\newblock Caching strategies to improve disk system performance.
+\newblock \emph{Computer}, 27\penalty0 (3):\penalty0 38--46, 1994.
+
+\bibitem[Guttman(1984)]{guttman1984r}
+Antonin Guttman.
+\newblock \emph{R-trees: a dynamic index structure for spatial searching},
+  volume~14.
+\newblock ACM, 1984.
 
 \end{thebibliography}

@@ -16,6 +16,7 @@ namespace ApproxNearestNeighbors.Forest
 
         private List<Boolean> childHolds;
         private List<Mutex> mutexes;
+        private HashSet<int> flaggedId;
         private Dictionary<int, int> threadIds; //Converts threadId to mutexId
         private List<Thread> threads;
         private List<Boolean> returned;
@@ -67,6 +68,7 @@ namespace ApproxNearestNeighbors.Forest
 
             childHolds = new List<bool>();
             mutexes = new List<Mutex>();
+            flaggedId = new HashSet<int>();
             threadIds = new Dictionary<int, int>();
             threads = new List<Thread>();
             returned = new List<bool>();
@@ -86,7 +88,10 @@ namespace ApproxNearestNeighbors.Forest
 
             while (nReturned < NTrees)
             {
-                performAction(treeweights.GetRandomId());
+                int id = treeweights.GetRandomId();
+                bool res = performAction(treeweights.GetRandomId());
+                if (id >= returned.Count() || (!res && returned[id]))
+                    break;
             }
 
             cleanupThreads();
@@ -187,29 +192,45 @@ namespace ApproxNearestNeighbors.Forest
         {
             int id = System.Threading.Thread.CurrentThread.ManagedThreadId;
             threadIds.TryGetValue(id, out id);
-            treeweights.Trees[id].id = id;
-            treeweights.Trees[id].root.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, childHolds, mutexes, id);
+            if (id < treeweights.Trees.Count())
+            {
+                treeweights.Trees[id].id = id;
+                treeweights.Trees[id].root.SearchDownThreaded(p, K, maxSearch, dw, searched, heap, pc, childHolds, mutexes, id);
 
-            while (childHolds[id]) ;
-            mutexes[id].WaitOne();
-            childHolds[id] = true;
+                while (childHolds[id]) ;
+                mutexes[id].WaitOne();
+                childHolds[id] = true;
 
-            treeweights.RemoveTree(id);
-            returned[id] = true;
-            nReturned++;
+                treeweights.RemoveTree(id);
+                returned[id] = true;
+                nReturned++;
 
-            mutexes[id].ReleaseMutex();
+                mutexes[id].ReleaseMutex();
+            }
+            else
+            {
+                flaggedId.Add(id);
+            }
         }
 
-        private void performAction(int id)
+        private bool performAction(int id)
         {
-            if (id < mutexes.Count())
+            if (id < mutexes.Count() && !flaggedId.Contains(id) && !returned[id])
             {
                 mutexes[id].ReleaseMutex();
-                while (!childHolds[id]) ;
+                //DateTimeOffset then = DateTimeOffset.Now;
+                while (!childHolds[id])
+                {
+                    //if (then.AddMilliseconds(100) < DateTimeOffset.Now)
+                    //{
+                    //    break;
+                    //}
+                }
                 mutexes[id].WaitOne();
                 childHolds[id] = false;
+                return true;
             }
+            return false;
         }
 
         private void cleanupThreads()

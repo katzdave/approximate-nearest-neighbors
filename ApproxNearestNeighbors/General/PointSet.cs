@@ -8,7 +8,7 @@ namespace ApproxNearestNeighbors.General
     class PointSet
     {
         public static int medianOf = 5;
-
+        Random random = new Random();
         public readonly int NumDim;
         private List<Point> points;
         public List<Point> Points
@@ -30,6 +30,23 @@ namespace ApproxNearestNeighbors.General
             points = new List<Point>();
         }
 
+        public PointSet(string filename, int startcol, char delim)
+        {
+			var rows = System.IO.File.ReadAllLines(filename);
+			currpid = 1;
+            points = new List<Point>();
+			foreach(var row in rows)
+			{
+				var vals = row.Split(' ');
+				List<double> dvals = new List<double>();
+				for(int i = startcol; i < vals.Length; i++){
+					dvals.Add(Double.Parse(vals[i]));
+				}
+				NumDim = dvals.Count();
+				AddPoint(new Point(dvals));
+			}
+        }
+
         public void AddPoint(Point p)
         {
             if (p.NumDim == NumDim)
@@ -49,7 +66,26 @@ namespace ApproxNearestNeighbors.General
 
         public void NormalizePoints()
         {
-
+            for (int i = 0; i < NumDim; i++)
+            {
+                var min = Double.MaxValue;
+                var max = Double.MinValue;
+                foreach (var point in points)
+                {
+                    if (point.Values[i] < min)
+                    {
+                        min = point.Values[i];
+                    }
+                    if (point.Values[i] > max)
+                    {
+                        max = point.Values[i];
+                    }
+                }
+                foreach (var point in points)
+                {
+                    point.Values[i] = (point.Values[i] - min) / (max - min); 
+                }
+            }
         }
 
         public double GetMeanDistance(Point p, DimWeight dw)
@@ -80,7 +116,6 @@ namespace ApproxNearestNeighbors.General
             else
             {
                 List<int> selected = new List<int>();
-                Random random = new Random();
                 int r;
                 for (int i = 0; i < medianOf; i++)
                 {
@@ -112,6 +147,14 @@ namespace ApproxNearestNeighbors.General
                 {
                     pss.lower.AddPointInternal(p);
                 }
+                else if (p.Values[dimNum] > medVal)
+                {
+                    pss.upper.AddPointInternal(p);
+                }
+                else if (random.Next(0, 2) == 0)
+                {
+                    pss.lower.AddPointInternal(p);
+                }
                 else
                 {
                     pss.upper.AddPointInternal(p);
@@ -123,6 +166,8 @@ namespace ApproxNearestNeighbors.General
 
         public int GetLongestDimension(DimWeight dw)
         {
+            //return GetHighestVarianceDimension(dw);
+
             int longestDim = 0;
             double longestDimLen = Double.MinValue;
             for (int i = 0; i < dw.NumDim; i++)
@@ -144,6 +189,42 @@ namespace ApproxNearestNeighbors.General
                 }
             }
             return longestDim;
+        }
+
+        public int GetHighestVarianceDimension(DimWeight dw)
+        {
+            int longestDim = 0;
+            double longestDimLen = Double.MinValue;
+            for (int i = 0; i < dw.NumDim; i++)
+            {
+                List<double> d = new List<double>();
+                foreach (var point in points)
+                {
+                    d.Add(point.Values[i]);
+                }
+                var std = stdev(d)*dw.Pdf[i];
+                if (std > longestDimLen)
+                {
+                    longestDim = i;
+                    longestDimLen = std;
+                }
+            }
+            return longestDim;
+        }
+
+        private static double stdev(List<double> values)
+        {
+            double ret = 0;
+            if (values.Count() > 0)
+            {
+                //Compute the Average      
+                double avg = values.Average();
+                //Perform the Sum of (value-avg)_2_2      
+                double sum = values.Sum(d => Math.Pow(d - avg, 2));
+                //Put it all together      
+                ret = Math.Sqrt((sum) / (values.Count() - 1));
+            }
+            return ret;
         }
     }
 }

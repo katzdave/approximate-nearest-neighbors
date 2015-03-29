@@ -20,8 +20,13 @@ namespace ApproxNearestNeighbors
         {
             //DRV_Matching_Test();
             //Test_Tree_maxSearch();
-            Full_Sys_Test();
-            Full_Sys_Test_ExtremeDRV();
+            //Full_Sys_Test();
+            //Full_Sys_Test_ExtremeDRV();
+            //Full_Sys_Test_Dimensions();
+            //Full_Sys_Test_Alternative();
+            //Full_Sys_Test_Trees();
+            //Full_Sys_Test_K();
+            Full_Sys_Test_Size();
         }
 
         public static void DRV_Matching_Test()
@@ -348,6 +353,412 @@ namespace ApproxNearestNeighbors
 
             Console.WriteLine(stdev(standardDist) + " " + stdev(standardDist_f) + " " + stdev(queryDist));
             Console.WriteLine(stdev(standardDist_r) + " " + stdev(standardDist_f_r) + " " + stdev(queryDist_r));
+        }
+
+        public static void Full_Sys_Test_Dimensions()
+        {
+            List<int> dims = new List<int>() { 2, 4, 8, 16, 32 };
+            int npoint = 100000;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+            
+            var lines = new List<string>();
+            string filename = "resultsdim.csv";            
+
+            Random random = new Random();
+
+            foreach (var dim in dims)
+            {
+                PointSet ps = new PointSet(dim);
+
+                for (int i = 0; i < npoint; i++)
+                {
+                    ps.AddPoint(new Point(dim, random));
+                }
+
+                //Indexes
+                var bruteForce = new BruteForce(ps);
+
+                var standardTree = new KDTree(ps, false);
+                var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
+
+                //Result holders
+                var standardDist = new List<double>();
+                var queryDist = new List<double>();
+                var standardDist_f = new List<double>();
+
+                for (int i = 0; i < dws; i++)
+                {
+                    Console.WriteLine(dim + " " + i);
+                    var querydw = new DimWeight(dim, random);
+
+                    var queryTree = new KDTree(ps, querydw, false);
+
+                    for (int j = 0; j < testcases; j++)
+                    {
+                        var p = new Point(dim, random);
+                        var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                        standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        standardDist_f.Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                    }
+                }
+
+                lines.Add(standardDist.Average() + "," + standardDist_f.Average() + "," + queryDist.Average());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        public static void Full_Sys_Test_Alternative()
+        {
+            int dim = 32;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            Random random = new Random();
+
+            PointSet ps = new PointSet("ColorHistogram.asc", 1, ' ');
+            ps.NormalizePoints();
+
+            //Indexes
+            var bruteForce = new BruteForce(ps);
+
+            var standardTree = new KDTree(ps, false);
+            var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
+
+            //Result holders
+            var standardDist = new List<double>();
+            var queryDist = new List<double>();
+            var standardDist_f = new List<double>();
+
+            for (int i = 0; i < dws; i++)
+            {
+                Console.WriteLine(dim + " " + i);
+                var querydw = new DimWeight(dim, random);
+
+                var queryTree = new KDTree(ps, querydw, false);
+
+                for (int j = 0; j < testcases; j++)
+                {
+                    var p = ps.Points[random.Next(ps.Points.Count())];
+                    var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                    standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    standardDist_f.Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                }
+            }
+
+            Console.WriteLine(standardDist.Average() + "," + standardDist_f.Average() + "," + queryDist.Average());
+        }
+
+        public static void Full_Sys_Test_Trees()
+        {
+            int dim = 8;
+            int npoint = 100000;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            var ntree = new List<int>(){1, 5, 10, 20};
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            var lines = new List<string>();
+            string filename = "resultsdim.csv";
+
+            Random random = new Random();
+
+            PointSet ps = new PointSet(dim);
+
+            for (int i = 0; i < npoint; i++)
+            {
+                ps.AddPoint(new Point(dim, random));
+            }
+
+            //Indexes
+            var bruteForce = new BruteForce(ps);
+
+            var standardTree = new KDTree(ps, false);
+            var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
+
+            //Result holders
+            var standardDist = new List<double>();
+            var queryDist = new List<double>();
+            var standardDist_f = new List<List<double>>();
+            for (int i = 0; i < ntree.Count(); i++)
+            {
+                standardDist_f.Add(new List<double>());
+            }
+
+            for (int i = 0; i < dws; i++)
+            {
+                Console.WriteLine(dim + " " + i);
+                var querydw = new DimWeight(dim, random);
+
+                var queryTree = new KDTree(ps, querydw, false);
+
+                for (int j = 0; j < testcases; j++)
+                {
+                    var p = new Point(dim, random);
+                    var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                    standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    int indx = 0;
+                    foreach (var ntrees in ntree)
+                    {
+                        standardDist_f[indx++].Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                    }
+                }
+            }
+
+            lines.Add(standardDist.Average() + "," + queryDist.Average());
+            foreach (var list in standardDist_f)
+            {
+                lines.Add(list.Average().ToString());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        public static void Full_Sys_Test_nSearch()
+        {
+            int dim = 8;
+            int npoint = 100000;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            var maxSearchs = new List<int>() {50, 200, 500, 2000, 8000};
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            var lines = new List<string>();
+            string filename = "resultsnsearch.csv";
+
+            Random random = new Random();
+
+            PointSet ps = new PointSet(dim);
+
+            for (int i = 0; i < npoint; i++)
+            {
+                ps.AddPoint(new Point(dim, random));
+            }
+
+            //Indexes
+            var bruteForce = new BruteForce(ps);
+
+            var standardTree = new KDTree(ps, false);
+            var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
+
+            //Result holders
+            var standardDist = new List<List<double>>();
+            var queryDist = new List<List<double>>();
+            var standardDist_f = new List<List<double>>();
+            for (int i = 0; i < maxSearchs.Count(); i++)
+            {
+                standardDist.Add(new List<double>());
+                queryDist.Add(new List<double>());
+                standardDist_f.Add(new List<double>());
+            }
+
+            for (int i = 0; i < dws; i++)
+            {
+                Console.WriteLine(dim + " " + i);
+                var querydw = new DimWeight(dim, random);
+
+                var queryTree = new KDTree(ps, querydw, false);
+
+                for (int j = 0; j < testcases; j++)
+                {
+                    var p = new Point(dim, random);
+                    var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+                    foreach (var maxSearch in maxSearchs)
+                    {
+                        int indx = 0;
+                        standardDist[indx].Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        queryDist[indx].Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+
+
+                        standardDist_f[indx].Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                        indx++;
+                    }
+                }
+            }
+
+            for (int i = 0; i < standardDist.Count(); i++)
+            {
+                lines.Add(standardDist[i].Average() + "," + queryDist[i].Average() + "," + standardDist_f[i].Average());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        public static void Full_Sys_Test_K()
+        {
+            int dim = 8;
+            int npoint = 100000;
+            int testcases = 20;
+            int dws = 80;
+            var Ks = new List<int>() { 1, 5, 20, 50, 100 };
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            var lines = new List<string>();
+            string filename = "resultsks.csv";
+
+            Random random = new Random();
+
+            PointSet ps = new PointSet(dim);
+
+            for (int i = 0; i < npoint; i++)
+            {
+                ps.AddPoint(new Point(dim, random));
+            }
+
+            //Indexes
+            var bruteForce = new BruteForce(ps);
+
+            var standardTree = new KDTree(ps, false);
+            var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
+
+            //Result holders
+            var standardDist = new List<List<double>>();
+            var queryDist = new List<List<double>>();
+            var standardDist_f = new List<List<double>>();
+            for (int i = 0; i < Ks.Count(); i++)
+            {
+                standardDist.Add(new List<double>());
+                queryDist.Add(new List<double>());
+                standardDist_f.Add(new List<double>());
+            }
+
+            for (int i = 0; i < dws; i++)
+            {
+                Console.WriteLine(dim + " " + i);
+                var querydw = new DimWeight(dim, random);
+
+                var queryTree = new KDTree(ps, querydw, false);
+
+                for (int j = 0; j < testcases; j++)
+                {
+                    var p = new Point(dim, random);
+                    int indx = 0;
+                    foreach (var K in Ks)
+                    {
+                        var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+                        standardDist[indx].Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        queryDist[indx].Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        standardDist_f[indx].Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                        indx++;
+                    }
+                }
+            }
+
+            for (int i = 0; i < standardDist.Count(); i++)
+            {
+                lines.Add(standardDist[i].Average() + "," + queryDist[i].Average() + "," + standardDist_f[i].Average());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        public static void Full_Sys_Test_Size()
+        {
+            int dim = 8;
+            var npoints = new List<int>() { 500000, 1000000 };
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            var lines = new List<string>();
+            string filename = "resultssize.csv";
+
+            Random random = new Random();
+
+            foreach (var npoint in npoints)
+            {
+                PointSet ps = new PointSet(dim);
+
+                for (int i = 0; i < npoint; i++)
+                {
+                    ps.AddPoint(new Point(dim, random));
+                }
+
+                //Indexes
+                var bruteForce = new BruteForce(ps);
+
+                var standardTree = new KDTree(ps, false);
+                var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, true, false);
+
+                //Result holders
+                var standardDist = new List<double>();
+                var queryDist = new List<double>();
+                var standardDist_f = new List<double>();
+
+                for (int i = 0; i < dws; i++)
+                {
+                    Console.WriteLine(dim + " " + i);
+                    var querydw = new DimWeight(dim, random);
+
+                    var queryTree = new KDTree(ps, querydw, false);
+
+                    for (int j = 0; j < testcases; j++)
+                    {
+                        var p = new Point(dim, random);
+                        var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                        standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        double val = standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1;
+                        if (!Double.IsNaN(val) && val < 1000)
+                        {
+                            standardDist_f.Add(val);
+                        }
+                    }
+                }
+
+                lines.Add(standardDist.Average() + "," + standardDist_f.Average() + "," + queryDist.Average());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
         }
 
         private static double stdev(List<double> values)

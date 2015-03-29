@@ -27,26 +27,32 @@
 \contentsline {subsection}{\numberline {1.4.4}Approximate Nearest Neighbors Query}{12}{subsection.39}
 \contentsline {subsection}{\numberline {1.4.5}Modification}{12}{subsection.40}
 \contentsline {section}{\numberline {1.5}Randomized k-d Tree Forests}{13}{section.41}
-\contentsline {chapter}{\numberline {2}Related Work}{14}{chapter.42}
-\contentsline {section}{\numberline {2.1}Approximate Nearest Neighbor Frameworks}{14}{section.43}
-\contentsline {chapter}{\numberline {3}System Description}{16}{chapter.44}
-\contentsline {section}{\numberline {3.1}Overview}{16}{section.45}
-\contentsline {subsection}{\numberline {3.1.1}Normalization}{17}{subsection.46}
-\contentsline {subsection}{\numberline {3.1.2}Dimension Relevance}{17}{subsection.49}
-\contentsline {subsection}{\numberline {3.1.3}Motivation for k-d Trees}{18}{subsection.51}
-\contentsline {subsection}{\numberline {3.1.4}Split Dimension Determination Heuristics}{19}{subsection.52}
-\contentsline {subsection}{\numberline {3.1.5}Initial Tests}{20}{subsection.53}
-\contentsline {subsection}{\numberline {3.1.6}Tree Quality Metric}{22}{subsection.57}
-\contentsline {section}{\numberline {3.2}Detailed Implementation Overview}{24}{section.58}
-\contentsline {subsection}{\numberline {3.2.1}Index Construction}{24}{subsection.59}
-\contentsline {subsection}{\numberline {3.2.2}ANN Query}{26}{subsection.61}
-\contentsline {subsection}{\numberline {3.2.3}Weighted Random Number Selection}{28}{subsection.63}
-\contentsline {chapter}{\numberline {4}Results}{30}{chapter.64}
-\contentsline {chapter}{\numberline {5}Conclusion}{32}{chapter.65}
-\contentsline {section}{\numberline {5.1}Future Work}{32}{section.66}
-\contentsline {subsection}{\numberline {5.1.1}Heuristic Tuning}{32}{subsection.67}
-\contentsline {subsection}{\numberline {5.1.2}Real World Considerations}{33}{subsection.68}
+\contentsline {chapter}{\numberline {2}Related Work}{15}{chapter.42}
+\contentsline {section}{\numberline {2.1}Approximate Nearest Neighbor Frameworks}{15}{section.43}
+\contentsline {chapter}{\numberline {3}System Description}{17}{chapter.44}
+\contentsline {section}{\numberline {3.1}Overview}{17}{section.45}
+\contentsline {subsection}{\numberline {3.1.1}Normalization}{18}{subsection.46}
+\contentsline {subsection}{\numberline {3.1.2}Dimension Relevance}{18}{subsection.49}
+\contentsline {subsection}{\numberline {3.1.3}Motivation for k-d Trees}{19}{subsection.51}
+\contentsline {subsection}{\numberline {3.1.4}Split Dimension Determination Heuristics}{20}{subsection.52}
+\contentsline {subsection}{\numberline {3.1.5}Initial Tests}{21}{subsection.53}
+\contentsline {subsection}{\numberline {3.1.6}Tree Quality Metric}{23}{subsection.57}
+\contentsline {section}{\numberline {3.2}Detailed Implementation Overview}{25}{section.58}
+\contentsline {subsection}{\numberline {3.2.1}Index Construction}{25}{subsection.59}
+\contentsline {subsection}{\numberline {3.2.2}ANN Query}{27}{subsection.61}
+\contentsline {subsection}{\numberline {3.2.3}Weighted Random Number Selection}{29}{subsection.63}
+\contentsline {chapter}{\numberline {4}Results}{31}{chapter.64}
+\contentsline {section}{\numberline {4.1}Change of Dimensionality}{33}{section.65}
+\contentsline {section}{\numberline {4.2}Size of Dataset}{33}{section.66}
+\contentsline {section}{\numberline {4.3}Nodes Searched}{33}{section.67}
+\contentsline {section}{\numberline {4.4}Size of Result Set}{33}{section.68}
+\contentsline {section}{\numberline {4.5}Number of Trees}{33}{section.69}
+\contentsline {section}{\numberline {4.6}Alternative Dataset}{33}{section.70}
+\contentsline {chapter}{\numberline {5}Conclusion}{34}{chapter.71}
+\contentsline {section}{\numberline {5.1}Future Work}{34}{section.72}
+\contentsline {subsection}{\numberline {5.1.1}Heuristic Tuning}{34}{subsection.73}
+\contentsline {subsection}{\numberline {5.1.2}Real World Considerations}{35}{subsection.74}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{36}{appendix.69}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{39}{appendix.75}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{37}{dummy.70}
+\contentsline {chapter}{Bibliography}{40}{dummy.76}

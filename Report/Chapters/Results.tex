@@ -6,6 +6,37 @@
 
 An initial test of the completed system was performed using parameters similar to those in figure \ref{fig:drvmatching}.  The complete conditions were as follows: FILL.  From figure FILL, it is clear that the SMS based k-d trees tend to perform significantly better than those with random weights.  Thus, even though the offline construction cost of the random method is lower (due to not requiring a linear seek across each dimension), it is worth investing in WSMS, as theis is a one time cost and leads to significant improvement in result quality.  In fact, a single k-d tree using SMS had higher overall performance than our system when using SPM.  It is also important to note that the query DRVs used were pulled from a uniform distribution using the same method described in section \ref{sec:inittest}.  As such, most of these DRVs were not drastically different from a standard uniform split.  Thus, while our data structure lead to a performance improvement for both splitting heuristics, the baselike k-d tree still performed rather well.
 
-The real improvements came however from extreme queries which only use a small subset of dimensions.  With the following parameters: FILL.  The method for selecting a small subset of dimensions was to require a single dimension to be selected, and determine whether or not other dimensions should be selected with a bernoulli random variable.  Thus, the distribution of the number of selected dimensions given a selection probability p and D dimensions is described by Binomial(D-1,p) + 1.  After selecting a subset of dimensions, the weight of each dimension was drawn randomly from a uniform distribution and normalized to a sum of one.  Of note is that when only one dimension is selected it will have a weight of one in the DRV, and it would be ideal to only split on that dimension.  However, a seed DRV of all single dimension case is included, and as such there is guaranteed to be a tree which perfectly matches, and only splits on that dimension.  In this case, the k-d tree performs equivalent to a binary search tree, and true nearest neighbors can be computed in O(Log(N)).  When more than one dimension is selected, while a perfect match tree likely won't exist (since weights are equal in seed DRVs), the two dimensional matching seed DRV will perform well if the query DRV is close to equal in the two dimensions, or the single dimension DRV will perform well when one dimension has a much larger weight than the other.
+The real improvements came however from extreme queries which only use a small subset of dimensions.  With the following parameters: FILL.  The method for selecting a small subset of dimensions was to require a single dimension to be selected, and determine whether or not other dimensions should be selected with a bernoulli random variable.  Thus, the distribution of the number of selected dimensions given a selection probability p and D dimensions is described by Binomial(D-1,p) + 1.  After selecting a subset of dimensions, the weight of each dimension was drawn randomly from a uniform distribution and normalized to a sum of one.  Of note is that when only one dimension is selected it will have a weight of one in the DRV, and it would be ideal to only split on that dimension.  However, a seed DRV of all single dimension cases is included, and as such there is guaranteed to be a tree which perfectly matches, and only splits on that dimension.  In this case, the k-d tree performs equivalent to a binary search tree, and true nearest neighbors can be computed in O(Log(N)).  When more than one dimension is selected, while a perfect match tree likely won't exist (since weights are equal in seed DRVs), the two dimensional matching seed DRV will perform well if the query DRV is close to equal in the two dimensions, or the single dimension DRV will perform well when one dimension has a much larger weight than the other.  The distribution of the number of dimensions selected is shown in FILL.
 
 As shown in figure FILL, with extreme queries our data structure's performance was extremely close to the max possible performance with different DRVs, while the standard k-d tree performance decreased greatly.  Of course the true performance of our system likely lies somewhere in the middle of these cases shown in figure FILL and FILL, as the true distribution of search queries likely lies somewhere in the middle.  Also of note is that seed DRVs with all sets of three dimensions were present, and nearly 80\% of the selected DRVs had three or less dimensions.  Even when four to five dimensions are selected performance is still expected to be strong.
+
+Because of the significantly higher performance of WSMS compared to SPM, future tests are performed only using the WSMS heuristic.  The key advantage to SPM is that all split dimensions are selected in constant time, wheras those in WSMS require a linear seek across all dimensions.  However, this cost is only associated with offline construction of the trees which is only performed once.  Since our benchmark attempts to optimize result quality on a live system, WSMS is a superior heuristic.  In \ref{sec:realworld}, we discuss that in a live system it may be necessary to reconstruct trees at times and as such, when performance tuning one should consider the merits of a heuristic with lower tree construction cost.
+
+\section{Change of Dimensionality}
+
+check
+
+\section{Size of Dataset}
+
+
+
+\section{Number of Trees in Data Struct}
+
+
+
+\section{Nodes Searched}
+
+check
+
+\section{Size of Result Set}
+
+check
+
+\section{Number of Trees Used}
+
+check
+
+
+\section{Alternative Dataset}
+
+check
