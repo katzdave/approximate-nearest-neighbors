@@ -79,7 +79,15 @@ namespace ApproxNearestNeighbors.ForestHolder
 
         public PointSet GetANN(Point p, DimWeight dw, int k, int ktree, double ratio, double prune, int maxSearch)
         {
-            int nSearchTrees = (int) Math.Round(pointmap.Count()*ratio);
+            int nSearchTrees;
+            if (!ToDisk)
+            {
+                nSearchTrees = (int)Math.Round(pointmap.Count() * ratio);
+            }
+            else
+            {
+                nSearchTrees = (int)Math.Round(filenames.Count() * ratio);
+            }
             if (ratio > 1 || nSearchTrees > maxSearch)
             {
                 Console.WriteLine("Invalid ratio/maxsearch");

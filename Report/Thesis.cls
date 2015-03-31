@@ -185,7 +185,7 @@
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
-\degree{Masters of Electrical Engineering} % Your degree name - this is currently used in the title page and abstract
+\degree{Masters of Engineering} % Your degree name - this is currently used in the title page and abstract
 %-------------------------------------------------   
 \authors{David \textsc{Katz}} % Your name - this is used in the title page and abstract
 %-------------------------------------------------   

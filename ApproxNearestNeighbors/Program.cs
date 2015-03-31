@@ -26,7 +26,9 @@ namespace ApproxNearestNeighbors
             //Full_Sys_Test_Alternative();
             //Full_Sys_Test_Trees();
             //Full_Sys_Test_K();
-            Full_Sys_Test_Size();
+            //Full_Sys_Test_Size();
+            //Full_Sys_Test_Nrand();
+            Full_Sys_Test_Alternative_Extreme();
         }
 
         public static void DRV_Matching_Test()
@@ -419,6 +421,73 @@ namespace ApproxNearestNeighbors
             System.IO.File.WriteAllLines(filename, lines);
         }
 
+        public static void Full_Sys_Test_Alternative_Extreme()
+        {
+            int dim = 32;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            int nrand = 100;
+            int ddeter = 2;
+            double ratio = .4;
+            double prune = 1.5;
+            double selper = .03;
+
+            Random random = new Random();
+
+            PointSet ps = new PointSet("ColorHistogram.asc", 1, ' ');
+            ps.NormalizePoints();
+
+            //Indexes
+            var bruteForce = new BruteForce(ps);
+
+            var standardTree = new KDTree(ps, false);
+            var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, true, false);
+
+            //Result holders
+            var standardDist = new List<double>();
+            var queryDist = new List<double>();
+            var standardDist_f = new List<double>();
+
+            for (int i = 0; i < dws; i++)
+            {
+                Console.WriteLine(dim + " " + i);
+                var querydw = new DimWeight(dim, selper, random);
+
+                var queryTree = new KDTree(ps, querydw, false);
+
+                for (int j = 0; j < testcases; j++)
+                {
+                    var p = ps.Points[random.Next(ps.Points.Count())];
+                    var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                    standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                    standardDist_f.Add(standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1);
+                }
+            }
+
+            var standardDist2 = new List<double>();
+            var queryDist2 = new List<double>();
+            var standardDist_f2 = new List<double>();
+
+            for (int i = 0; i < standardDist.Count(); i++)
+            {
+                if (!Double.IsNaN(standardDist[i]) && !Double.IsInfinity(standardDist[i]))
+                    standardDist2.Add(standardDist[i]);
+                if (!Double.IsNaN(queryDist[i]) && !Double.IsInfinity(queryDist[i]))
+                    queryDist2.Add(queryDist[i]);
+                if (!Double.IsNaN(standardDist_f[i]) && !Double.IsInfinity(standardDist_f[i]))
+                    standardDist_f2.Add(standardDist_f[i]);
+            }
+            
+            Console.WriteLine(standardDist2.Average() + "," + standardDist_f2.Average() + "," + queryDist2.Average());
+
+        }
+
         public static void Full_Sys_Test_Alternative()
         {
             int dim = 32;
@@ -727,6 +796,74 @@ namespace ApproxNearestNeighbors
 
                 var standardTree = new KDTree(ps, false);
                 var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, true, false);
+
+                //Result holders
+                var standardDist = new List<double>();
+                var queryDist = new List<double>();
+                var standardDist_f = new List<double>();
+
+                for (int i = 0; i < dws; i++)
+                {
+                    Console.WriteLine(dim + " " + i);
+                    var querydw = new DimWeight(dim, random);
+
+                    var queryTree = new KDTree(ps, querydw, false);
+
+                    for (int j = 0; j < testcases; j++)
+                    {
+                        var p = new Point(dim, random);
+                        var bfd = bruteForce.GetKNN(p, K, querydw).GetMeanDistance(p, querydw);
+
+                        standardDist.Add(standardTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        queryDist.Add(queryTree.root.GetANN(p, K, maxSearch, querydw).GetMeanDistance(p, querydw) / bfd - 1);
+                        double val = standardForest.GetANN(p, querydw, K, ntrees, ratio, prune, maxSearch).GetMeanDistance(p, querydw) / bfd - 1;
+                        if (!Double.IsNaN(val) && val < 1000)
+                        {
+                            standardDist_f.Add(val);
+                        }
+                    }
+                }
+
+                lines.Add(standardDist.Average() + "," + standardDist_f.Average() + "," + queryDist.Average());
+            }
+
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        public static void Full_Sys_Test_Nrand()
+        {
+            int dim = 8;
+            int npoint = 100000;
+            int testcases = 20;
+            int dws = 80;
+            int K = 20;
+            int maxSearch = 500;
+            int ntrees = 3;
+
+            var nrands = new List<int>() { 20, 50, 100, 200, 400 };
+            int ddeter = 1;
+            double ratio = .4;
+            double prune = 1.5;
+
+            var lines = new List<string>();
+            string filename = "resultsnrand.csv";
+
+            Random random = new Random();
+
+            foreach (var nrand in nrands)
+            {
+                PointSet ps = new PointSet(dim);
+
+                for (int i = 0; i < npoint; i++)
+                {
+                    ps.AddPoint(new Point(dim, random));
+                }
+
+                //Indexes
+                var bruteForce = new BruteForce(ps);
+
+                var standardTree = new KDTree(ps, false);
+                var standardForest = new KDTreeForestHolder(ps, ddeter, nrand, false, false);
 
                 //Result holders
                 var standardDist = new List<double>();
