@@ -10,51 +10,52 @@
 \contentsline {chapter}{Physical Constants}{x}{dummy.12}
 \contentsline {chapter}{Symbols}{xi}{dummy.15}
 \vspace {2em}
-\contentsline {chapter}{\numberline {1}Background}{1}{chapter.18}
-\contentsline {section}{\numberline {1.1}Nearest Neighbors Search}{1}{section.19}
-\contentsline {subsection}{\numberline {1.1.1}Overview}{1}{subsection.20}
-\contentsline {subsection}{\numberline {1.1.2}Basic Search Algorithm}{2}{subsection.22}
-\contentsline {subsection}{\numberline {1.1.3}K-nearest Neighbors}{2}{subsection.23}
-\contentsline {section}{\numberline {1.2}Fixed Radius Search}{4}{section.24}
-\contentsline {section}{\numberline {1.3}Approximate Nearest Neighbors}{4}{section.25}
-\contentsline {subsection}{\numberline {1.3.1}Tree Based Indexes}{5}{subsection.26}
-\contentsline {subsection}{\numberline {1.3.2}Hash Indexes}{6}{subsection.27}
-\contentsline {subsection}{\numberline {1.3.3}Graph Indexes}{7}{subsection.28}
-\contentsline {section}{\numberline {1.4}k-d Trees}{8}{section.29}
-\contentsline {subsection}{\numberline {1.4.1}Overview}{8}{subsection.30}
-\contentsline {subsection}{\numberline {1.4.2}Construction}{9}{subsection.31}
-\contentsline {subsection}{\numberline {1.4.3}Nearest Neighbor Query}{10}{subsection.35}
-\contentsline {subsection}{\numberline {1.4.4}Approximate Nearest Neighbors Query}{12}{subsection.39}
-\contentsline {subsection}{\numberline {1.4.5}Modification}{12}{subsection.40}
-\contentsline {section}{\numberline {1.5}Randomized k-d Tree Forests}{13}{section.41}
-\contentsline {chapter}{\numberline {2}Related Work}{15}{chapter.42}
-\contentsline {section}{\numberline {2.1}Approximate Nearest Neighbor Frameworks}{15}{section.43}
-\contentsline {chapter}{\numberline {3}System Description}{17}{chapter.44}
-\contentsline {section}{\numberline {3.1}Overview}{17}{section.45}
-\contentsline {subsection}{\numberline {3.1.1}Normalization}{18}{subsection.46}
-\contentsline {subsection}{\numberline {3.1.2}Dimension Relevance}{18}{subsection.49}
-\contentsline {subsection}{\numberline {3.1.3}Motivation for k-d Trees}{19}{subsection.51}
-\contentsline {subsection}{\numberline {3.1.4}Split Dimension Determination Heuristics}{20}{subsection.52}
-\contentsline {subsection}{\numberline {3.1.5}Initial Tests}{21}{subsection.53}
-\contentsline {subsection}{\numberline {3.1.6}Tree Quality Metric}{23}{subsection.57}
-\contentsline {section}{\numberline {3.2}Detailed Implementation Overview}{25}{section.58}
-\contentsline {subsection}{\numberline {3.2.1}Index Construction}{25}{subsection.59}
-\contentsline {subsection}{\numberline {3.2.2}ANN Query}{27}{subsection.61}
-\contentsline {subsection}{\numberline {3.2.3}Weighted Random Number Selection}{29}{subsection.63}
-\contentsline {chapter}{\numberline {4}Results}{31}{chapter.64}
-\contentsline {section}{\numberline {4.1}Full System Tests}{31}{section.65}
-\contentsline {section}{\numberline {4.2}Change of Dimensionality}{35}{section.68}
-\contentsline {section}{\numberline {4.3}Size of Dataset}{36}{section.70}
-\contentsline {section}{\numberline {4.4}Number of Trees}{37}{section.72}
-\contentsline {section}{\numberline {4.5}Nodes Searched}{38}{section.74}
-\contentsline {section}{\numberline {4.6}Size of Result Set}{39}{section.76}
-\contentsline {section}{\numberline {4.7}Number of Trees Per Query}{39}{section.78}
-\contentsline {section}{\numberline {4.8}Alternative Dataset}{39}{section.80}
-\contentsline {chapter}{\numberline {5}Conclusion}{42}{chapter.83}
-\contentsline {section}{\numberline {5.1}Future Work}{42}{section.84}
-\contentsline {subsection}{\numberline {5.1.1}Heuristic Tuning}{42}{subsection.85}
-\contentsline {subsection}{\numberline {5.1.2}Real World Considerations}{43}{subsection.86}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.18}
+\contentsline {chapter}{\numberline {2}Background}{2}{chapter.19}
+\contentsline {section}{\numberline {2.1}Nearest Neighbors Search}{2}{section.20}
+\contentsline {subsection}{\numberline {2.1.1}Overview}{2}{subsection.21}
+\contentsline {subsection}{\numberline {2.1.2}Basic Search Algorithm}{3}{subsection.23}
+\contentsline {subsection}{\numberline {2.1.3}K-nearest Neighbors}{3}{subsection.24}
+\contentsline {section}{\numberline {2.2}Fixed Radius Search}{5}{section.25}
+\contentsline {section}{\numberline {2.3}Approximate Nearest Neighbors}{5}{section.26}
+\contentsline {subsection}{\numberline {2.3.1}Tree Based Indexes}{6}{subsection.27}
+\contentsline {subsection}{\numberline {2.3.2}Hash Indexes}{7}{subsection.28}
+\contentsline {subsection}{\numberline {2.3.3}Graph Indexes}{8}{subsection.29}
+\contentsline {section}{\numberline {2.4}k-d Trees}{9}{section.30}
+\contentsline {subsection}{\numberline {2.4.1}Overview}{9}{subsection.31}
+\contentsline {subsection}{\numberline {2.4.2}Construction}{10}{subsection.32}
+\contentsline {subsection}{\numberline {2.4.3}Nearest Neighbor Query}{11}{subsection.36}
+\contentsline {subsection}{\numberline {2.4.4}Approximate Nearest Neighbors Query}{13}{subsection.40}
+\contentsline {subsection}{\numberline {2.4.5}Modification}{13}{subsection.41}
+\contentsline {section}{\numberline {2.5}Randomized k-d Tree Forests}{14}{section.42}
+\contentsline {chapter}{\numberline {3}Related Work}{16}{chapter.43}
+\contentsline {section}{\numberline {3.1}Approximate Nearest Neighbor Frameworks}{16}{section.44}
+\contentsline {chapter}{\numberline {4}System Description}{18}{chapter.45}
+\contentsline {section}{\numberline {4.1}Overview}{18}{section.46}
+\contentsline {subsection}{\numberline {4.1.1}Normalization}{19}{subsection.47}
+\contentsline {subsection}{\numberline {4.1.2}Dimension Relevance}{19}{subsection.50}
+\contentsline {subsection}{\numberline {4.1.3}Motivation for k-d Trees}{20}{subsection.52}
+\contentsline {subsection}{\numberline {4.1.4}Split Dimension Determination Heuristics}{21}{subsection.53}
+\contentsline {subsection}{\numberline {4.1.5}Initial Tests}{22}{subsection.54}
+\contentsline {subsection}{\numberline {4.1.6}Tree Quality Metric}{24}{subsection.58}
+\contentsline {section}{\numberline {4.2}Detailed Implementation Overview}{26}{section.59}
+\contentsline {subsection}{\numberline {4.2.1}Index Construction}{26}{subsection.60}
+\contentsline {subsection}{\numberline {4.2.2}ANN Query}{28}{subsection.62}
+\contentsline {subsection}{\numberline {4.2.3}Weighted Random Number Selection}{30}{subsection.64}
+\contentsline {chapter}{\numberline {5}Results}{32}{chapter.65}
+\contentsline {section}{\numberline {5.1}Full System Tests}{32}{section.66}
+\contentsline {section}{\numberline {5.2}Change of Dimensionality}{36}{section.69}
+\contentsline {section}{\numberline {5.3}Size of Dataset}{37}{section.71}
+\contentsline {section}{\numberline {5.4}Number of Trees}{38}{section.73}
+\contentsline {section}{\numberline {5.5}Nodes Searched}{39}{section.75}
+\contentsline {section}{\numberline {5.6}Size of Result Set}{40}{section.77}
+\contentsline {section}{\numberline {5.7}Number of Trees Per Query}{41}{section.79}
+\contentsline {section}{\numberline {5.8}Alternative Dataset}{42}{section.81}
+\contentsline {chapter}{\numberline {6}Future Work}{45}{chapter.84}
+\contentsline {section}{\numberline {6.1}Heuristic Tuning}{45}{section.85}
+\contentsline {section}{\numberline {6.2}Real World Considerations}{46}{section.86}
+\contentsline {chapter}{\numberline {7}Conclusion}{50}{chapter.87}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{47}{appendix.87}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{51}{appendix.88}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{48}{dummy.88}
+\contentsline {chapter}{Bibliography}{52}{dummy.89}

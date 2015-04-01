@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -187,6 +187,13 @@ John Ousterhout and Fred Douglis.
 \newblock Beating the i/o bottleneck: A case for log-structured file systems.
 \newblock \emph{ACM SIGOPS Operating Systems Review}, 23\penalty0 (1):\penalty0
   11--28, 1989.
+
+\bibitem[Ahmad()]{ahmadbinary}
+Nor Bahiah~Hj Ahmad.
+\newblock Binary search tree.
+
+\bibitem[Ortega-Binderberger(1999)]{corelimage}
+Michael Ortega-Binderberger, jul 1999.
 
 \bibitem[Nitzberg and Lo(1991)]{nitzberg1991distributed}
 Bill Nitzberg and Virginia Lo.

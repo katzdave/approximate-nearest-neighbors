@@ -292,7 +292,7 @@ namespace ApproxNearestNeighbors
             int ddeter = 3;
             double ratio = .4;
             double prune = 1.5;
-            double selper = .1;
+            double selper = .125;
 
             Random random = new Random();
             PointSet ps = new PointSet(dim);
