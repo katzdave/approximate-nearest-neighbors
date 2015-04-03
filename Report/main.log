@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  1 APR 2015 03:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  2 APR 2015 22:19
 entering extended mode
 **C:/Users/david_000/Documents/Visual*Studio*2010/Projects/ApproxNearestNeighbo
 rs/Report/main.tex
@@ -479,54 +479,6 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count136
 \LT@p@ftn=\toks29
 ))
-(C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithm2e\algorithm2
-e.sty
-Package: algorithm2e 2013/01/06 v5.00 algorithms environments
-\c@AlgoLine=\count137
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
-Package: relsize 2003/07/04 ver 3.1
-)
-********************************************************
-Package `algorithm2e' Release 5.0 -- january 06 2013 --
-- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
-- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
-subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
-- Author: Christophe Fiorio (cfiorio@um2.fr)
-********************************************************
-\skiptotal=\skip71
-\skiplinenumber=\skip72
-\skiprule=\skip73
-\skiphlne=\skip74
-\skiptext=\skip75
-\skiplength=\skip76
-\algomargin=\skip77
-\skipalgocfslide=\skip78
-\algowidth=\dimen150
-\inoutsize=\dimen151
-\inoutindent=\dimen152
-\interspacetitleruled=\dimen153
-\interspacealgoruled=\dimen154
-\interspacetitleboxruled=\dimen155
-\algocf@inoutbox=\box35
-\algocf@inputbox=\box36
-\AlCapSkip=\skip79
-\AlCapHSkip=\skip80
-\algoskipindent=\skip81
-\algocf@nlbox=\box37
-\algocf@hangingbox=\box38
-\algocf@untilbox=\box39
-\algocf@skipuntil=\skip82
-\algocf@capbox=\box40
-\algoheightruledefault=\skip83
-\algoheightrule=\skip84
-\algotitleheightruledefault=\skip85
-\algotitleheightrule=\skip86
-\c@algocfline=\count138
-\c@algocfproc=\count139
-\c@algocf=\count140
-\algocf@algoframe=\box41
-\algocf@algobox=\box42
-)
 (C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithmicx\algpseudo
 code.sty
 Package: algpseudocode 
@@ -536,26 +488,26 @@ icx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count141
-\c@ALG@rem=\count142
-\c@ALG@nested=\count143
-\ALG@tlm=\skip87
-\ALG@thistlm=\skip88
-\c@ALG@Lnr=\count144
-\c@ALG@blocknr=\count145
-\c@ALG@storecount=\count146
-\c@ALG@tmpcounter=\count147
-\ALG@tmplength=\skip89
+\c@ALG@line=\count137
+\c@ALG@rem=\count138
+\c@ALG@nested=\count139
+\ALG@tlm=\skip71
+\ALG@thistlm=\skip72
+\c@ALG@Lnr=\count140
+\c@ALG@blocknr=\count141
+\c@ALG@storecount=\count142
+\c@ALG@tmpcounter=\count143
+\ALG@tmplength=\skip73
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip90
-\bibsep=\skip91
+\bibhang=\skip74
+\bibsep=\skip75
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count148
+\c@NAT@ctr=\count144
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 37.
+Package hyperref Info: Option `colorlinks' set `true' on input line 36.
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.aux"
@@ -563,22 +515,22 @@ rs\Report\main.aux"
 LaTeX Warning: Label `futurework' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -592,20 +544,20 @@ Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (C:\Users\david_000\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count149
-\scratchdimen=\dimen156
-\scratchbox=\box43
-\nofMPsegments=\count150
-\nofMParguments=\count151
+\scratchcounter=\count145
+\scratchdimen=\dimen150
+\scratchbox=\box35
+\nofMPsegments=\count146
+\nofMParguments=\count147
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count152
-\MPscratchDim=\dimen157
-\MPnumerator=\count153
-\makeMPintoPDFobject=\count154
+\MPscratchCnt=\count148
+\MPscratchDim=\dimen151
+\MPnumerator=\count149
+\makeMPintoPDFobject=\count150
 \everyMPtoPDFconversion=\toks31
 )
-\c@lstlisting=\count155
-\AtBeginShipoutBox=\box44
+\c@lstlisting=\count151
+\AtBeginShipoutBox=\box36
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -614,7 +566,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 39.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -622,11 +574,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count156
+\c@section@level=\count152
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.out")
@@ -651,11 +603,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  Declaration of Authorship
 ------------------------------------------------------------------------------
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
 
  []
 
-[1] [2
+[1]
+------------------------------------------------------------------------------
+ Acknowledgements
+------------------------------------------------------------------------------
+[2
 
 ]
 ------------------------------------------------------------------------------
@@ -665,22 +621,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--128
 
 ]
 ------------------------------------------------------------------------------
- Acknowledgements
-------------------------------------------------------------------------------
-[4
-
-]
-------------------------------------------------------------------------------
  Table of Contents
 ------------------------------------------------------------------------------
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\main.toc" [5
+rs\Report\main.toc" [4
 
 
 ])
 \tf@toc=\write4
- [6]
+ [5]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
@@ -688,7 +638,7 @@ rs\Report\main.toc" [5
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.lof")
 \tf@lof=\write5
- [7
+ [6
 
 
 ]
@@ -699,38 +649,16 @@ rs\Report\main.lof")
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.lot")
 \tf@lot=\write6
- [8
+ [7
 
 
 ]
 ------------------------------------------------------------------------------
- Abbreviations
+ Table of Nomenclature
 ------------------------------------------------------------------------------
-[9
+[8
 
 
-
-]
-------------------------------------------------------------------------------
- Physical Constants
-------------------------------------------------------------------------------
-[10
-
-
-
-]
-------------------------------------------------------------------------------
- Symbols
-------------------------------------------------------------------------------
-[11
-
-
-
-]
-------------------------------------------------------------------------------
- Dedicatory
-------------------------------------------------------------------------------
-[12
 
 ]
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
@@ -739,115 +667,119 @@ Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
-)
+[1
+
+
+
+])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\Background.tex" [1
-
-
-
-]
+rs\Report\Chapters\Background.tex" [2]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Background
 ------------------------------------------------------------------------------
-[2
+[3
 
-] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13])
+] [4] [5] [6] [7] [8] [9] [10]
+
+LaTeX Warning: Float too large for page by 27.42969pt on input line 130.
+
+[11] [12] [13] [14] [15] [16])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\RelatedWork.tex" [14] [15]
+rs\Report\Chapters\RelatedWork.tex" [17]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Related Work
 ------------------------------------------------------------------------------
 )
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\SystemDescription.tex" [16
+rs\Report\Chapters\SystemDescription.tex" [18
 
-] [17]
+] [19]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 System Description
 ------------------------------------------------------------------------------
-[18
+[20
 
-] [19] [20] [21] [22] [23]
-<Figures/sysdesc_drvmatching.png, id=595, 453.19313pt x 299.61937pt>
+] [21] [22] [23] [24] [25]
+<Figures/sysdesc_drvmatching.png, id=571, 453.19313pt x 299.61937pt>
 File: Figures/sysdesc_drvmatching.png Graphic file (type png)
 
 <use Figures/sysdesc_drvmatching.png>
-Package pdftex.def Info: Figures/sysdesc_drvmatching.png used on input line 74.
+Package pdftex.def Info: Figures/sysdesc_drvmatching.png used on input line 75.
 
 (pdftex.def)             Requested size: 417.47307pt x 276.00519pt.
 
-<Figures/sysdesc_drv_varying_points.png, id=596, 435.12563pt x 267.24844pt>
+<Figures/sysdesc_drv_varying_points.png, id=572, 435.12563pt x 267.24844pt>
 File: Figures/sysdesc_drv_varying_points.png Graphic file (type png)
 
 <use Figures/sysdesc_drv_varying_points.png>
 Package pdftex.def Info: Figures/sysdesc_drv_varying_points.png used on input l
-ine 83.
+ine 84.
 (pdftex.def)             Requested size: 417.47307pt x 256.42102pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
-hbors/Report/Figures/sysdesc_drvmatching.png>] [25 <C:/Users/david_000/Document
+[26 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
+hbors/Report/Figures/sysdesc_drvmatching.png>] [27 <C:/Users/david_000/Document
 s/Visual Studio 2010/Projects/ApproxNearestNeighbors/Report/Figures/sysdesc_drv
-_varying_points.png>] [26]
+_varying_points.png>] [28]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 111.
+(amsmath)                 on input line 112.
 
-[27] [28] [29])
+[29] [30] [31])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\Results.tex" [30] [31]
+rs\Report\Chapters\Results.tex" [32] [33]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Results
 ------------------------------------------------------------------------------
-[32
+[34
 
-] <Figures/fullsysrand.png, id=663, 361.35pt x 217.5628pt>
+] <Figures/fullsysrand.png, id=640, 361.35pt x 217.5628pt>
 File: Figures/fullsysrand.png Graphic file (type png)
 
 <use Figures/fullsysrand.png>
 Package pdftex.def Info: Figures/fullsysrand.png used on input line 16.
 (pdftex.def)             Requested size: 354.85464pt x 213.65494pt.
- [33 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
+ [35 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/fullsysrand.png>]
-<Figures/fullsysext.png, id=670, 361.35pt x 217.5628pt>
+<Figures/fullsysext.png, id=647, 361.35pt x 217.5628pt>
 File: Figures/fullsysext.png Graphic file (type png)
 
 <use Figures/fullsysext.png>
 Package pdftex.def Info: Figures/fullsysext.png used on input line 26.
 (pdftex.def)             Requested size: 354.85464pt x 213.65494pt.
- [34 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
+ [36 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/fullsysext.png>]
-<Figures/dims.png, id=681, 371.88937pt x 244.66406pt>
+<Figures/dims.png, id=658, 371.88937pt x 244.66406pt>
 File: Figures/dims.png Graphic file (type png)
  <use Figures/dims.png>
 Package pdftex.def Info: Figures/dims.png used on input line 42.
 (pdftex.def)             Requested size: 354.85464pt x 233.46364pt.
 
-[35] [36 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNeares
+[37] [38 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNeares
 tNeighbors/Report/Figures/dims.png>]
-<Figures/size.png, id=694, 361.35pt x 271.76532pt>
+<Figures/size.png, id=670, 361.35pt x 271.76532pt>
 File: Figures/size.png Graphic file (type png)
  <use Figures/size.png>
 Package pdftex.def Info: Figures/size.png used on input line 56.
 (pdftex.def)             Requested size: 354.85464pt x 266.88387pt.
 
-[37 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
+[39 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
 hbors/Report/Figures/size.png>]
-<Figures/ntreesgen.png, id=701, 361.35pt x 273.27094pt>
+<Figures/ntreesgen.png, id=677, 361.35pt x 273.27094pt>
 File: Figures/ntreesgen.png Graphic file (type png)
 
 <use Figures/ntreesgen.png>
 Package pdftex.def Info: Figures/ntreesgen.png used on input line 70.
 (pdftex.def)             Requested size: 354.85464pt x 268.36241pt.
 
-<Figures/nsearch.png, id=703, 361.35pt x 258.9675pt>
+<Figures/nsearch.png, id=679, 361.35pt x 258.9675pt>
 File: Figures/nsearch.png Graphic file (type png)
  <use Figures/nsearch.png>
 Package pdftex.def Info: Figures/nsearch.png used on input line 82.
@@ -856,25 +788,25 @@ Package pdftex.def Info: Figures/nsearch.png used on input line 82.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[38 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
-hbors/Report/Figures/ntreesgen.png>] [39 <C:/Users/david_000/Documents/Visual S
+[40 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
+hbors/Report/Figures/ntreesgen.png>] [41 <C:/Users/david_000/Documents/Visual S
 tudio 2010/Projects/ApproxNearestNeighbors/Report/Figures/nsearch.png>]
-<Figures/k.png, id=713, 361.35pt x 274.77657pt>
+<Figures/k.png, id=690, 361.35pt x 274.77657pt>
 File: Figures/k.png Graphic file (type png)
  <use Figures/k.png>
 Package pdftex.def Info: Figures/k.png used on input line 94.
 (pdftex.def)             Requested size: 354.85464pt x 269.841pt.
- [40 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
-ghbors/Report/Figures/k.png>] <Figures/treesel.png, id=719, 361.35pt x 258.9675
+ [42 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
+ghbors/Report/Figures/k.png>] <Figures/treesel.png, id=696, 361.35pt x 258.9675
 pt>
 File: Figures/treesel.png Graphic file (type png)
 
 <use Figures/treesel.png>
 Package pdftex.def Info: Figures/treesel.png used on input line 106.
 (pdftex.def)             Requested size: 354.85464pt x 254.3159pt.
- [41 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
+ [43 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/treesel.png>]
-<Figures/altrand.png, id=726, 386.94562pt x 234.8775pt>
+<Figures/altrand.png, id=703, 386.94562pt x 234.8775pt>
 File: Figures/altrand.png Graphic file (type png)
 
 <use Figures/altrand.png>
@@ -885,43 +817,34 @@ Package pdftex.def Info: Figures/altrand.png used on input line 120.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `altrand' on page 42 undefined on input line 126.
+LaTeX Warning: Reference `altrand' on page 44 undefined on input line 126.
 
-<Figures/altext.png, id=728, 388.45125pt x 239.39438pt>
+<Figures/altext.png, id=705, 388.45125pt x 239.39438pt>
 File: Figures/altext.png Graphic file (type png)
 
 <use Figures/altext.png>
 Package pdftex.def Info: Figures/altext.png used on input line 130.
 (pdftex.def)             Requested size: 354.85464pt x 218.69667pt.
- [42])
+ [44])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\Futurework.tex" [43 <C:/Users/david_000/Documents/Visual Stu
+rs\Report\Chapters\Futurework.tex" [45 <C:/Users/david_000/Documents/Visual Stu
 dio 2010/Projects/ApproxNearestNeighbors/Report/Figures/altrand.png> <C:/Users/
 david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeighbors/Report/F
-igures/altext.png>] [44]
+igures/altext.png>] [46]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Future Work
 ------------------------------------------------------------------------------
-[45
+[47
 
-] [46] [47] [48])
+] [48] [49] [50])
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Chapters\Conclusion.tex" [49]
+rs\Report\Chapters\Conclusion.tex" [51]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusion
 ------------------------------------------------------------------------------
-)
-("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\Appendices\AppendixA.tex" [50
-
-]
-Appendix A.
-------------------------------------------------------------------------------
- A Appendix Title Here
-------------------------------------------------------------------------------
-) [51
+) [52
 
 ]
 ------------------------------------------------------------------------------
@@ -942,20 +865,20 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ™ in font cmti10!
- [52
+ [53
 
 
-] [53] [54] [55])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 312.
- [56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 312.
+] [54] [55] [56])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 331.
+ [57]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 331.
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 312.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 312.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 331.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 331.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6A1D1CA65DCECE98B1B2AED45BEDDDA1;9188.
+(rerunfilecheck)             Checksum: 534B9E59D60E675B278988F59D3BBF38;8857.
 
 
 LaTeX Warning: There were undefined references.
@@ -963,14 +886,14 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 312.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 331.
  ) 
 Here is how much of TeX's memory you used:
- 15016 strings out of 493921
- 218361 string characters out of 3144863
- 303244 words of memory out of 3000000
- 17892 multiletter control sequences out of 15000+200000
- 14560 words of font info for 53 fonts, out of 3000000 for 9000
+ 13695 strings out of 493921
+ 199488 string characters out of 3144863
+ 263878 words of memory out of 3000000
+ 16598 multiletter control sequences out of 15000+200000
+ 14208 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  49i,12n,45p,2019b,495s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
@@ -982,15 +905,14 @@ gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on main.pdf (69 pages, 487948 bytes).
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on main.pdf (66 pages, 479783 bytes).
 PDF statistics:
- 906 PDF objects out of 1000 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
- 501 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 873 PDF objects out of 1000 (max. 8388607)
+ 184 named destinations out of 1000 (max. 500000)
+ 477 words of extra memory for PDF output out of 10000 (max. 10000000)
 

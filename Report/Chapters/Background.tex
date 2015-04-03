@@ -7,6 +7,7 @@
 \section{Nearest Neighbors Search}
 
 \subsection{Overview}
+\label{sec:overview}
 
 One common way to represent a collection of objects is as a set of points in a vector space with a fixed number of dimensions.  Each object is represented as a vector, or point, in the vector space, and each dimension in the vector space represents a different feature of the object.  The distance between two points in a vector space is analagous to the relatedness of two objects.  Nearest neighbors search aims to find the closest points to a query point in a vector space.  This type of search has a variety of applications in pattern recognition \citep{cover1967nearest}, information retrieval \citep{manning2008introduction} and computer vision \citep{boiman2008defense}.
 
@@ -30,6 +31,7 @@ There are a variety of different types of vector spaces such as boolean valued, 
 \end{table}
 
 \subsection{Basic Search Algorithm}
+\label{sec:linear}
 
 The most basic algorithm for a nearest neighbor search performs a linear scan across every element in a set.  Such a method computes the distance between a query point and every single point in a dataset, and returns the point with the minimum distance.  For a dataset with N points of dimensionality D, the complexity of this operation is O(ND).  For large datasets this linear time approach is not feasable, especially if many queries need to be performed.
 
@@ -93,59 +95,78 @@ The k-d tree was originally developed as ``a data structure for storage of infor
 \subsection{Construction}
 \label{subsec:const}
 
-\begin{algorithm}
+\begin{figure}
+\setstretch{2}
 \begin{algorithmic}
 \Function{kdtree}{pointList}
+	\If {pointList is empty}
+		\State \Return null
+	\EndIf
 	\State splitDim = selectAxis()
 	\State
 	\State medianPoint = selectMedian(pointList, splitDim)
-	\State leftList = select points $\leq$ medianPoint along splitDim
-	\State rightList = select points $>$ medianPoint along splitDim
+	\State remove medianPoint from pointList
+	\State initialize empty leftList, rightList
+	\ForAll{points p in pointList}
+		\If {p(splitDim) $<$ medianPoint(splitDim)}
+			\State leftList.Add(p)
+		\ElsIf{p(splitDim) $>$ medianPoint(splitDim)}
+			\State rightList.Add(p)
+		\Else
+			\State randomly add p to leftList or rightList with equal probability
+		\EndIf
+	\EndFor
 	\State
 	\State treenode node = new treenode()
 	\State node.splitDim = splitDim
 	\State node.splitPoint = medianPoint
 	\State node.leftChild = kdtree(leftList)
 	\State node.rightChild = kdtree(rightList)
-	\State
 	\State \Return node
 \EndFunction
 \end{algorithmic}
-\caption{Construct k-d tree}
+\caption{Pseudo code for Constructing a k-d tree}
 \label{alg:createkd}
-\end{algorithm}
+\end{figure}
 
 The construction of a k-d tree is performed recursively with input parameters of a list of points.  Pseudo code is shown in Figure \ref{alg:createkd}.  Axis selection can be performed in multiple ways.  The classical approach is to deterministically iterate between all N dimensions.  Another approach, known as spatial median splitting, selects the the longest dimension present in the current pointList to split on \citep{zhou2008real}.  The downside of this method is that a linear traversal is required to select the split dimension.  Another popular approach is to randomly select the split dimension with an equal probability of selecting each dimension.  This approach is often applied when using multiple k-d trees; because of the additional randomness, trees are likely to be different \citep{flann_pami_2014}.  While a linear time algorithm for determining the median of an unordered set is possible \citep{megiddo1984linear}, a heuristic approach is typically used to approximate the median.  A common heuristic is to take the median of five randomly chosen elements; However many other methods can be used such as the triplet adjust method \citep{battiato2000efficient}.
 
-At the termination of the algorithm, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm has an average case O(Nlog(N)) running time where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).
+At the termination of the algorithm, the root of the k-d tree is returned, and each node contains exactly one point.  The runtime of this algorithm has an average case O(Nlog(N)) running time where N is the number of points in pointList.  While the median can be approximated in constant time, partitioning pointList along that median is an O(N) operation.  Since the k-d tree is a binary tree in which each node holds one point, assuming it is relatively balanced, its height is O(log(N)).  Another key point is that points which match medianPoint along splitDim should be randomly assigned to a subtree.  This will ensure that if many points have the same value along a given dimension all of these points will be distributed close to evenly between the two subtrees allowing the tree to remain balanced.
 
 \subsection{Nearest Neighbor Query}
 \label{sec:kdquery}
 
-A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  This algorithm is guaranteed to find the single closest point to the search query.  Pseudocode for this algorithm is shown in Figure \ref{alg:querykd}.
+A simple algorithm exists to apply the k-d tree to a nearest neighbor query.  This algorithm is guaranteed to find the single closest point to the search query.  Pseudocode for this algorithm is shown in Figure \ref{alg:querykd}.  The inputs to this algorithm are the root of the tree, the query point, and dummy current best point located at infinity in each dimension.
 
-\begin{algorithm}
+\begin{figure}
+\setstretch{2}
 \begin{algorithmic}
-\Function{searchkdtree}{kdTreeNode, searchPoint, currBest}
-	\State If(leaf) kdTreeNode.splitPoint vs currBest; return;
-	\State dim = kdTreeNode.splitDim
-	\State searchDir = searchPoint[dim] $<$ kdTreeNode.splitPoint[dim]
-	\State searchFirst = searchDir ? kdTreeNode.left : kdTreeNode.right
-	\State searchSecond = searchDir ? kdTreeNode.right : kdTreeNode.left
+\Function{searchkdtree}{node, searchPoint, currBest}
+	\If{node is a leaf}
+		\If{dist(node.splitPoint, searchPoint) $<$ dist(currBest, searchPoint)}
+			\State currBest = node.SplitPoint
+		\EndIf
+		\State \Return
+	\EndIf
+	\State
+	\State dim = node.splitDim
+	\State Boolean searchDir = searchPoint[dim] $<$ node.splitPoint[dim]
+	\State searchFirst = searchDir ? node.left : node.right
+	\State searchSecond = searchDir ? node.right : node.left
 	\State searchkdtree(searchFirst, searchPoint, currBest)
 	\State
-	\If{distance(kdTreeNode.splitPoint, searchPoint) $<$ distance(currBest, searchPoint)}{
-		\State currBest = kdTreeNode.SplitPoint
-	}
-	\If{HyperPlaneCheck(searchPoint, currBest, searchSecond)}{
+	\If{dist(node.splitPoint, searchPoint) $<$ dist(currBest, searchPoint)}
+		\State currBest = node.SplitPoint
+	\EndIf
+	\If{HyperPlaneCheck(searchPoint, currBest, searchSecond)}
 		\State searchkdtree(searchSecond, searchPoint, currBest)
-	}
+	\EndIf
 
 \EndFunction
 \end{algorithmic}
-\caption{Nearest Neighbor Search k-d tree}
+\caption{Pseudo code to apply a nearest neighbor search using a k-d tree}
 \label{alg:querykd}
-\end{algorithm}
+\end{figure}
 
 The first part of the algorithm recursively steps down the tree until a leaf is reached.  At each node, a comparison on the split dimension is performed to determine which side of the splitting hyperplane the search point lies so that the search can continue in the proper half space.  When a leaf is reached, the point stored in the leafnode is set as the current closest point.  The algorithm then recursively walks back up the tree, and at each node computes the difference between the current node's point and the searchpoint.  If this distance is smaller than that of the current best, the current node point becomes the current best.
 
