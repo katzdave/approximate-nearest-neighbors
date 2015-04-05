@@ -1,9 +1,16 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Suchal and N{\'a}vrat(2010)]{suchal2010full}
+J{\'a}n Suchal and Pavol N{\'a}vrat.
+\newblock Full text search engine as scalable k-nearest neighbor recommendation
+  system.
+\newblock In \emph{Artificial Intelligence in Theory and Practice III}, pages
+  165--173. Springer, 2010.
 
 \bibitem[Cover and Hart(1967)]{cover1967nearest}
 Thomas Cover and Peter Hart.

@@ -1,21 +1,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Pseudo code for Constructing a k-d tree\relax }}{12}{figure.caption.27}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Pseudo code to apply a nearest neighbor search using a k-d tree\relax }}{14}{figure.caption.29}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Pseudo code for Constructing a k-d tree\relax }}{13}{figure.caption.27}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pseudo code to apply a nearest neighbor search using a k-d tree\relax }}{15}{figure.caption.29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Initial tests of DRV matching heuristics\relax }}{26}{figure.caption.46}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Effects of DRV matching in a single k-d tree using SMS/WSMS with varying number of points searched\relax }}{27}{figure.caption.47}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Initial tests of DRV matching heuristics\relax }}{27}{figure.caption.46}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Effects of DRV matching in a single k-d tree using SMS/WSMS with varying number of points searched\relax }}{28}{figure.caption.47}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Full system test with random DRVs from uniform distribution\relax }}{35}{figure.caption.57}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Full system test with DRVs containing a low number of dimensions\relax }}{36}{figure.caption.58}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Full system test with data set of varying dimensions\relax }}{38}{figure.caption.60}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Full system test with data set of varying size\relax }}{39}{figure.caption.62}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Full system test with varying number of random trees in our system\relax }}{40}{figure.caption.64}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Full system test with varying number of nodes searched\relax }}{41}{figure.caption.66}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Full system test with varying size of result set (K)\relax }}{42}{figure.caption.68}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Full system test with varying number of trees retrieved per query\relax }}{43}{figure.caption.70}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Full system test on Corel Image Features Data Set with random DRVs from uniform distribution\relax }}{45}{figure.caption.72}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Full system test on Corel Image Features Data Set with DRVs with a low number of dimensions\relax }}{45}{figure.caption.73}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Full system test with random DRVs from uniform distribution\relax }}{36}{figure.caption.57}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Full system test with DRVs containing a low number of dimensions\relax }}{37}{figure.caption.58}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Full system test with data set of varying dimensions\relax }}{39}{figure.caption.60}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Full system test with data set of varying size\relax }}{40}{figure.caption.62}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Full system test with varying number of random trees in our system\relax }}{41}{figure.caption.64}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Full system test with varying number of nodes searched\relax }}{42}{figure.caption.66}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Full system test with varying size of result set (K)\relax }}{43}{figure.caption.68}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Full system test with varying number of trees retrieved per query\relax }}{44}{figure.caption.70}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Full system test on Corel Image Features Data Set with random DRVs from uniform distribution\relax }}{46}{figure.caption.72}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Full system test on Corel Image Features Data Set with DRVs with a low number of dimensions\relax }}{46}{figure.caption.73}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
