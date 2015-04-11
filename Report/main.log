@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  5 APR 2015 04:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  11 APR 2015 15:56
 entering extended mode
 **C:/Users/david_000/Documents/Visual*Studio*2010/Projects/ApproxNearestNeighbo
 rs/Report/main.tex
@@ -600,7 +600,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/david_000/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 ------------------------------------------------------------------------------
- Declaration of Authorship
+ Signature Page
 ------------------------------------------------------------------------------
 
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
@@ -703,7 +703,7 @@ Chapter 4.
 [21
 
 ] [22] [23] [24] [25] [26]
-<Figures/sysdesc_drvmatching.png, id=580, 453.19313pt x 299.61937pt>
+<Figures/sysdesc_drvmatching.png, id=585, 453.19313pt x 299.61937pt>
 File: Figures/sysdesc_drvmatching.png Graphic file (type png)
 
 <use Figures/sysdesc_drvmatching.png>
@@ -711,7 +711,7 @@ Package pdftex.def Info: Figures/sysdesc_drvmatching.png used on input line 75.
 
 (pdftex.def)             Requested size: 417.47307pt x 276.00519pt.
 
-<Figures/sysdesc_drv_varying_points.png, id=581, 435.12563pt x 267.24844pt>
+<Figures/sysdesc_drv_varying_points.png, id=586, 435.12563pt x 267.24844pt>
 File: Figures/sysdesc_drv_varying_points.png Graphic file (type png)
 
 <use Figures/sysdesc_drv_varying_points.png>
@@ -740,7 +740,7 @@ Chapter 5.
 ------------------------------------------------------------------------------
 [35
 
-] <Figures/fullsysrand.png, id=649, 361.35pt x 217.5628pt>
+] <Figures/fullsysrand.png, id=654, 361.35pt x 217.5628pt>
 File: Figures/fullsysrand.png Graphic file (type png)
 
 <use Figures/fullsysrand.png>
@@ -748,7 +748,7 @@ Package pdftex.def Info: Figures/fullsysrand.png used on input line 16.
 (pdftex.def)             Requested size: 354.85464pt x 213.65494pt.
  [36 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/fullsysrand.png>]
-<Figures/fullsysext.png, id=656, 361.35pt x 217.5628pt>
+<Figures/fullsysext.png, id=661, 361.35pt x 217.5628pt>
 File: Figures/fullsysext.png Graphic file (type png)
 
 <use Figures/fullsysext.png>
@@ -756,7 +756,7 @@ Package pdftex.def Info: Figures/fullsysext.png used on input line 26.
 (pdftex.def)             Requested size: 354.85464pt x 213.65494pt.
  [37 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/fullsysext.png>]
-<Figures/dims.png, id=667, 371.88937pt x 244.66406pt>
+<Figures/dims.png, id=672, 371.88937pt x 244.66406pt>
 File: Figures/dims.png Graphic file (type png)
  <use Figures/dims.png>
 Package pdftex.def Info: Figures/dims.png used on input line 42.
@@ -764,7 +764,7 @@ Package pdftex.def Info: Figures/dims.png used on input line 42.
 
 [38] [39 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNeares
 tNeighbors/Report/Figures/dims.png>]
-<Figures/size.png, id=679, 361.35pt x 271.76532pt>
+<Figures/size.png, id=684, 361.35pt x 271.76532pt>
 File: Figures/size.png Graphic file (type png)
  <use Figures/size.png>
 Package pdftex.def Info: Figures/size.png used on input line 56.
@@ -772,14 +772,14 @@ Package pdftex.def Info: Figures/size.png used on input line 56.
 
 [40 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
 hbors/Report/Figures/size.png>]
-<Figures/ntreesgen.png, id=687, 361.35pt x 273.27094pt>
+<Figures/ntreesgen.png, id=692, 361.35pt x 273.27094pt>
 File: Figures/ntreesgen.png Graphic file (type png)
 
 <use Figures/ntreesgen.png>
 Package pdftex.def Info: Figures/ntreesgen.png used on input line 70.
 (pdftex.def)             Requested size: 354.85464pt x 268.36241pt.
 
-<Figures/nsearch.png, id=689, 361.35pt x 258.9675pt>
+<Figures/nsearch.png, id=694, 361.35pt x 258.9675pt>
 File: Figures/nsearch.png Graphic file (type png)
  <use Figures/nsearch.png>
 Package pdftex.def Info: Figures/nsearch.png used on input line 82.
@@ -791,13 +791,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [41 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNeig
 hbors/Report/Figures/ntreesgen.png>] [42 <C:/Users/david_000/Documents/Visual S
 tudio 2010/Projects/ApproxNearestNeighbors/Report/Figures/nsearch.png>]
-<Figures/k.png, id=699, 361.35pt x 274.77657pt>
+<Figures/k.png, id=704, 361.35pt x 274.77657pt>
 File: Figures/k.png Graphic file (type png)
  <use Figures/k.png>
 Package pdftex.def Info: Figures/k.png used on input line 94.
 (pdftex.def)             Requested size: 354.85464pt x 269.841pt.
  [43 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
-ghbors/Report/Figures/k.png>] <Figures/treesel.png, id=705, 361.35pt x 258.9675
+ghbors/Report/Figures/k.png>] <Figures/treesel.png, id=710, 361.35pt x 258.9675
 pt>
 File: Figures/treesel.png Graphic file (type png)
 
@@ -806,7 +806,7 @@ Package pdftex.def Info: Figures/treesel.png used on input line 106.
 (pdftex.def)             Requested size: 354.85464pt x 254.3159pt.
  [44 <C:/Users/david_000/Documents/Visual Studio 2010/Projects/ApproxNearestNei
 ghbors/Report/Figures/treesel.png>]
-<Figures/altrand.png, id=712, 386.94562pt x 234.8775pt>
+<Figures/altrand.png, id=717, 386.94562pt x 234.8775pt>
 File: Figures/altrand.png Graphic file (type png)
 
 <use Figures/altrand.png>
@@ -819,7 +819,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: Reference `altrand' on page 45 undefined on input line 126.
 
-<Figures/altext.png, id=714, 388.45125pt x 239.39438pt>
+<Figures/altext.png, id=719, 388.45125pt x 239.39438pt>
 File: Figures/altext.png Graphic file (type png)
 
 <use Figures/altext.png>
@@ -852,7 +852,10 @@ Chapter 7.
 ------------------------------------------------------------------------------
 
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\main.bbl"
+rs\Report\main.bbl" [55
+
+
+]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -865,10 +868,7 @@ Missing character: There is no ” in font cmti10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ™ in font cmti10!
- [55
-
-
-] [56] [57] [58])
+ [56] [57] [58])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
  [59]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
@@ -878,7 +878,7 @@ rs\Report\main.aux")
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 534B9E59D60E675B278988F59D3BBF38;8857.
+(rerunfilecheck)             Checksum: ADCA9813ABCC23EFBD61D80C50FFC298;8799.
 
 
 LaTeX Warning: There were undefined references.
@@ -889,13 +889,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
- 13701 strings out of 493921
- 199579 string characters out of 3144863
- 263919 words of memory out of 3000000
- 16601 multiletter control sequences out of 15000+200000
+ 13709 strings out of 493921
+ 199761 string characters out of 3144863
+ 263943 words of memory out of 3000000
+ 16607 multiletter control sequences out of 15000+200000
  14208 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 49i,12n,45p,2019b,493s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,12n,45p,2019b,495s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
@@ -910,9 +910,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on main.pdf (68 pages, 487069 bytes).
+Output written on main.pdf (68 pages, 488071 bytes).
 PDF statistics:
- 891 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
+ 896 PDF objects out of 1000 (max. 8388607)
+ 189 named destinations out of 1000 (max. 500000)
  477 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,11 +24,29 @@ Christopher~D Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
 \newblock \emph{Introduction to information retrieval}, volume~1.
 \newblock Cambridge university press Cambridge, 2008.
 
+\bibitem[Tong and Wong(2002)]{tong2002adaptive}
+Chong~Sze Tong and Man Wong.
+\newblock Adaptive approximate nearest neighbor search for fractal image
+  compression.
+\newblock \emph{Image Processing, IEEE Transactions on}, 11\penalty0
+  (6):\penalty0 605--615, 2002.
+
 \bibitem[Boiman et~al.(2008)Boiman, Shechtman, and Irani]{boiman2008defense}
 Oren Boiman, Eli Shechtman, and Michal Irani.
 \newblock In defense of nearest-neighbor based image classification.
 \newblock In \emph{Computer Vision and Pattern Recognition, 2008. CVPR 2008.
   IEEE Conference on}, pages 1--8. IEEE, 2008.
+
+\bibitem[Arya(1996)]{arya1996nearest}
+Sunil Arya.
+\newblock Nearest neighbor searching and applications.
+\newblock 1996.
+
+\bibitem[Muja and Lowe(2014)]{flann_pami_2014}
+Marius Muja and David~G. Lowe.
+\newblock Scalable nearest neighbor algorithms for high dimensional data.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 36, 2014.
 
 \bibitem[Danielsson(1980)]{danielsson1980euclidean}
 Per-Erik Danielsson.
@@ -74,12 +92,6 @@ Marius Muja and David~G. Lowe.
   configuration.
 \newblock In \emph{International Conference on Computer Vision Theory and
   Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
-
-\bibitem[Muja and Lowe(2014)]{flann_pami_2014}
-Marius Muja and David~G. Lowe.
-\newblock Scalable nearest neighbor algorithms for high dimensional data.
-\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
-  on}, 36, 2014.
 
 \bibitem[Yianilos(1993)]{yianilos1993data}
 Peter~N Yianilos.
