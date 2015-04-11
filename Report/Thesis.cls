@@ -46,12 +46,12 @@
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
 
 \newcommand\Declaration[1]{
-\btypeout{Declaration of Authorship}
-\addtotoc{Declaration of Authorship}
+\btypeout{Signature Page}
+\addtotoc{Signature Page}
 \thispagestyle{plain}
 \null\vfil
 %\vskip 60\p@
-\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+\begin{center}{\huge\bf Signature Page\par}\end{center}
 %\vskip 60\p@
 {\normalsize #1}
 \vfil\vfil\null

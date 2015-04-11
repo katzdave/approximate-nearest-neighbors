@@ -1,4 +1,4 @@
-\contentsline {chapter}{Declaration of Authorship}{i}{dummy.1}
+\contentsline {chapter}{Signature Page}{i}{dummy.1}
 
 \contentsline {chapter}{Acknowledgements}{ii}{dummy.2}
 
