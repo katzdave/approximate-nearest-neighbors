@@ -67,37 +67,78 @@
 \begin{titlepage}
 \begin{center}
 
-\textsc{\LARGE \univname}\\[.4cm] % University name
-\textsc{\LARGE Albert Nerken School of Engineering}\\[1.5cm] % School
-\textsc{\Large Masters Thesis}\\[0.5cm] % Thesis type
+\text{THE COOPER UNION}\\[.2cm]
+\text{ALBERT NERKEN SCHOOL OF ENGINEERING}\\[2.5cm]
+\text{AN EFFICIENT INDEX FOR COMPUTATION OF}\\[.2cm]
+\text{APPROXIMATE NEAREST NEIGHBORS WITH}\\[.2cm]
+\text{QUERY SPECIFIED DIMENSION RELEVANCE WEIGHTS}\\[2.5cm]
+\text{by}\\[.5cm]
+\text{DAVID KATZ}\\[2.5cm]
+\text{A thesis submitted in partial fulfilment}\\[.2cm]
+\text{of the requirements for the degree of}\\[.2cm]
+\text{Master of Engineering}\\[2.5cm]
+\text{\today}\\[2.5cm]
+\text{CARL SABLE}\\[.3cm]
+\text{Advisor}
 
-\HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-\HRule \\[1.5cm] % Horizontal line
- 
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-{\authornames} % Author name - remove the \href bracket to remove the link
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Advisor:} \\
-{\supname} % Supervisor name - remove the \href bracket to remove the link  
-\end{flushright}
-\end{minipage}\\[3cm]
- 
-\large \textit{A thesis submitted in partial fulfilment\\ of the requirements for the degree of\\ \degreename}\\[0.3cm] % University requirement text
-\textit{in the}\\[0.4cm]
-%\groupname\\
-\deptname\\[2cm] % Research group name and department name
- 
-{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
- 
-\vfill
+
+
+
+
+%\textsc{\LARGE \univname}\\[.4cm] % University name
+%\textsc{\LARGE Albert Nerken School of Engineering}\\[1.5cm] % School
+%\textsc{\Large Masters Thesis}\\[0.5cm] % Thesis type
+%
+%\HRule \\[0.4cm] % Horizontal line
+%{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+%\HRule \\[1.5cm] % Horizontal line
+% 
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushleft} \large
+%\emph{Author:}\\
+%{\authornames} % Author name - remove the \href bracket to remove the link
+%\end{flushleft}
+%\end{minipage}
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushright} \large
+%\emph{Advisor:} \\
+%{\supname} % Supervisor name - remove the \href bracket to remove the link  
+%\end{flushright}
+%\end{minipage}\\[3cm]
+% 
+%\large \textit{A thesis submitted in partial fulfilment\\ of the requirements for the degree of\\ \degreename}\\[0.3cm] % University requirement text
+%\textit{in the}\\[0.4cm]
+%%\groupname\\
+%\deptname\\[2cm] % Research group name and department name
+% 
+%{\large \today}\\[4cm] % Date
+%%\includegraphics{Logo} % University/department logo - uncomment to place it
+% 
+%\vfill
 \end{center}
+\end{titlepage}
+
+\begin{titlepage}
+\begin{center}
+
+\large \text{THE COOPER UNION FOR THE ADVANCEMENT OF SCIENCE AND ART}\\[.5cm]
+\large \text{ALBERT NERKEN SCHOOL OF ENGINEERING}\\[2.5cm]
+
+\end{center}
+
+\large \text{This thesis was prepared under the direction of the Candidate's Thesis Advisor}\\[.3cm]
+\large \text{and has received approval.  It was submitted to the Dean of the School of}\\[.3cm]
+\large \text{Engineering and the full Faculty, and was approved as partial fulfillment of the}\\[.3cm]
+\large \text{requirements for the degree of Master of Engineering.}\\[.3cm]
+
+\begin{flushright}
+\noindent\rule{7.65cm}{0.4pt}\\
+\large \text{Dean, School of Engineering - Date}\\[2.5cm]
+\end{flushright}
+
+\noindent\rule{7.65cm}{0.4pt}\\
+\large \text{Prof. Carl Sable - Date}\\
+\large \text{Candidate's Thesis Advisor}
 
 \end{titlepage}
 
@@ -106,29 +147,29 @@
 %	Your institution may give you a different text to place here
 %----------------------------------------------------------------------------------------
 
-\Declaration{
-
-\addtocontents{toc}{} % Add a gap in the Contents, for aesthetics
-
-I, \authornames, declare that this thesis titled, '\ttitle' and the work presented in it are my own. I confirm that:
-
-\begin{itemize} 
-\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
-\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
-\item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
-\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
-\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
-\end{itemize}
- 
-Signed:\\
-\rule[1em]{25em}{0.5pt} % This prints a line for the signature
- 
-Date:\\
-\rule[1em]{25em}{0.5pt} % This prints a line to write the date
-}
-
-\clearpage % Start a new page
+%\Declaration{
+%
+%\addtocontents{toc}{} % Add a gap in the Contents, for aesthetics
+%
+%I, \authornames, declare that this thesis titled, '\ttitle' and the work presented in it are my own. I confirm that:
+%
+%\begin{itemize} 
+%\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
+%\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+%\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
+%\item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+%\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
+%\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+%\end{itemize}
+% 
+%Signed:\\
+%\rule[1em]{25em}{0.5pt} % This prints a line for the signature
+% 
+%Date:\\
+%\rule[1em]{25em}{0.5pt} % This prints a line to write the date
+%}
+%
+%\clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
@@ -158,7 +199,7 @@ Date:\\
 
 First and foremost, I would like to express my sincere gratitude to my advisor Professor Carl Sable for the continuous support of my study and research.
 
-I would also like to thank The Cooper Union for providing with a full tuition scholarship and the rest of its faculty for providing me with this invaluable education.
+I would also like to thank The Cooper Union for providing me with a full tuition scholarship, and the rest of its faculty for this invaluable education.
 }
 
 \clearpage % Start a new page
