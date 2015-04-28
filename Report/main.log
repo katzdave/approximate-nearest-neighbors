@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  12 APR 2015 18:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  28 APR 2015 03:12
 entering extended mode
 **main.tex
 
@@ -582,7 +582,10 @@ LaTeX Info: Redefining \nameref on input line 39.
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
 rs\Report\main.out")
 ("C:\Users\david_000\Documents\Visual Studio 2010\Projects\ApproxNearestNeighbo
-rs\Report\main.out")
+rs\Report\main.out"
+! I can't write on file `main.pdf'.
+Please type another file name for output: main2.pdf
+)
 \@outlinefile=\write3
  [1
 
@@ -885,8 +888,8 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 13700 strings out of 493921
- 199645 string characters out of 3144863
+ 13701 strings out of 493921
+ 199651 string characters out of 3144863
  263943 words of memory out of 3000000
  16598 multiletter control sequences out of 15000+200000
  12313 words of font info for 45 fonts, out of 3000000 for 9000
@@ -914,7 +917,7 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (68 pages, 479840 bytes).
+Output written on main2.pdf (68 pages, 479827 bytes).
 PDF statistics:
  893 PDF objects out of 1000 (max. 8388607)
  191 named destinations out of 1000 (max. 500000)
